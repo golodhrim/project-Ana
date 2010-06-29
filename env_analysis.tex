@@ -1,6 +1,10 @@
 \startenvironment env_analysis
 
 \enableregime[utf]
+
+\immediate\write18{sh ./vc} 
+\input vc.tex
+
 \setuplanguage[deo][leftquote=\uperleftsinglesixquote,rightquote=\uperrightsixquote,leftquotation=\leftguillemot,rightquotation=\rightguillemot]
 
 \usemodule[greek]
