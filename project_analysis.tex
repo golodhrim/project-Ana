@@ -1,0 +1,65 @@
+\startproject project_analysis
+\environment env_analysis
+
+\setupbackgrounds[page][background=cover]
+\starttext
+\setupbackgrounds[header][text][frame=none]
+\startstandardmakeup[align=top]
+\setuppagenumbering[state=stop]
+\startcolor[bordeauxred]
+%\dontleavehmode
+\blank[0cm]
+\startalignment[center]
+	\ssd Analysis\par
+	\ssd I \& II
+\stopalignment
+\stopcolor
+\blank[10.9cm]
+\startcolor[darkblue]
+\startalignment[flushright]
+\dontleavehmode
+	\bTABLE
+	\setupTABLE[r][each][frame=off]	
+	\setupTABLE[c][1][align=left]
+	\setupTABLE[c][2][align=right]
+	\bTR \bTD Dozent: \eTD \bTD Prof. Dr. Thomas Bauer \eTD \eTR
+	\bTR \bTD Satz: \eTD \bTD Scholz Online (\from[scholzonline]) \eTD \eTR
+	\bTR \bTD  \eTD \bTD Frog and Owl (\from[frog-n-owl]) \eTD \eTR
+	\bTR \bTD  \eTD \bTD Martin Scholz \eTD \eTR
+	\bTR \bTD aktualisiert am: \eTD \bTD \currentdate \eTD \eTR
+	\eTABLE
+\stopalignment
+\stopcolor
+\page
+\stopstandardmakeup
+\startalignment[middle]
+This Document is set with \ConTeXt{}, using the MKIV branch\\
+Many thanks to Hans Hagen for developing so hard on \ConTeXt{} and \LuaTeX{} to providing such a great Document preparation system.
+\stopalignment
+\stoptext
+\setupbackgrounds[page][background=]
+
+\setupbackgrounds[header][text][frame=off,bottomframe=on]
+\setuppagenumbering[state=start,conversion=romannumerals]
+\startfrontmatter
+\completecontent
+\stopfrontmatter
+
+\startbodymatter
+\setuppagenumbering[state=start,conversion=]
+
+\product prd_analysis
+
+\stopbodymatter
+
+\startappendices
+\setuppagenumbering[state=start,conversion=]
+\completeindex
+\completepublications[criterium=all]
+\stopappendices
+\setupbackgrounds[header][text][frame=none]
+\char0
+\page
+\setupbackgrounds[page][background=cover]
+
+\stopproject

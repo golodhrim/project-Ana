@@ -1,0 +1,49 @@
+This is BibTeX, Version 0.99d (TeX Live 2010/pretest)
+Capacity: max_strings=150000, hash_size=150000, hash_prime=127507
+The top-level auxiliary file: project_analysis.aux
+The style file: cont-no.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: analysis.bib
+You've used 1 entry,
+            2181 wiz_defined-function locations,
+            498 strings with 3635 characters,
+and the built_in function-call counts, 371 in all, are:
+= -- 9
+> -- 6
+< -- 2
++ -- 4
+- -- 1
+* -- 32
+:= -- 46
+add.period$ -- 1
+call.type$ -- 1
+change.case$ -- 2
+chr.to.int$ -- 1
+cite$ -- 1
+duplicate$ -- 29
+empty$ -- 33
+format.name$ -- 8
+if$ -- 48
+int.to.chr$ -- 2
+int.to.str$ -- 2
+missing$ -- 0
+newline$ -- 12
+num.names$ -- 4
+pop$ -- 44
+preamble$ -- 1
+purify$ -- 4
+quote$ -- 0
+skip$ -- 8
+stack$ -- 0
+substring$ -- 3
+swap$ -- 5
+text.length$ -- 1
+text.prefix$ -- 1
+top$ -- 0
+type$ -- 8
+warning$ -- 0
+while$ -- 1
+width$ -- 2
+write$ -- 49

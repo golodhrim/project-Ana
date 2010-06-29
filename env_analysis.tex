@@ -1,0 +1,270 @@
+\startenvironment env_analysis
+
+\enableregime[utf]
+\setuplanguage[deo][leftquote=\uperleftsinglesixquote,rightquote=\uperrightsixquote,leftquotation=\leftguillemot,rightquotation=\rightguillemot]
+
+\usemodule[greek]
+\usemodule[units]
+\usemodule[gnuplot]
+\usemodule[newmat]
+\usemodule[amsl]
+\usesymbols[was]
+\usemodule[vim]
+
+\setupcolors[rgb=no,cmyk=yes,hex,spot=yes,state=start,overprint=yes]
+\setupinteraction[state=start]
+
+\usemodule[tikz]
+\usemodule[pgfplots]
+\usetikzlibrary[calc,through,backgrounds,matrix,arrows]
+
+\usemodule[bib]
+\usemodule[bibltx]
+%\setuppublications[alternative=apa]
+\setuppublications[state=start,refcommand=authoryears]
+\setupbibtex[database=analysis]
+\setupcite[authoryears][compress=no,left=,right=]
+%\setupcite[authoryears][left=,right=]
+
+\setuppapersize[A4][A4]
+
+\setuppagenumbering[alternative=doublesided,	
+			location={footer,marginedge},
+			way=bytext, sectionnumber=yes, partnumber=yes]
+
+\setuplayout[location=middle,
+	topspace=3cm,
+	header=14pt,
+	headerdistance=10pt,
+	width=middle,
+	cutspace=4.5cm,
+	rightmargindistance=0.4cm,
+	leftmargindistance=0.2cm,
+	backspace=1.2cm,
+	height=fit,
+	rightmargin=4cm,
+	leftmargin=1cm,
+	bottomspace=1cm,
+	footer=0.8cm,
+	setup=strict]
+% all setups...
+
+%\showgrid
+%\showframe
+%\showsetups
+%\showlayout
+
+\setupheadertexts[][chapter][part][]
+\setupbackgrounds[header][text][frame=off,bottomframe=on]
+\setuptolerance[{horizontal, verytolerant},{vertical, verystrict}]
+\clubpenalty=8000		% no clubs / keine Schusterjungen
+\widowpenalty=8000		% no widows / keine Hurenkinder
+\tolerance=1750		% line breaking tolerance (ca. 500--3000)
+\emergencystretch=10 pt	% additional stretching space per line
+\setupwhitespace[medium]
+\setupfootnotes[conversion=set 2, way=bypage]
+
+\definepagebreak[chapter][yes,footer,right]
+
+\def\MyChapterCommand#1#2%
+	{\framed[frame=off,bottomframe=on,topframe=on]
+		{\vbox{\headtext{chapter} #1\blank#2}}
+	}
+
+\setuphead[chapter][command=\MyChapterCommand,resetnumber=no]
+\setupheadtext[chapter=Kapitel]
+
+\setupsection[section][previousnumber=no,number=yes]
+
+\def\MySectionCommand#1#2%
+	{§ #1 - #2}
+\setuphead[section][command=\MySectionCommand]
+
+\def\MySubjectCommand#1#2%
+	{#1#2}
+\setuphead[subject][command=\MySubjectCommand]
+
+\setuphead[subsection][number=yes,style=\ss]
+\def\MySubSubSectionCommand#1#2%
+	{#1 #2}
+\setuphead[subsubsection][command=\MySubSubSectionCommand,style=slanted,number=yes,before={\blank[big]}, after=\nowhitespace]
+
+\setupfloats[spaceafter=3*medium]
+
+\setuptables[bodyfont=small]
+\setupcaption[table][style={\ssx\setupinterlinespace[line=2.5ex]},align=left]
+
+\setupfloat[table][criterium=0.5\textwidth,default=inner]
+\setupcaption[figure][style={\ssx\setupinterlinespace[line=2.5ex]},align=left]
+
+\definefloat[Bigfigure][Bigfigures][figure]
+\setupfloat[Bigfigure][location=inner]
+
+\definefloat[Bigtable][Bigtables][table]
+\setupfloat[Bigtable][location=inner]
+
+\definefloat[vignette][figure]
+\setupfloat[vignette][leftmargindistance=-\outermargintotal,rightmargindistance=-outermargintotal,default={outer,none,low}]
+
+\setupinmargin[align=right,style=\ss\tfx\setupinterlinespace]
+
+\setupitemize[align=right]
+
+\startsectionblockenvironment[appendix]
+
+\setuptabulate[align=right,split=yes]
+
+\definepagebreak[chapter][yes,footer,right]
+\setuphead[chapter][bodypartconversion=Character,page=chapter]
+\setuphead[section][number=yes]
+\setuphead[subsection][number=yes]
+\setuphead[subsubsection][number=yes]
+\definefloat[BigFramedFigure][BigFramedFigures][figure]
+\setupfloat[BigFramedFigure][location=inner,frame=on,offset=2pt]
+\definefloat[FramedFigure][FramedFigures][figure]
+\setupfloat[FramedFigure][frame=on,offset=2pt]
+\stopsectionblockenvironment
+
+\setupregister[index][imp][pagestyle=bold]
+\setupcombinedlist[content][level=3,alternative=c]
+\setuplist[chapter][style=bold]
+
+\definestructureconversionset[frontpart:pagenumber][][romannumerals]
+\definestructureconversionset[bodypart:pagenumber] [][numbers]
+
+\setuplist[chapter][pageconversionset=pagenumber]
+
+\startstructureblockenvironment[frontpart]
+\setupuserpagenumber[numberconversion=romannumerals]
+\setuppagenumber[number=1]
+\stopstructureblockenvironment
+
+\startstructureblockenvironment[bodypart]
+\setuppagenumber[number=1]
+\stopstructureblockenvironment
+
+%% Descriptionvariablen
+%
+\definedescription[descr][headstyle=bold, style=normal, location=hanging, width=fit, margin=1cm]
+
+
+%% Umgebungsvariablen
+%
+\defineenumeration[bem][text={Bemerkung }, location=serried, width=fit, identing=first, distance=1em]
+\defineenumeration[frage][text={\underbar{Frage:} }, location=serried, width=fit, identing=first, distance=0.5em]
+\setupnumber[frage][number=no]
+\defineenumeration[proof][text={\bs Beweis }, location=serried, width=fit, ident=yes, distance=1em, way=bytext, closesymbol=\QED]
+\setupnumber[proof][number=no]
+\defineenumeration[satz][text={\bf Satz }, location=serried, width=fit, identing=first, distance=1em]
+\defineenumeration[bsp][text={Beispiel }, location=serried, width=fit, identing=first, distance=0.5em]
+\setupnumber[bsp][number=no]
+\defineenumeration[defn][text={Definition }, location=serried, width=fit, identing=first, distance=1em]
+\defineenumeration[lemma][text={Lemma }, location=serried, width=fit, identing=first, distance=1em]
+\defineenumeration[corollary][text={Corollary }, location=serried, width=fit, identing=first, distance=1em]
+\defineenumeration[nota][text={Notation }, location=serried, width=fit, identing=first, distance=1em]
+\setupnumber[nota][number=no]
+\defineenumeration[usage][text={Anwendung }, location=serried, width=fit, identing=first, distance=1em]
+\setupnumber[usage][number=no]
+\defineenumeration[prinzip][text={Prinzip }, location=serried, width=fit, identing=first, distance=1em]
+\setupnumber[prinzip][number=no]
+\defineenumeration[eig][text={Eigenschaften }, location=serried, width=fit, identing=first, distance=1em]
+\setupnumber[eig][number=no]
+\defineenumeration[folg][text={Folgerung }, location=serried, width=fit, identing=first, distance=1em]
+\setupnumber[folg][number=no]
+
+%% Code Highligthing with vim
+%
+\definevimtyping[SAGE][syntax=python,alternative=pscolor]
+
+%% Mathematische Mengen
+%
+\def\C{\complexes}
+\def\R{\reals}
+\def\Q{\rationals}
+\def\Z{\integers}
+\def\N{\naturalnumbers}
+\def\P{\primes}
+% Weitere Doppelstroke Zeichen mit \def\<TYPE>{\blackboard{<TYPE>}} definieren
+\def\F{\blackboard{F}}
+\def\Fam{{\cal F}}
+\def\O{{\cal O}}
+
+%% Hilfreiche Operatoren
+%
+\def\stackrelo#1#2{\mathrel{\mathop{#1}\limits^{\small #2}}}
+\def\stackrelu#1#2{\mathrel{\mathop{#1}\limits^{\small #2}}}
+
+%% sonstige mathem. Operatoren
+%
+\def\abs#1{\left| #1 \right|}
+\def\norm#1{\left|\left| #1 \right|\right|}
+\def\ord{{\rm ord}}
+\def\Log{{\rm Log}}
+\def\ZZ{$Z\mkern-16mu_{\textstyle Z}\mkern5mu$}
+\def\Res{{\rm Res}}
+\def\div{{\rm div}}
+\def\dim{{\rm dim}}
+\def\core{{\rm kern}}
+\def\bild{{\rm bild}}
+\def\grad{{\rm grad}}
+
+%% mathem. Symbole
+%
+\def\lightning{\symbol[wasy general][lightning]}
+\def\iddots{\mirror{\ddots}}
+%% URLS including
+%
+\input urls.tex
+
+%% Warnungssymbol
+%
+\def\warning{\inmargin{\reuseMPgraphic{achtung}}\underbar{Vorsicht:}}
+\startreusableMPgraphic{achtung}
+a = sqrt(400-25)+5;
+path d, s, l, p;
+d := ( (0,5)--(20,5)--(10,a)--cycle )  ;
+s := ( (10,5)--(10,0) ) ;
+l := ( (10,18)--(10,11) ) ;
+p := fullcircle scaled (0.5) shifted (10,9) ; 
+draw p;
+draw l;
+draw s;
+draw d withcolor .625 red;
+\stopreusableMPgraphic
+
+\def\notice{\inmargin{\reuseMPgraphic{hinweis}}\underbar{Hinweis: }}
+\startreusableMPgraphic{hinweis}
+path l, p, b;
+b:= fullcircle scaled (0) shifted (0,0);
+l:= ( (20,10)--(20,3) );
+p:= fullcircle scaled (0.5) shifted (20.25,1) ;
+draw b withcolor white;
+draw p withcolor .625 red;
+draw l withcolor .625 red;
+\stopreusableMPgraphic
+
+%% Coverpage Setup
+%
+\startuseMPgraphic{cover}
+	StartPage ;
+		color bordeauxred ; bordeauxred := cmyk (0.34,0.92,0.64,0.34) ;
+		color darkblue; darkblue := cmyk(1,0.99,0,0.32) ;
+		fill Page withcolor darkblue ;
+		z1 = (0cm, 7.0112cm) ;
+		z2 = (21cm, 7.0112cm) ;
+		z3 = (21cm,11.3444cm) ;
+		z4 = (0cm,11.3444cm) ;
+		path p ; p := z1--z2--z3--z4--cycle ;
+		draw p withcolor bordeauxred ;
+		fill p withcolor bordeauxred ;
+	StopPage;
+\stopuseMPgraphic
+
+\defineoverlay[cover][\useMPgraphic{cover}]
+
+%% ColorDefinition
+%
+\definecolor[bordeauxred][c=.34, m=.92, y=.64, k=.34]
+\definecolor[darkblue][c=1,m=.99,y=0,k=.32]
+
+\stopenvironment

@@ -1,0 +1,895 @@
+\startcomponent c_analysis-0
+\product prd_analysis
+\project project_analysis
+
+\starttext
+\chapter[ch:grundlagen]{Grundlagen}
+\startquotation[middle]
+Ein Studienanfänger in Mathematik braucht für den Anfang eigentlich gar kein Lehrbuch, die Vorlesungen sind autark, und die wichtigste Arbeitsgrundlage des Studenten ist seine eigenhändige Mitschrift\dots
+\stopquotation
+\subject{Ziele der Vorlesung - Warum Analysis?}
+\startitemize[r]
+\item Die Analysis ist nicht umsonst an den Anfang des Mathematikstudiums gestellt und stellt die Grundlagen des Mathematikstudiums zur Verfügung.
+\item Analysis ist der Vorrat an Begriffen und Techniken zur Beschreibung der physikalischen Realität.
+\item Analysis ist ein Beispiel eines lückenlosen Aufbaus einer mathematischen Theorie
+\stopitemize
+\section[sec:mengen-abbildungen]{Mengen und Abbildungen - die Sprache der Mathematik}
+\subsection[ssec:mengen]{Mengen}
+Wir werden im folgenden einen "naiven" Mengenbegriff verwenden. Dies bedeutet, das eine Menge eine Zusammenfassung von verschiedenen Objekten ist. \par
+\warning{} Der naive Mengenbegriff ist \underbar{keine} mathematische Definition!
+\startbsp
+$\N\, :=\, \left\{1,2,3,4,\ldots\right\}$ die Menge der natürlichen Zahlen\\
+$\N_{0}\, :=\, \N\cup\{0\}\, =\, \left\{0,1,2,3,\ldots\right\}$ \\
+$\Z\, :=\, \left\{\ldots,-3,-2,-1,0,1,2,3,\ldots\right\}$ die Menge der ganzen Zahlen\\
+$\Q$ die Menge der rationalen Zahlen und\\
+$\R$ die Menge der reellen Zahlen, siehe hierzu Kapitel (noch einschalten)% \in[cha:3]
+\stopbsp
+\startnota
+Für Mengen werden folgende Notationen vereinbart:
+\startitemize[r]
+\item $a\in M$ bedeutet $a$ ist ein Element der Menge $M$. Analog ergeben sich dabei dann auch folgende Notationen: $0\in\N_{0}$ aber $0\not\in\N$.
+\item $N\subset M$ bedeutet: Jedes Element in $N$ ist auch Element von $M$. Daraus ergeben sich folgende Anordnungen:\\
+	$\N\subset\N_{0}$, $\N\subset\N$, $\N_{0}\subset\N_{0}$ und $\N\subset\N_{0}\subset\Z\subset\Q\subset\R$.
+\stopitemize
+\stopnota
+\subsubsection{Operationen auf Mengen}
+\startdefn
+Seien $M$ und $N$ beliebige Mengen, dann heißt
+\startitemize[r]
+\item $M\cap N\, :=\, \left\{x\mid\, x\in M\, \text{und}\, x\in N\right\}$ \underbar{Durchschnitt} von $M$ und $N$,
+\item $M\cup N\, :=\, \left\{x\mid\, x\in M\, \text{oder}\, x\in N\right\}$ \underbar{Vereinigung} von $M$ und $N$,
+\item $M\setminus{} N\, :=\, \left\{x\mid\, x\in M\, \text{und}\, x\not\in N\right\}$ \underbar{Differenzmenge} von $M$ und $N$ und
+\item $M\times N\, :=\, \left\{(x,y)\mid\, x\in M\, \text{und}\, y\in N\right\}$ \underbar{kartesisches Produkt} von $M$ und $N$.
+\stopitemize
+\stopdefn
+\startbsp
+$\{1,2,3\}\cap\{2,3,4\}\,=\, \{2,3\}$\\
+$\{1,2,3\}\cup\{2,3,4\}\,=\, \{1,2,3,4\}$\\
+$\N\cap\N_{0}\, =\, \N$\\
+$\N\cup\N_{0}\, =\, \N_{0}$\\
+$\N_{0}\setminus\N\, =\, \{0\}$\\
+$\N\setminus\N_{0}\, =\, \emptyset$\\
+$\R\times\R\, :=\, \R^{2}$.\\
+Diese Zusammenhänge lassen sich sehr gut in Venn-Diagrammen verdeutlichen.\\
+\placefigure[here][fig:venn-mengen-op]{Mengen-Operationen und deren Venn Diagramme}{
+\starttikzpicture[scale=3]
+\startscope[even odd rule]
+	\clip (0:6mm) circle (4mm) (-0.4,-0.4) rectangle (1.2,0.4);
+	\fill[green] (0,0) circle (4mm);
+\stopscope
+\draw (0,0) circle (4mm) node[below] {$A$};
+\draw (0:6mm) circle (4mm) node[below] {$B$};
+\draw[xshift=1.1cm]
+                node[right,text width=1.5cm,difference]
+                {
+                        {\green $\bullet$} $A\setminus B$
+                };
+\startscope
+	\clip (0,9mm) circle (4mm);
+	\fill[red] (6mm,9mm) circle (4mm);
+\stopscope
+\draw (0,9mm) circle (4mm) node[below] {$A$};
+\draw (6mm,9mm) circle (4mm) node[below] {$B$};
+\draw[xshift=1.1cm,yshift=9mm]
+	node[right,text width=1.5cm,Interaction]
+	{
+                        {\red $\bullet$} $A\cap B$
+	};
+\fill[blue] (24mm,9mm) circle (4mm);
+\fill[blue] (30mm,9mm) circle (4mm);
+\draw (24mm,9mm) circle (4mm) node[below] {$A$};
+\draw (30mm,9mm) circle (4mm) node[below] {$B$};
+\draw[xshift=3.5cm,yshift=9mm]
+	node[right,text width=1.5cm,union]
+	{
+                        {\blue $\bullet$} $A\cup B$
+	};
+\stoptikzpicture
+}
+\stopbsp
+\page
+\subsubsection[sssec:abk-log]{Abkürzungen aus der Logik}
+\startalignment[middle]
+\dontleavehmode
+         \bTABLE
+	\setupTABLE[r][each][frame=off]
+         \setupTABLE[r][first][bottomframe=on]
+        \setupTABLE[r][last][bottomframe=on]
+	\setupTABLE[c][1][align=middle]
+	\setupTABLE[c][2][align=right]
+	\setupTABLE[c][3][align=middle]
+         \bTR \bTH Abkürzung \eTH \bTH Bedeutung\eTH \bTH Example\eTH \eTR
+         \bTR \bTD $A\Rightarrow B$ \eTD \bTD Falls $A$ gilt, dann auch $B$ \eTD \bTD $x\in\N\Rightarrow x\in\N_{0}$ \eTD \eTR
+	\bTR \bTD  \eTD \bTD Aus $A$ folgt $B$ \eTD \bTD  \eTD \eTR
+	\bTR \bTD  \eTD \bTD $A$ impliziert $B$ \eTD \bTD  \eTD \eTR
+	\bTR \bTD $A\Leftrightarrow B$ \eTD \bTD $A$ gilt genau dann wenn $B$ gilt \eTD \bTD $x\in\N\Leftrightarrow x-1\in\N_{0}$ \eTD \eTR
+	\bTR \bTD  \eTD \bTD $A$ impliziert $B$ und $B$ impliziert $A$ \eTD \bTD  \eTD \eTR
+	\bTR \bTD  \eTD \bTD $A$ und $B$ sind äquivalent \eTD \bTD  \eTD \eTR
+	\bTR \bTD $\exists\, x\, :$ \eTD \bTD Es gibt/existiert ein $x$, so daß ... gilt \eTD \bTD  \eTD \eTR
+	\bTR \bTD $\exists\, x\in M\, :$ \eTD \bTD Es gibt ein $x\in M$, so daß ... gilt \eTD \bTD $\exists\, x\in\N:x>1000$ \eTD \eTR
+	\bTR \bTD $\forall\, x\, :$ \eTD \bTD Für alle $x$ gilt ... \eTD \bTD  \eTD \eTR
+	\bTR \bTD $\forall\, x\in M:$ \eTD \bTD Für alle $x\in M$ gilt ... \eTD \bTD $\forall x\in\N:x>0$ \eTD \eTR
+         \bTR \bTD $\wedge$ \eTD \bTD logisches "und" \eTD \bTD  \eTD \eTR
+         \bTR \bTD $\vee$ \eTD \bTD logisches "oder" \eTD \bTD  \eTD \eTR
+	\eTABLE
+\stopalignment
+\startbsp
+$N\subset M\Leftrightarrow\, (\forall\, x:\, x\in N\Rightarrow\, x\in M)$\\
+$N=M\, \Leftrightarrow\, (\forall x:\, x\in N\Leftrightarrow\, x\in M)$
+\stopbsp
+\startusage
+Sei $n\in\N$ und $M$ eine Menge dann gilt:\\
+$\displaystyle\bigcap_{i=1}^{n}M_{i}:=M_{1}\cap M_{2}\cap\ldots\cap M_{n}=\left\{x\mid\, x\in M_{1}\wedge x\in M_{2}\wedge\ldots\wedge x\in M_{n}\right\}=\left\{x\mid\,\forall i\in\{1,\ldots,n\}:x\in M_{i}\right\}$\\
+Analog gilt:\\
+$\displaystyle\bigcup_{i=1}^{n}M_{i}\,=\, M_{1}\cup\ldots\cup M_{n}=\left\{x\mid\,x\in M_{1}\vee x\in M_{2}\vee\ldots\vee x\in M_{n}\right\}\,=\,\left\{x\mid\, \exists i\in\{1,\ldots,n\}:x\in\, M_{i}\right\}$
+\stopusage
+\startbsp
+(für einen Beweis)\\
+\underbar{{\bf Behauptung:}} Für beliebige Mengen $A,\, B,\, C$ gilt:\\
+$A\setminus(B\cap C)\,=\, A\setminus B\cup A\setminus C$
+\page
+\startproof Es gilt für beliebiges $x$
+\startformula
+\startalign
+x\in A\backslash (B\cap C)\stackrelo{\xLeftrightarrow}{\text{Def. }\setminus}& x\in A\wedge x\not\in B\cup C\cr
+\stackrelo{\xLeftrightarrow}{\text{Def. }\cap}& x\in A\wedge ( x\not\in B\vee x\not\in C)\cr
+\stackrelo{\xLeftrightarrow}{\text{Aussagenlogik}}& (x\in A\wedge x\not\in B)\vee(x\in A\wedge x\not\in C)\cr
+\stackrelo{\xLeftrightarrow}{\text{Def. }\setminus}& x\in A\setminus B\vee x\in A\setminus C\cr
+\stackrelo{\xLeftrightarrow}{\text{Def. }\cup}& x\in (A\setminus B)\cup(A\setminus C)
+\stopalign
+\stopformula
+\stopproof
+\stopbsp
+\subsubsection[sssec:abbildung]{Abbildungen}
+Seien $M$ und $N$ Mengen, dann ist eine \underbar{Abbildung} $f:M\rightarrow N$ eine Zuordnung die jedem Element $x\in M$ ein Element $f(x)\in N$ zuordnet. Dabei heißt $M$ die \underbar{Definitionsmenge} von $f$ und $f(x)$ die \underbar{Bildmenge} oder das \underbar{Bild} von $x$ unter $f$.
+\startbsp
+Die \underbar{\bf Nachfolgeabbildung}
+\startformula
+\startalign
+f:\N&\xrightarrow\N\cr
+x&\xmapsto x+1
+\stopalign
+\stopformula
+die \underbar{\bf quadratische Abbildung}
+\startformula
+\startalign
+g:\Z&\xrightarrow\Z\cr
+x&\xmapsto x^{2}
+\stopalign
+\stopformula
+die \underbar{\bf Geburtsjahresfunktion}
+\startformula
+\startalign
+h:\text{Alle Hörer der aktuellen Analysis I VL}&\xrightarrow\N\cr
+x&\xmapsto\text{ Geburtsjahr von } x
+\stopalign
+\stopformula
+die \underbar{\bf Betragsfunktion}
+\startformula
+\startalign
+k:\Z\xrightarrow&\N_{0}\cr
+x\xmapsto&\abs{x}:=\startmathcases
+\NC x\NC , if $x\geq 0$\NR
+\NC -x\NC , if $x<0$\NR
+\stopmathcases
+\stopalign
+\stopformula
+\stopbsp
+\subsubsection[sssec:composition]{Komposition von Abbildungen}
+Seien $f:M\xrightarrow M'$ und $g:M'\xrightarrow M''$ je zwei Abbildungen, dann heißt die Abbildung
+\startformula
+\startalign
+g\circ f:M&\xrightarrow M''\cr
+x&\xmapsto g(\displaystyle\underbrace{f(x)}_{\in M'})
+\stopalign
+\stopformula
+die \underbar{Komposition} von $f$ und $g$. Siehe hierzu auch  folgendes kommutatives Diagramm:\par
+\startalignment[middle]
+\starttikzpicture[scale=3]
+\matrix(m)[matrix of math nodes, row sep=3em, column sep=3em, text height=1.5ex, text depth=0.25ex]
+{M&M'\\
+&M''\\};
+\path[->,font=\tfxx]
+(m-1-1) edge node[auto] {$f$} (m-1-2)
+	   edge node[below,left] {$g\circ f$} (m-2-2)
+(m-1-2) edge node[auto] {$g$} (m-2-2);
+\stoptikzpicture
+\stopalignment
+\startbsp
+Sei $f:\Z\xrightarrow\Z$ mit $x\xmapsto x+1$ und $g:\Z\xrightarrow\N_{0}$ mit $x\xmapsto\abs{x}$, dann ist $g\circ f:\Z\to\N_{0}$ mit $x\xmapsto \abs{x+1}$.
+\stopbsp
+\section[sec:vollst.:Ind]{Vollständige Induktion}
+Die "Vollständige Induktion" ist eine Beweismethode, die sich häufig bei Aussagen über natürliche Zahlen anwenden läßt. Sie beruht auf dem fünften Peano Axiom, welche zusammen die natürlichen Zahlen$\N$ einführen.
+\startbsp
+Das folgende Beispiel war aufgrund seiner Einfachheit schon in der vorgriechischen Mathematik bekannt, geriet aber irgendwie in Vergessenheit und wurde von Johann Carl Friedrich Gauß(30. April 1777 in Braunschweig - 23. Februar 1855 in Göttingen) im Alter von 9 Jahren wiederentdeckt. Die Geschichte ist durch Wolgang Sartorius von Waltershausen (1809-1876) überliefert:
+\startquotation
+Der junge Gauss war kaum in die Rechenclasse eingetreten, als Büttner die Summation der arithmetischen Reihe aufgab. Die Aufgabe war indes kaum ausgesprochen als Gauß die Tafel mit den im niedern Braunschweiger Dialekt gesprochenen Worten auf den Tisch wirft: »Dor ligget se.« (Da liegen sie.)\cite[wiki-gauss-summenformel]
+\stopquotation
+Die genau Aufgabenstellung ist jedoch nicht überliefert, es wird aber oft berichtet, daß Büttner die Schüler die Reihe von 1 bis 100 (anderen Quellen zufolge von 1 bis 60) aufsummieren ließ.\par
+Entsprechend den damaligen Verhältnissen unterrichtete Büttner etwa 100 Schüler in einer Klasse. Damals waren auch Züchtigungen mit der sogenannten Karwatsche üblich. Sartorius berichtet: "{\sl Am Ende der Stunde wurden daraufhin die Rechentafeln umgekehrt; die von Gauss mit einer einzigen Zahl lag oben und als Büttner das Exempel prüfte, wurde das seinige zum Staunen aller Anwesenden als richtig befunden, während viele der übrigen falsch waren und alsbald mit der Karwatsche rectifizirt wurden.}" Büttner erkannte bald, dass Gauß in seiner Klasse nichts mehr lernen konnte.\par
+Algemeiner gefasst ergibt sich damit für das Aufsummieren der Zahlen von 1 bis n folgendes:
+\startitemize[r]
+\item Für alle $n\in\N$ gilt
+\startformula
+1+2+3+\ldots+n=\frac{n(n+1)}{2}
+\stopformula
+\item Als eine weitere Verallgemeinerung läßt sich die Summe über alle ungraden Zahlen auffassen:
+\startformula
+1+3+\ldots+(2n-1)=n^{2}
+\stopformula
+\stopitemize
+\stopbsp
+\startprinzip
+Das Beweisprinzip der vollständigen Induktion\par
+Für jede natürliche Zahl $n$ sei eine Aussage $n$ sei eine Aussage $A_{n}$ gegeben, dann gilt, dann sind alle Aussagen $A_{n}$ wahr, falls man folgendes Zeigen kann:
+\startitemize[r]
+\item $A_{1}$ ist wahr. Dieser Schritt wird Induktionsanfang genannt und meistens mit (IA) abgekürzt,
+\item Unter der Annahme das $A_{n}$ wahr ist (Induktionsvoraussetzung (IV)) kann man zeigen, das auch $A_{n+1}$ wahr ist. Dieser Teil wird als Induktionsschluß bezeichnet und oft mit (IS) abgekürzt.
+\stopitemize
+\stopprinzip
+\startbsp
+Nehmen wir uns noch einmal unserer obigen Beispiele an und betrachten:\par
+\startdescr{Behauptung:}
+$1+2+3+4+\ldots+n=\frac{n(n+1)}{2}\,\forall\, n\in\N$
+\startproof
+\startdescr{IA}
+Den Induktionsanfang beweisen wir für $n=1$: $1=\frac{1(1+1)}{2}$ und dies wahr.
+\stopdescr
+\startdescr{IV}
+In der Induktionsvoraussetzung nehmen wir an, daß unsere Aussage bereits für beliebiges $n\in\N$ gilt, es sei also $1+2+\ldots+n=\frac{n(n+1)}{2}$ bereits wahr.
+\stopdescr
+\startdescr{IS}
+Es ist \ZZ $1+2+\ldots+n+(n+1) =\frac{(n+1)(n+2)}{2}$\par
+Es gilt also
+\startformula
+\startalign
+1+2+\ldots+(n+1)=&\displaystyle\underbrace{(1+2+\ldots+n)}_{\frac{n(n+1)}{2}}+(n+1)\cr
+\stackrelo{=}{IV}&\frac{n(n+1)}{2}+(n+1)\cr
+=&\frac{(n+1)(n+2)}{2}
+\stopalign
+\stopformula
+\stopdescr
+\stopproof
+\stopdescr
+\startdescr{Behauptung:}
+$1+3+5+\ldots+(2n-1)=n^{2}$
+\startproof
+\startdescr{IA} 
+$n=1$: $1=1^{2}$ ist wahr
+\stopdescr
+\startdescr{IS}
+Nach IV gilt die Aussage bereits für beliebiges $n\in\N$, dann ist\\
+\ZZ: $1+3+\ldots+(2n+1)=(n+1)^{2}$\par
+Es gilt
+\startformula
+\startalign
+1+3+5+\ldots+(2n+1)=&\displaystyle\underbrace{(1+3+\ldots+(2n-1))}_{n^{2}}+(2n+1)\cr
+\stackrelo{=}{IV}&n^{2}+(2n+1)\cr
+=&(n+1)^{2}
+\stopalign
+\stopformula
+\stopdescr
+\stopproof
+\stopdescr
+\stopbsp
+{\bf Hinweis:} Wir werde im folgenden das Induktionsprinzip in der Vorlesung nicht beweisen.
+\subsection[ssec:sum-prod]{Summen- und Produktsymbole}
+Für jedes $k\in\N$ sei eine Zahl $a_{k}$ gegeben, dann ist für jedes $m\leq n$:
+\startformula
+\startalign
+\sum\limits_{k=m}^{n}a_{k}&=a_{m}+a_{m+1}+\ldots+a_{n}\cr
+\prod\limits_{k=m}^{n}a_{k}&=a_{m}\cdot a_{m+1}\cdot\ldots\cdot a_{n}\cr
+\stopalign
+\stopformula
+\startbsp
+\startformula
+\startalign
+\sum\limits_{k=1}^{n}k&=1+2+3+\ldots+n=\frac{n(n+1)}{2}\cr
+\prod\limits_{k=1}^{n}k&=1\cdot 2\cdot 3\cdot\ldots\cdot n=: n!\quad(\text{Fakultät})\cr
+\stopalign
+\stopformula
+\stopbsp
+Weiterhin werden folgende Sondervereinbarungen für den Fall $m>n$ getroffen:
+\startformula
+\startalign
+\sum\limits_{k=m}^{n}a_{k}&:=0\qquad\text{die leere Summe,}\cr
+\prod\limits_{k=m}^{n}a_{k}&:=1\qquad\text{das leere Produkt.}
+\stopalign
+\stopformula
+\startsatz
+Die \index{Geometrische Reihe}\index{Reihe+geometrische}Geometrische Reihe\par
+Für alle $x\in\R,\, x\neq 1$ und alle $n\in\N_{0}$ gilt:
+\placeformula
+\startformula
+\sum\limits_{k=0}^{n}x^{k}:=\frac{1-x^{n+1}}{1-x}
+\stopformula
+\stopsatz
+\startproof
+mittels Induktion nach $n$.
+\startdescr{$n=0$:}
+$x^{0}=\frac{1-x^{1}}{1-x}$ ist wahr
+\stopdescr
+\startdescr{$n\rightarrow n+1$:}
+Es gelte bereits die IV $\sum\limits_{k=0}^{n}x^{k}=\frac{1-x^{n+1}}{1-x}$ für ein beliebiges $n\in\N_{0}$, dann gilt:\par
+\startformula
+\startalign
+\sum\limits_{k=0}^{n+1}x^{k}&=\left(\sum\limits_{k=0}^{n}x^{k}\right)+x^{n+1}\cr
+&\stackrelo{=}{IV}\frac{1-x^{n+1}}{1-x}\, +\, x^{n+1}\cr
+&= \frac{1-x^{n+1}+(1-x)x^{n+1}}{1-x}\cr
+&=\frac{1-x^{n+2}}{1-x}\cr
+\stopalign
+\stopformula
+\stopdescr
+\stopproof
+\subsection[ssec:faculty]{Fakultät}
+Für $n\in\N_{0}$ sei
+\startformula
+n!\, :=\, \prod\limits_{k=1}{n}k
+\stopformula
+und insbesondere seien $1!\, :=\, 1$ und $0!\, :=\, 1$, dann gilt $(n+1)!=(n+1)\cdot n!\, \forall\, n\in\N_{0}$.
+\startsatz
+Die Anzahl der Anordnungen der Menge $\{1,\ldots,n\}$ ist $n!$, das heißt es gibt genau $n!$ Tupel $(a_{1},\ldots,a_{n})$ mit $\{a_{1},\ldots,a_{n}\}=\{1,\ldots,n\}$.
+\stopsatz
+\startbsp
+Die Anordnungen von $\{1,2,3\}$ sind:\\
+$(1,2,3),\, (1,3,2),\, (2,1,3),\, (2,3,1),\, (3,1,2),\, (3,2,1)$.
+\stopbsp
+\startproof
+durch Induktion nach $n$:
+\startdescr{$n=1$:}
+Anzahl der Anordnungen von $\{1\}:=1=1!$ und damit wahr.
+\stopdescr
+\startdescr{$n\rightarrow n+1$:}
+Die Anzahl der Anordnungen von $\{1,\ldots,n\}$ sei als Induktionsvoraussetzung bereits $n!$, dann zerfällt die Anordnung von $\{1,\ldots,n+1\}$ in $n+1$ disjunkte Typen. Diese unterscheiden sich nach ihrem ersten Tupel-Element in Anordnungen, die die $1$ an 1. Stelle haben, Anordnungen, die die $2$ an 1. Stelle haben $\ldots$ und Anordnungen, die die $n+1$ an 1. Stelle haben. Zu jedem dieser Typen gibt es nach IV genau $n!$ Anordnungen, also insgesamt $(n+1)\cdot n!\, =\, (n+1)!$ Anordnungen.
+\stopdescr
+\stopproof
+\subsection[ssec:binomialkoef]{Binomialkoeffizienten}
+Seien $k,n\in\N_{0}$ mit $k\leq n$, so sei
+\placeformula
+\startformula
+\startalign
+{n\choose k} &:=\prod\limits_{i=1}^{k}\frac{n-i+1}{i}\cr
+&=\frac{n}{1}\cdot\frac{n-1}{2}\cdot\ldots\cdot\frac{n-k+1}{k}\cr
+&=\frac{n(n-1)(n-2)\dots(n-k+1)}{k!}\cr
+&=\frac{n!}{k!(n-k)!}\cr
+\stopalign
+\stopformula
+\starteig
+des Binomialkoeffizienten
+\startitemize[r]
+\item $\binom{n}{k}=\binom{n}{n-k}$
+\item $\binom{n+1}{k+1}=\binom{n}{k}+\binom{n}{k+1}$ für $k<n$ (Rekursionsformel)
+\stopitemize
+\stopeig
+\startproof
+der Binomialkoeffizienteneigenschaften
+\startitemize[r]
+\item klar nach der Definition des Binomialkoeffizienten.
+\item \ZZ: $\binom{n}{k}+\binom{n}{k+1}=\binom{n+1}{k+1}$
+\startformula
+\startalign
+\binom{n}{k}+\binom{n}{k+1}&=\frac{n!}{k!(n-k)!}+\frac{n!}{(k+1)!(n-k-1)!}\cr
+&=\frac{(k+1)n!+(n-k)n!}{(k+1)!(n-k)!}\cr
+&=\frac{((k+1)+(n-k))n!}{(k+1)!(n-k)!}\cr
+&=\frac{(n+1)n!}{(k+1)!(n+1-(k+1))!}\cr
+&=\frac{(n+1)!}{(k+1)!(n+1-(k+1))!}\cr
+&=\binom{n+1}{k+1}
+\stopalign
+\stopformula
+\stopitemize
+\stopproof
+Der Binomialkoeffizient läßt sich mit Aussage ii im Pascalschen Dreieck veranschaulichen:
+\startformula
+\startmathmatrix[n=21,align=middle]
+\NC n\NC  \NC   \NC   \NC   \NC   \NC   \NC   \NC                       \NC \NC \NC \NC \NC \NC \NC \NC \NC \NC \NC\NR
+\NC 0\NC   \NC   \NC   \NC 1\NC   \NC   \NC   \NC                       \NC                       \NC                       \NC \NC \NC \binom{0}{0}\NC \NC \NC \NC \NC \NC\NR
+\NC 1\NC   \NC   \NC 1\NC   \NC 1\NC   \NC   \NC                       \NC                       \NC \NC \NC \binom{1}{0}\NC \NC \binom{1}{1}\NC \NC \NC \NC \NC\NR
+\NC 2\NC   \NC 1\NC   \NC 2\NC   \NC 1\NC   \NC                       \NC \NC \NC \binom{2}{0}\NC \NC \binom{2}{1}\NC \NC \binom{2}{2}\NC \NC \NC \NC\NR
+\NC 3\NC 1\NC   \NC 3\NC   \NC 3\NC   \NC 1\NC \NC \NC \binom{3}{0}\NC \NC \binom{3}{1}\NC \NC \binom{3}{2}\NC \NC \binom{3}{3}\NC \NC \NC\NR
+\NC \vdots\NC \NC \NC \NC \NC   \NC  \NC \NC \NC \iddots\NC \NC \NC \NC \vdots\NC \NC \NC \NC \ddots\NC \NC\NR
+\NC n\NC \NC \NC \NC \NC   \NC  \NC   \NC \binom{n}{0}\NC \NC \NC \ldots\NC \NC \binom{n}{k}\NC \NC \ldots\NC \NC \NC \binom{n}{n}\NC\NR
+\stopmathmatrix
+\stopformula
+\startsatz
+Seien $k,n\in\N,\, k\leq n$, so ist die Anzahl der k-elementigen Teilmengen einer n-elementingen Menge
+\startformula
+\binom{n}{k}.
+\stopformula
+\stopsatz
+\startproof
+durch Induktion nach $n$:
+\startdescr{$n=1$:} 
+Es gibt $\binom{1}{1}=1$ einelementige Teilmenge.
+\stopdescr
+\startdescr{$n\rightarrow n+1$:} Sei $M=\{a_{1},\ldots,a_{n},a_{n+1}\}$, dabei zerfallen die k-elementigen Teilmengen in 2 disjunkte Typen, jene welche $a_{n+1}$ enthalten und jene welche $a_{n+1}$ nicht enthalten. Es gibt also $\binom{n}{k}$ Mengen vom Typ die $a_{n+1}$ nicht enthalten und $\binom{n}{k-1}$ Mengen vom Typ, die $a_{n+1}$ enthalten. Die Behauptung folgt dann aus der Rekursionsformel.
+\stopdescr
+\stopproof
+\subsection[ssec:binom:satz]{Der binomische Satz}
+Seien $x,y\in\R$, dann gilt
+\startformula
+\startalign
+(x+y)^{2}&=x^{2}+2xy+y^{2}\cr
+(x+y)^{3}&=x^{3}+3x^{2}y+3xy^{2}+y^{3}\cr
+\stopalign
+\stopformula
+\startsatz
+Für alle $x,y\in\R$ und alle $n\in\N$ gilt:
+\placeformula
+\startformula
+(x+y)^{n}=\sum\limits_{k=0}^{n}\binom{n}{k}x^{k}y^{n-k}
+\stopformula
+\stopsatz
+\startproof
+aus der Kombinatorik.\\ 
+Die Summanden, die beim Ausmultiplizieren vn $(x+y)^{n}=(x+y)\cdots(x+y)$ auftreten sind $x^{n}$, $x^{n-1}y$, $x^{n-2}y^{2},\ldots$, $y^{n}$. Es tritt der Faktor $x^{k}y^{n-k}$ genau so oft auf, wie es Möglichkeiten gibt aus den n Faktoren $(x+y)$ k Faktoren auszuwählen, also $\binom{n}{k}$ mal.
+\stopproof
+\section{Die reelen Zahlen}
+Mögliche Zugänge in der Analysis Vorlesung sind:
+\startitemize[r]
+\item $\R$ als bekannt voraussetzen (z.B. Schule)
+\startitemize
+\item sachlich problematisch
+\stopitemize
+\item $\R$ aus $\N$ "konstruieren"
+\startitemize
+\item sehr zeitaufwendig (Spezialvorlesung)
+\item didaktisch fragwürdig
+\stopitemize
+\item Axiomatische/r Aufbau/Einführung
+\startitemize
+\item Man stellt die Eigenschaften yusammen, die $\R$ "charakterisieren" und verwendet für den Aufbau der Analysis nur diese Eigenschaften,
+\item zeitökonomisch und
+\item mathematisch OK.
+\stopitemize
+\stopitemize
+In der Menge $\R$ sind zwei Operationen definiert. Dies Operationen sind:
+\startformula
+\startmathmatrix[n=4,align={left,left,middle,left}]
+\NC +\NC\R\times\R\NC\rightarrow\NC\R\NR
+\NC    \NC(a,b)\NC\xmapsto\NC a+b\NR
+\NC\text{und}\NC \NC \NC \NR
+\NC\cdot\NC\R\times\R\NC\rightarrow\NC\R\NR
+\NC \NC (a,b)\NC\xmapsto\NC a\cdot b\NR
+\stopmathmatrix
+\stopformula
+ Diese beiden Operationen nennen wir Addition und Multiplikation. Durch sie ist $\R$ ein Körper, das heißt er erfüllt die folgenden Körperaxiome:
+
+	\bTABLE
+	\setupTABLE[r][each][frame=off]
+         \setupTABLE[r][first][bottomframe=on, topframe=on]
+        	\setupTABLE[r][last][bottomframe=on]
+	\setupTABLE[c][1][align=middle]
+	\setupTABLE[c][2,3][align=right]
+         \bTR \bTH Axiom \eTH \bTH Bezeichnung\eTH \bTH Beschreibung\eTH \eTR
+	\bTR \bTD (K1)\eTD \bTD Kommutativität\eTD \bTD Additiv: $a+b=b+a$\eTD\eTR
+	\bTR \bTD \eTD \bTD \eTD \bTD Multiplikativ: $a\cdot b=b\cdot a$\eTD\eTR
+	\bTR \bTD (K2)\eTD \bTD Assoziativität\eTD \bTD Additiv: $(a+b)+c=a+(b+c)$\eTD\eTR
+	\bTR \bTD \eTD \bTD \eTD \bTD Multiplikativ: $(a\cdot b)\cdot c=a\cdot(b\cdot c)$\eTD\eTR
+	\bTR \bTD (K3)\eTD \bTD neutrales Element\eTD \bTD Additiv: Es gibt eine Zahl $0\in\R$, so daß $a+0=0+a=a$ ist\eTD\eTR
+	\bTR \bTD \eTD \bTD \eTD \bTD Multiplikativ: Es gibt eine Zahl $1\in\R$, so daß $a\cdot 1=1\cdot a= a$ ist\eTD\eTR	
+	\bTR \bTD (K4)\eTD \bTD inverses Element\eTD \bTD Additiv: Zu jedem $a\in\R$ gibt es eine Zahl $-a\in\R$, so daß $a+(-a)=0$ ist\eTD\eTR
+	\bTR \bTD \eTD \bTD \eTD \bTD Multiplikativ: Zu jeder Zahl $a\in\R\setminus\{0\}$ gibt es eine Zahl $a^{-1}\in\R$, so daß $a\cdot a^{-1}=1$ ist.\eTD\eTR
+	\bTR \bTD (K5)\eTD \bTD Distributivität\eTD \bTD $a\cdot(b+c)=a\cdot b+a\cdot c\, \forall a,b,c\in\R$\eTD\eTR
+	\eTABLE
+\startbem
+Auch $\Q$ und $\F_{2}$ sind Körper
+\stopbem
+\startfolg
+\index{Axiom+Folgerungen}aus den Axiomen
+\startitemize[r]
+\item Die neutralen Elemente $0$ und $1$ sind eindeutig bestimmt.
+\startproof
+Sei $0'\in\R$ mit $a+0'=a\,\forall a\in\R$, dann gilt\par
+$0\stackrelo{=}{\text{Ann.}}0+0'\stackrelo{=}{(K1)}0'+0\stackrelo{=}{(K3)}0'$.\par
+Die Beweisführung verläuft analog für $1$.
+\stopproof
+\item Die inversen Elemente $-a$ für $a\in\R$ und $a^{-1}$ für $a\in\R\setminus\{0\}$  sind eindeutig bestimmt.
+\startproof
+\startitemize[r]
+\item Seien $a,a'\in\R$ mit $a+a'=0$, so gilt\par
+$-a\stackrelo{=}{(K3)}(-a)+(a+a')\stackrelo{=}{(K2)}((-a)+a)+a'\stackrelo{=}{(K1)}(a+(-a))+a'\stackrelo{=}{(K4)}0+a'\stackrelo{=}{(K1)}a'+0\stackrelo{=}{(K3)}a'$
+\item analog für $a^{-1}\in\R\setminus\{0\}$.
+\stopitemize
+\stopproof
+\item $-0=0$ und $1^{-1}=1$
+\startproof
+$0+0\stackrelo{=}{(K3)}0\stackrelo{=}{(K4)}0+(-0)\,\Rightarrow\quad 0=-0$\par
+Analog für $1$.
+\stopproof
+\item $\forall\, a\in\R:\, -(-a)=a$\\
+$\forall\, a\in\R\setminus\{0\}:\, (a^{-1})^{-1}=a$
+\startproof
+\startformula
+\startmathmatrix[n=1,left={\left.\,},right={\,\right\}}]
+\NC(-a)+(-(-a))\stackrelo{=}{(K4)}0\NR
+\NC(-a)+a\stackrelo{=}{(K1)}a+(-a)\stackrelo{=}{(K4)}0
+\stopmathmatrix\Rightarrow -(-a)=a
+\stopformula
+Analog für $(a^{-1})^{-1}=a$.
+\stopproof
+\item $-(a+b)=(-a)+(-b)\quad\forall\, a,b\in\R$\\
+$(a\cdot b)^{-1}=a^{-1}\cdot b^{-1}\quad\forall\, a,b\in\R\setminus\{0\}$
+\startproof
+wird in den Übungen behandelt.
+\stopproof
+\item
+\startitemize[R]
+\item $a\cdot 0=0\,\forall\, a\in\R$
+\item $(-a)\cdot b=-(ab)\, \forall\, a,b\in\R$
+\item $(-a)\cdot (-b)=ab\, \forall\, a,b\in\R$
+\stopitemize
+\startproof
+\startitemize[R]
+\item $a\cdot 0+a\cdot 0\stackrelo{=}{(K1),(K5)}a\cdot (0+0)\stackrelo{=}{(K3)}a\cdot 0\stackrelo{=}{(K3)}0+a\cdot0$\\
+$\Rightarrow\quad (a\cdot 0+a\cdot 0)+(-(a\cdot 0))=(0+a\cdot 0)+(-(a\cdot 0))\Rightarrow a\cdot 0(a\cdot0+(-(a\cdot 0)))\stackrelo{\Rightarrow}{(K2),(K4)}a\cdot 0=0$
+\item Übungsaufgabe
+\item Übungsaufgabe
+\stopitemize
+\stopproof
+\stopitemize
+\stopfolg
+Aus den obigen Folgerungen ergibt sich folgende Ableitung: $a\cdot b = 0\,\Leftrightarrow\,a=0\,\vee\,b=0$
+\startproof
+\startdescr{"$\Leftarrow$"} schon gezeigt!
+\stopdescr
+\startdescr{"$\Rightarrow$"} Sei $a\cdot b\,=\, 0$, so existieren 2 Fälle, welche unterschieden werden müssen.\par
+\startdescr{1. Fall:} $a=0$ ist bereits bewiesen
+\stopdescr
+\startdescr{2. Fall:} $a\neq0$\\
+Es gilt:
+\startformula
+\startalign
+a\cdot b &=0\cr
+\Rightarrow\, a^{-1}(a\cdot b)&=0\cr
+\Rightarrow\, (a^{-1}\cdot a)b&=0\cr
+\Rightarrow\, 1\cdot b &=0\cr
+\Rightarrow\, b&=0\cr
+\stopalign
+\stopformula
+\stopdescr
+\stopdescr
+\stopproof
+\startdefn
+Für Addition und Multiplikation werde nun die Subtraktion und Division wie folgt definiert:\\
+Für die Addition sei $a-b:= a+(-b)\quad\forall\, a,b\in\R$ und heißt Subtraktion,\\
+Für die Multiplikation sei $\frac{a}{b}:=a\cdot b^{-1}\quad\forall\, a\in\R\wedge\forall b\in\R\setminus\{0\}$ und wird als Division bezeichnet.
+\stopdefn
+\subsection[ssec:anord:real]{Die Anordnung des $\R$}
+Es gibt eine Teilmenge $\R^{+}\subset\R$ der positiven Zahlen mit folgenden Eigenschaften:
+\startalignment[middle]
+\bTABLE
+\setupTABLE[r][each][frame=off]
+\setupTABLE[r][first][bottomframe=on, topframe=on]
+\setupTABLE[r][last][bottomframe=on]
+\setupTABLE[c][1][align=middle]
+\setupTABLE[c][2][align=right]
+\bTR \bTH Eigenschaft \eTH \bTH Beschreibung\eTH \eTR
+\bTR \bTD (A1)\eTD \bTD Für jede Zahl $a\in\R$ gilt genau eine der Relationen:\eTD\eTR
+\bTR \bTD \eTD \bTD $a\in\R^{+}$, $a=0$, $-a\in\R^{+}$\eTD\eTR
+\bTR \bTD (A2)\eTD \bTD Für alle $a,b\in\R$ gilt: $a,b\in\R^{+}\Rightarrow a+b,\, a\cdot b\in\R$\eTD\eTR
+\bTR \bTD (A3)\eTD \bTD $\forall a\in\R\exists n\in\N: n-a\in\R^{+}$ (Archimedisches Axiom)\eTD\eTR
+\eTABLE
+\stopalignment
+\startnota
+\startformula
+\startalign
+a>b &:\Leftrightarrow a-b\in\R^{+}\cr
+a\geq b&:\Leftrightarrow a>b,\,\vee\, a=b\cr
+a<b&:\Leftrightarrow b>a\cr
+a\leq b&:\Leftrightarrow b\geq a\cr
+\stopalign
+\stopformula
+\stopnota
+\notice Die Eigenschaften (A1) - (A3) drücken aus, daß $\R$ ein archimedisch angeordneter Körper ist. Weiterhin ist auch $\Q$ archimedisch angeordnet, jedoch $\C$ nicht.
+\startfolg
+\startitemize[r]
+\item $a^{2}>0\quad\forall a\in\R\setminus\{0\}$
+\startproof
+Nach (A1) ist $a>0$ oder $-a>0$. Ist $a>0$, so ist $a^{2}=a\cdot a>0$ nach (A2), ist jedoch $-a>0$, so ist $a^{2}=(-a)(-a)>0$ nach (A2).
+\stopproof
+\item Es gilt für\\
+$\startmathmatrix[n=1,left={\left.},right={\,\right\}}]
+\NC a<b\NR
+\NC b<c
+\stopmathmatrix\Rightarrow a<c$. Diese Eigenschaft heißt Transitivität.
+\startproof
+der Transitivität:\\
+$\startmathmatrix[n=3,left={\left.},right={\,\right\}}]
+\NC a<b\NC\xRightarrow{Def}\NC b-a>0\NR
+\NC b<c\NC\xRightarrow{Def}\NC c-b>0
+\stopmathmatrix\Rightarrow (b-a)+(c-b)=c-a>0\xRightarrow{Def}c>a$
+\stopproof
+\item
+\startitemize[R]
+\item $a<b\Rightarrow a+c<b+c\quad\forall c\in\R$
+\item Es gilt für\\
+$\startmathmatrix[n=1,left={\left.},right={\,\right\}}]
+\NC a<b\NR
+\NC a'<b'
+\stopmathmatrix\Rightarrow a+a'<b+b'$
+\stopitemize
+\startproof
+\startitemize[R]
+\item $a<b\xRightarrow{Def} b-a>0\xRightarrow (b+c)-(a+c)>0\xRightarrow{Def}a+c<b+c$
+\item Es sei\\
+$\startmathmatrix[n=3,left={\left.},right={\,\right\}}]
+\NC a<b\NC \xRightarrow{Def}\NC b-a>0\NR
+\NC a'<b'\NC \xRightarrow{Def}\NC b'-a'>0
+\stopmathmatrix\xRightarrow0<(b-a)+(b'-a')=(b+b')-(a+a')$\par
+$\xRightarrow{Def}a+a'<b+b'$
+\stopitemize
+\stopproof
+\item
+\startitemize[R]
+\item $a<b\Rightarrow a-c<b-c\quad\forall c\in\R^{+}$
+\item Es sei:\\
+$\startmathmatrix[n=1,left={\left.},right={\,\right\}}]
+\NC 0<a<b\NR
+\NC 0<a'<b'\NC
+\stopmathmatrix\xRightarrow a\cdot a'<b\cdot b' $
+\stopitemize
+\startproof
+Übungsaufgaben
+\stopproof
+\stopitemize
+\stopfolg
+\index{Betragsfunktion}\index{absolut Betrag}\subsection[ssec:betragsfkt]{Die Betragsfunktion}
+Für $a\in\R$ sei
+\startformula
+\abs{a}:=\startcases
+\NC a\NC \text{if } a\geq0\NR
+\NC -a\NC \text{else}
+\stopcases
+\stopformula
+\starteig
+Damit ergeben sich für die Betragsfunktion mit $a,b\in\R$ folgende Eigenschaften:
+\startitemize[r]
+\item $\abs{a\cdot b}=\abs{a}\cdot\abs{b}$
+\item $\abs{a+b}\leq\abs{a}+\abs{b}$
+\item $\abs{a-b}\geq\abs{a}-\abs{b}$
+\stopitemize
+\stopeig
+\startproof
+\startitemize[r]
+\item klar.
+\item Aus
+\startformula
+\startmathmatrix[n=3,left={\left.},right={\,\right\}}]
+\NC\startmathmatrix[n=1,left={\left.},right={\,\right\}}]
+a\leq \abs{a}\NR
+b\leq\abs{b}
+\stopmathmatrix\NC\xRightarrow{Eig.\, iii}\NC a+b\leq\abs{a}+\abs{b}\NR
+\startmathmatrix[n=1,left={\left.},right={\,\right\}}]
+-a\leq\abs{a}\NR
+-b\leq\abs{b}
+\stopmathmatrix\NC\xRightarrow{Eig.\, iii}\NC -a-b\leq\abs{a}+\abs{b}
+\stopmathmatrix\xRightarrow\,\text{Beh.}
+\stopformula
+\item $\abs{a}=\abs{b+(a-b)}\stackrelo{\leq}{ii}\abs{b}+\abs{a-b}\xRightarrow{Eig.\, iii}\abs{a}-\abs{b}\leq\abs{a-b}$
+\stopitemize
+\stopproof
+\startdefn Intervalle\\
+Um über einen bestimmten zusammenhängenden Bereich zu sprechen ist es notwendig den Begriff des Intervalls einzuführen, dafür seien $a,b\in\R$ beliebig gewählt mit $a\leq b$. Es sind folgende Anordnungen möglich:
+
+\startalignment[middle]
+\bTABLE
+\setupTABLE[r][each][frame=off]
+\setupTABLE[r][first][topframe=on,bottomframe=on]
+\setupTABLE[r][last][bottomframe=on]
+\setupTABLE[c][each][align=right]
+\bTR \bTH Intervall\eTH \bTH math. Beschreibung\eTH \bTH Bezeichnung\eTH\eTR
+\bTR \bTD $[a,b]$\eTD \bTD $\{x\in\R\mid a\leq x\leq b\}$\eTD \bTD geschlossenes Intervall von a bis b\eTD\eTR
+\bTR \bTD $[a,b):=[a,b[$\eTD \bTD $\{x\in\R\mid a\leq x<b\}$\eTD \bTD (rechts-)halboffenes Intervall von a bis b\eTD\eTR
+\bTR \bTD \eTD \bTD \eTD \bTD halboffenes Intervall von a bis exkl. b\eTD\eTR
+\bTR \bTD $(a,b]:=]a,b]$\eTD \bTD $\{x\in\R\mid a<x\leq b\}$\eTD \bTD (links-)halboffenes Intervall von a bis b\eTD\eTR
+\bTR \bTD \eTD \bTD \eTD \bTD halboffenes Intervall von exkl. b bis inkl. a\eTD\eTR
+\bTR \bTD $(a,b):=]a,b[$\eTD \bTD $\{x\in\R\mid a<x<b\}$\eTD \bTD offnes Intervall von a bis b\eTD\eTR
+\bTR \bTD $[a,\infty):=[a,\infty[$\eTD \bTD $\{x\in\R\mid a\leq x\}$\eTD \bTD \eTD\eTR
+\bTR \bTD $(a,\infty):=]a,\infty[$\eTD \bTD $\{x\in\R\mid a<x\}$\eTD \bTD \eTD\eTR
+\bTR \bTD $(-\infty,b]:=]-\infty,b]$\eTD \bTD $\{x\in\R\mid x\leq b\}$\eTD \bTD \eTD\eTR
+\bTR \bTD $(-\infty,b):=]-\infty,b[$\eTD \bTD $\{x\in\R\mid x<b\}$\eTD \bTD \eTD\eTR
+\eTABLE
+\stopalignment
+\stopdefn
+\index{Supremum}\index{Infimum}\index[Sup]{$\sup$}\index[Inf]{$\inf$}\index[Funktionen Sup]{Funktionen+$\sup$}\index[Funktionen Inf]{Funktionen+$\inf$}\subsection[ssec:sup:inf]{Supremum und Infimum}
+\startdefn
+Sei $M\subset\R$ und $M\neq\emptyset$
+\startitemize[r]
+\item Eine Zahl $a\in\R$ heißt obere Schranke von $M$, falls gilt:
+\startformula
+a\geq x\quad\forall x\in M
+\stopformula
+\item $M$ heißt nach oben beschränkt, falls es eine obere Schranke $a$ für $M$ gibt.
+\startformula
+\forall b\in M:\, b\leq a
+\stopformula
+\stopitemize
+\stopdefn
+\startbsp
+\startitemize[m]
+\item[bsp:1] $M_{1}=[0,1]$
+\item[bsp:2] $M_{2}=[0,1)$
+\item[bsp:3] $M_{3}=[0,\infty)$
+\item[bsp:4] $M_{4}=\N$
+\stopitemize
+Die Mengen $M_{1}$ und $M_{2}$ sind nach oben beschränkt, denn jede Zahl $a\geq 1$ ist obere Schranke. Die Mengen $M_{3}$ und $M_{4}$ sind nicht nach oben beschränkt. Zu $M_{1}$ und $M_{2}$ gibt es jeweils sogar eine kleinste obere Schranke.
+\stopbsp
+\startdefn
+Sei $M\subset\R$ nach oben beschränkt, so heißt eine Zahl $s\in\R$ Supremum oder kleinste obere Schranke von $M$, falls gilt:
+\startitemize[r]
+\item $s$ ist obere Schranke von $M$ und
+\item für jede obere Schranke $a$ von $M$ gilt $s\leq a$.
+\stopitemize
+\stopdefn
+\startbem
+In den Beispielen \in[bsp:1] und \in[bsp:2]  ist jeweils die Zahl $1$ ein Supremum von $M_{i}$.\\
+\notice Nur in \in[bsp:1] gilt $1\in M_{1}$.
+\stopbem
+Falls ein Supremum von $M$ existiert, dann ist es eindeutig bestimmt. Mit anderen Worten jede Menge hat höchstens ein Supremum. In dem Fall das ein Supremum existiert, so schreibt man $s=\sup(M)$.
+\startproof
+der obigen Aussage:\\
+Seien $s,t\in\R$ zwei Suprema von $M$, so gilt $s\leq t$, da $t$ obere Schranke und $s$ Supremum ist, andererseits gilt aber auch $t\leq s$, da $s$ obere Schranke und $t$ Supremum ist. Aus beiden Aussagen folgt dann das $t=s$ sein muss.
+\stopproof
+\startdefn
+Falls eine Menge $M\subset\R$ ein Supremum $s$ besitzt und falls $s\in M$ ist, so heißt $s$ auch das Maximum von $M$. In diesem Fall schreibt man dann auch $s=\max(M)$
+\stopdefn
+\startbsp
+$\sup([0,1])=1=\max([0,1])$\\
+$\sup([0,1))=1$
+\stopbsp
+\startbem
+Sei $M\subset\R$, dann definiert man analog zu den Begriffen "nach oben beschränkt", "obere Schranke" und "Supremum" die folgenden Begriffe "nach unten beschränkt", "untere Schranke", "Infimum", "gößte untere Schranke" und "$\inf(M)$.
+\stopbem
+\startbsp
+$M=(0,1)$ ist beschränkt, das heißt nach obendurch $\sup(M)=1$ und unten durch $\inf(M)=0$ .
+\stopbsp
+\page
+\subsection[sec:vollständigaxiom]{Das Vollständigkeitsaxiom}
+Uns ist bisher bekannt das $\Q$ und $\R$ archimedisch angeordnete Körper sind. In $\R$ gilt zusätzlich das Vollständigkeitsaxiom\\
+(V) Jede nichtleere, nach oben beschränkte Teilmenge von $\R$ hat ein Supremum in $\R$.
+\startbem
+Die analoge Aussage für $\Q$ ist falsch
+\stopbem
+(K1)-(K5), (A1)-(A3) und (V) drücken aus, daß $\R$ ein vollständig angeordneter Körper ist. Interesant ist weiterhin, das man zeigen kann, daß es bis auf "Isomorphie" nur einen einzigen vollständige angeordneten Körper gibt.
+\subsection[ssec:sqrt]{Quadratwurzeln}
+\startsatz
+Zu jeder Zahl $a\in\R_{0}^{+}$ gibt es genau eine Zahl $s\in\R_{0}^{+}$ mit $s^{2}=a$
+\stopsatz
+\startproof
+Klar für $a=0$, sei also im folgenden $a>0$
+\startitemize[r]
+\item Eindeutigkeit: Angenommen es gibt $s,t\in\R^{+}$ mit $s\neq t$ und $s^{2}=t^{2}=a$.
+\startdescr{1. Fall:} 
+$s<t$, dann ist $s^{2}<t^{2}$\lightning{} zu $s^{2}=t^{2}$
+\stopdescr
+\startdescr{2. Fall:}
+$s>t$, dann ist $s^{2}>t^{2}$\lightning{} zu $s^{2}=t^{2}$
+\stopdescr
+\item Existenz: Man betrachte $M:=\{x\in\R_{0}^{+}\mid x^{2}\leq a\}$.\\
+Es gilt
+\startitemize[r]
+\item $M\neq\emptyset$, denn $0\in M$.
+\item $M$ ist nach oben beschränkt, denn für $x\in M$ gilt: $x^{2}\leq a\leq 1+2a+a^{2}=(1+a)^{2}\quad\Rightarrow\quad x\leq 1+a$
+\stopitemize
+wegen i und ii besitzt $M$ ein Supremum $s$ mit dem Vollständigkeitsaxiom.\\
+Es ist noch \ZZ:  $s^{2}=a$, dies geschieht durch Widerspruch.\\
+Annahme: $s^{2}\neq a$ mit $s$ dem Supremum von $M$.
+\startdescr{1. Fall:} $s^{2}<a$\\
+\underbar{Behauptung:} Es gibt ein $n\in\N$ mit $(s+\frac{1}{n})^{2}<a$\\
+\underbar{Teilbeweis:} Nach (A3) existiert also ein $n\in\N$ mit $n>\frac{2s+1}{a-s^{2}}$ und $s^{2}<a$, dann ist 
+\placeformula[eq:5]
+\startformula
+\frac{1}{n}<\frac{a-s^{2}}{2s+1}
+\stopformula
+also ist 
+\startformula
+\startalign
+(s+\frac{1}{n})^{2}&=s^{2}+\frac{2s}{n}+\frac{1}{n^{2}}\cr
+&\leq s^{2}+\frac{2s}{n}+\frac{1}{n}\cr
+&=s^{2}+\frac{2s+1}{n}\cr
+&\stackrelo{=}{\in[eq:5]} s^{2}+(a-s^{2})=a
+\stopalign
+\stopformula
+Andererseits gilt für jedes $n\in\N$ $s+\frac{1}{n}>s$, also ist $s+\frac{1}{n}\not\in M$, da $s$ obere Schranke von $M$ ist, das heißt $(s+\frac{1}{n})^{2}>a$\lightning
+\stopdescr
+\startdescr{2. Fall:} $s^{2}>a$\\
+\underbar{Behauptung:} Es gibt ein $n\in\N$ mit $(s-\frac{1}{n})^{2}>a$.\\
+\underbar{Teilbeweis:} Nach (A3) existiert ein $n\in\N$ mit $n>\frac{1}{s}$ und $n>\frac{2s}{s^{2}-a}$, dann ist $s-\frac{1}{n}>0$ und $s^{2}-a>\frac{2s}{n}$. Also ist $(s-\frac{1}{n})^{2}=s^{2}-\frac{2s}{n}+\frac{1}{n^{2}}>s^{2}-\frac{2s}{n}>a$.\\
+Andererseits gilt für jedes $n\in\N$ das $s-\frac{1}{n}<s$ ist, also ist $s-\frac{1}{n}$ keine obere Schranke von $M$, da $s$ das Supremum ist, also existiert ein $x\in M$ mit $x>s-\frac{1}{n}$ daher ist $(s-\frac{1}{n})^{2}<x^{2}\leq a$\lightning{}
+\stopdescr
+$\Rightarrow\, s^{2}=a$.
+\stopitemize
+\stopproof
+\startdefn
+Die reelle Zahl $s\in\R_{0}^{+}$ mit $s^{2}=a$ heißt Quadratwurzel von $a$. Man schreibt auch $s=\sqrt{a}=\sqrt[2]{a}$
+\stopdefn
+Im folgenden zeigt man das $\sqrt{2}\not\in\Q$ ist. 
+\startproof
+Angenommen $\sqrt{2}\in\Q$, so kann man $\sqrt{2}=\frac{a}{b}$ als gekürzten Bruch schreiben, mit $a,b\in\N$, das heißt $a$ und $b$ haben keinen gemeinsamen Teiler mehr.\\
+Dann ist $2=\frac{a^{2}}{b^{2}}$, das heißt $2b^{2}=a^{2}$\\
+$\Rightarrow 2\mid a^{2}$, das heißt $2$ teilt $a^{2}$,\\
+$\Rightarrow 2\mid a$\\
+$\Rightarrow 4\mid a^{2}$\\
+$\Rightarrow 2\mid b^{2}$\\
+$\Rightarrow 2\mid b$\\
+also ist $2$ gemeinsamer Teiler von $a$ und $b$. \lightning{}
+\stopproof
+Man verallgemeinert den Wurzelbegriff nun in folgender Weise:\\
+Zu jeder reellen Zahl $a\in\R_{0}^{+}$ und jeder Zahl $n\in\N$ gibt es genau eine Zahl $s\in\R_{0}^{+}$ mit $s^{n}=a$.\\
+$s$ heißt in diesem Fall n-te Wurzel aus $a$ und man schreibt $s=\sqrt[n]{a}$.
+\startproof
+erfolgt in den Übungen. Als Hinweis sei gegeben das man $M:=\{x\in\R_{0}^{+}\mid x^{n}\leq a\}$ betrachtet. Diese Menge ist nach oben beschränkt und damit existiert ein Supremum.
+\stopproof
+\subsection[ssec:intervallschachtelung]{Das Intervallschachtelungsprinzip}
+Es seien Intervalle $[a_{n},b_{n}]\subset\R$ für $n\in\N$ gegeben.
+\startsatz
+Falls $[a_{n+1},b_{n+1}]\subset [a_{n},b_{n}]$ für alle $n\in\N$ gilt, so existiert ein $c\in\R$ mit
+\startformula
+c\in [a_{n},b_{n}]\quad\forall n\in\N,
+\stopformula
+das heißt $\bigcap\limits_{n=0}^{\infty}[a_{n},b_{n}]\neq\emptyset$
+\stopsatz
+\startproof
+Es gilt $a_{n}\leq b_{m}\quad\forall m,n\in\N$ nach Voraussetzung. Also ist die Menge $A:=\{a_{n}\mid\, n\in\N\}$ ist also nach oben beschränkt und besitzt nach (V) ein Supremum $a\in\R$. Analog ist $B:=\{b_{m}\mid\, m\in\N\}$ nach unten beschränkt und besitzt ebenfalls nach (V) ein Infimum $b\in\R$. Damit gilt $a_{n}\leq b_{m}\,\forall m,n\in\N$. Also ist jedes $b_{m}$ ober Schranke von $A$ und mit $a=\sup(A)\Rightarrow a\leq b_{m}\,\forall m\in\N$. Weiterhin ist $a$ untere Schranke von $B$ und damit gilt mit $b=\inf(B)\Rightarrow a\leq b$, also ist $[a,b]\neq\emptyset$ und $[a,b]\subset[a_{n},b_{n}]\,\forall n\in\N$, da Punkt in $[a_{n},b_{n}]$ existiert.
+\stopproof
+\startbem
+Man kann zeigen, daß umgekehrt das Supremumsprinzip (V) aus dem Intervallschachtelungsprinzip (I) folgt, daher könnte man bei der axiomatischen Definition von $\R$ auch (I) anstelle von (V) verwenden.
+\stopbem
+\subsection[ssec:abzaehlbar]{Abzählbarkeit -- Überabzählbarkeit}
+Die Menge $\Q$ ist abzählbar, $\R$ jedoch überabzählbar.
+\startdefn
+Eine Menge $M$ heißt abzählbar, falls es eine bijektive Abbildung $f:M\xrightarrow\N$ gibt. Dabei heißt bijektive: Es existiert eine Abbildung $g:\N\xrightarrow M$, so daß $(g\circ f)(x)=x\,\forall x\in M$ und $(f\circ g)(y)=y\,\forall y\in\N$ gilt.
+\stopdefn
+\startbsp $\Z$ ist abzählbar nach folgenden Schema:
+
+\bTABLE
+\setupTABLE[r][each][frame=off]
+\setupTABLE[r][first][bottomframe=on]
+\setupTABLE[c][each][align=left]
+\setupTABLE[c][first][rightframe=on]
+\bTR \bTD $\Z$ \eTD \bTD $\ldots$\eTD \bTD $-3$\eTD \bTD $-2$\eTD \bTD $-1$\eTD \bTD $0$\eTD \bTD $1$\eTD \bTD $2$\eTD \bTD $3$\eTD \bTD $\ldots$\eTD\eTR
+\bTR \bTD $\N$ \eTD \bTD $\ldots$\eTD \bTD $7$\eTD \bTD $5$\eTD \bTD $3$\eTD \bTD $1$\eTD \bTD $2$\eTD \bTD $4$\eTD \bTD $6$\eTD \bTD $\ldots$\eTD\eTR
+\eTABLE
+mathematisch läßt sich dieses Schema ausdrücken als eine Bijektion mit $f:\Z\to\N$ in Verbindung mit $n\xmapsto\startcases \NC 2n\NC , if $n>0$\NR \NC2\abs{n}+1\NC , if $n\leq 0$\stopcases$ und der Umkehrung $g:\N\to\Z$ mit $n\xmapsto\startcases\NC\frac{n}{2}\NC, if n ungerade\NR\NC -\frac{(n-1)}{2}\NC , else\stopcases$. Beachte dabei das $\N\subsetneq\Z$ ist.
+\stopbsp
+\startsatz
+$\Q$ ist abzählbar
+\stopsatz
+\startproof
+Wir nummerieren die Brüche längs des folgenden Streckenzugs, wobei wir Brüche $\frac{m}{n}$ überspringen, bei denen m und n nicht teilerfremd sind. Dies liefert uns dann eine bijektive Abbildung von $\Q\to\N$.\par
+\startformula
+\startmathmatrix[n=19,align=middle]
+\NC \ldots\NC\leftarrow\NC\frac{-3}{1}\NC\NC\frac{-2}{1}\NC\leftarrow\NC\frac{-1}{1}\NC\NC\frac{0}{1}\NC\rightarrow\NC\frac{1}{1}\NC\NC\frac{2}{1}\NC\rightarrow\NC\frac{3}{1}\NC\NC\frac{4}{1}\NC\rightarrow\NC\ldots\NR 
+\NC\NC\NC\uparrow\NC\NC\downarrow\NC\NC\uparrow\NC\NC\NC\NC\downarrow\NC\NC\uparrow\NC\NC\downarrow\NC\NC\uparrow\NC\NC\NR 
+\NC\ldots\NC\NC\frac{-3}{2}\NC\NC\frac{-2}{2}\NC\NC\frac{-1}{2}\NC\leftarrow\NC\frac{0}{2}\NC\leftarrow\NC\frac{1}{2}\NC\NC\frac{2}{2}\NC\NC\frac{3}{2}\NC\NC\frac{4}{2}\NC\NC\ldots\NR 
+\NC\NC\NC\uparrow\NC\NC\downarrow\NC\NC\NC\NC\NC\NC\NC\NC\uparrow\NC\NC\downarrow\NC\NC\uparrow\NC\NC\NR 
+\NC \ldots\NC \NC\frac{-3}{3}\NC\NC\frac{-2}{3}\NC\rightarrow\NC\frac{-1}{3}\NC\rightarrow\NC\frac{0}{3}\NC\rightarrow\NC\frac{1}{3}\NC\rightarrow\NC\frac{2}{3}\NC\NC\frac{3}{3}\NC\NC\frac{4}{3}\NC\NC\ldots\NR 
+\NC\NC\NC\uparrow\NC\NC\NC\NC\NC\NC\NC\NC\NC\NC\NC\NC\downarrow\NC\NC\uparrow\NC\NC\NR 
+\stopmathmatrix
+\stopformula
+\stopproof
+\startsatz
+$\R$ ist nicht abzählbar
+\stopsatz
+\startproof
+Annahme $\R$ sei abzählbar, das heißt es gibt eine bijektive Abbildung  $f:\R\to\N$ so, daß man $\R=\{x_{1},x_{2},x_{3},\ldots\}$ schreiben kann. Nun konstruiert man rekursiv eine Intervallschachtelung $(I_{n})$ mit
+\placeformula[eq:1.4]
+\startformula
+x_{n}\not\in I_{n}\quad\forall n\in\N
+\stopformula
+Ist nun $n=1$: $I_{1}=\left[x_{1}+1,x_{1}+2\right]$, dann ist $x_{1}\not\in I_{1}$.\\
+Zeige das aus $n\to n+1$: Teile $I_{n}$ in drei gleichlange abgeschlossene Teilintervalle, wähle nun als $I_{n+1}$ eines der Intervalle, das $x_{n+1}$ nicht enthält. Nach dem Intervallschachtelungsprinzip gilt nun $\bigcap\limits_{n\geq1}I_{n}\neq\emptyset$, das heißt aber $\exists k\in\N:\, x_{k}\in I_{n}\quad\forall n$ und damit gilt $x_{k}\in I_{k}$\lightning (\in[eq:1.4]).
+\stopproof
+Als Schlußbemerkung zu den rellen Zahlen läßt sich folgendes zusammenfassen.\\
+Man hat $\R$ als gegeben vorausgesetzt und durch Axiome charakterisiert. Es würde genügen, nur die natürlichen Zahlen als gegeben vorauszusetzen, dann kann man nacheinander $\Z,\,\Q,\,\R$ aus ihnen konstruieren so, daß gilt
+\startformula
+\N\subset\Z\subset\Q\subset\R
+\stopformula
+oder besser
+\startformula
+\N\subset\Q^{+}\subset\Q\subset\R
+\stopformula
+Als Stichworte seien hier nur der Aufbau des Zahlensystems oder die Zahlenbereichserweiterung genannt.
+\stoptext
+
+\stopcomponent

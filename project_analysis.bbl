@@ -1,0 +1,12 @@
+\setuppublicationlist[samplesize={Wik10},totalnumber=1]
+
+\startpublication[k=wiki-gauss-summenformel,t=misc,
+a={{Wikipedia}},y=2010,
+u={http://de.wikipedia.org/wiki/Gaußsche_Summenformel},
+n=1,s=Wik10]
+\author[]{}[]{}{Wikipedia}
+\pubyear{2010}
+\title{Gaußsche summenformel}
+\biburl{http://de.wikipedia.org/wiki/Gaußsche_Summenformel}
+\stoppublication
+

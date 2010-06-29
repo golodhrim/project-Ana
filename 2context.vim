@@ -1,0 +1,1 @@
+/home/golodhrim/context-externals/filter/2context.vim

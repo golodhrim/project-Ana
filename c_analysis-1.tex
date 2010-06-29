@@ -1,0 +1,652 @@
+\startcomponent c_analysis-1
+\product prd_analysis
+\project project_analysis
+
+\starttext
+\chapter[ch:folgen-reihen]{Folgen und Reihen}
+\section[sec:lim-Folgen]{Grenzwerte von Folgen}
+\subsection[ssec:folg-real-numb]{Folgen reeller Zahlen}
+\startdefn
+Eine Folge reeler Zahlen ist eine Abbildung
+\startformula
+\startmathmatrix[n=4,align={right,middle,middle,middle}]
+\NC f:\NC \N\NC\xrightarrow\NC\R\NR
+\NC \NC n\NC \xmapsto\NC a_{n}
+\stopmathmatrix
+\stopformula
+Man schreibt kurz $f=(a_{n})_{n\in\N}=(a_{n})$, dabei wird $f(n)=a_{n}$ das n-te Folgenglied genannt.
+\stopdefn
+\startbsp
+\startitemize[m]
+\item $\left(\frac{1}{n}\right)_{n\in\N}=\left(1,\frac{1}{2},\frac{1}{3},\frac{1}{4},\ldots\right)$
+\item $\left( (-1)^{n}\right)_{n\in\N}=\left(-1,1,-1,1,-1,1,\ldots\right)$
+\item $(27)_{n\in\N}=(27,27,27,27,\ldots)$ die konstante Folge.
+\stopitemize
+Für 1 sieht die folge wie folgt aus:
+\startbuffer[folg1]
+1	3
+2	1.5
+3	0.999999999999999
+4	0.75
+5	0.6
+6	0.5
+7	0.428571428571429
+8	0.375
+9	0.333333333333333
+10	0.3
+\stopbuffer
+\savebuffer[folg1][data/folg1.d]
+\placefigure[here][fig:folg-1/n]{Folge $\frac{1}{n}$}{
+\starttikzpicture[only marks]
+	\draw plot[mark=*] file {data/folg1.d};
+	\draw[->] (0,0) -- coordinate (x axis mid) (11,0);
+	\draw[->] (0,0) -- coordinate (y axis mid)(0,3.3);
+	\foreach \x in {0,1,2,3,4,5,6,7,8,9,10}
+	        \draw (\x cm,1pt) -- (\x cm,-3pt) node[anchor=north] {$\x$};
+	\foreach \y/\ytext in {0/0,0.75/0.25,1.5/0.5,2.25/0.75,3/1}
+		\draw (1pt,\y cm) -- (-3pt,\y cm) node[anchor=east] {$\ytext$};
+	\node[below=1cm] at (x axis mid) {$\N$};
+	\node[left=2cm,rotate=90] at (y axis mid) {$\R$};
+\stoptikzpicture
+}
+\stopbsp
+\startbsp
+Es sei $(a_{n}):=\left(\frac{1}{n}\right)$, $(b_{n}):=\left(\frac{1}{2n}\right)$ und $(c_{n}):=\left(\frac{1}{n^{2}}\right)$, dann heißen $(b_{n})$ und $(c_{n})$ Teilfolgen von $(a_{n})$. Es gilt $b_{n}=a_{2n}$ und $c_{n}=a_{n^{2}}$, das heißt es gibt eine Folge $(k_{n})_{n\in\N}$ natürlicher Zahlen $k_{n}\in\N$ mit $k_{1}<k_{2}<k_{3}<\ldots$ so, daß $b_{n}=a_{k_{n}}$ gilt. Hierbei wäre $k_{n}=2n$ und analog für $c_{n}=a_{k_{n}}$ mit $k_{n}=n^{2}$.
+\stopbsp
+\startdefn
+Sei $(a_{n})_{n\in\N}$ eine Folge reeller Zahlen und $(k_{n})_{n\in\N}$ eine Folge natürlicher Zahlen mit $k_{1}<k_{2}<k_{3}<\ldots$, dann heißt die Folge $(b_{n})$ mit $b_{n}:=a_{k_{n}}$ eine Teilfolge von $(a_{n})$.
+\stopdefn
+\startdefn
+\startitemize[r]
+\item $(a_{n})$ heißt nach oben beschränkt, falls $\exists c\in\R\,\forall n\in\N:a_{n}\leq c$.
+\item $(a_{n})$ heißt nach unten beschränkt, falls $\exists d\in\R\,\forall n\in\N:a_{n}\geq d$.
+\item $(a_{n})$ heißt monoton steigend, falls $\forall n\in\N: a_{n}\leq a_{n+1}$.
+\item $(a_{n})$ heißt monoton fallend, falls $\forall n\in\N: a_{n}\geq a_{n+1}$.
+\stopitemize
+\stopdefn
+\startbsp
+\startitemize[m]
+\item $(2n+1)_{n\in\N_{0}}=\left\{1,2,5,7,9,\ldots\right\}$ ist monoton steigend und nicht nach oben beschränkt.
+\item $\left(1-\frac{1}{n}\right)=\left\{0,\frac{1}{2},\frac{2}{3},\frac{3}{4},\ldots\right\}$ ist monoton steigend und nach oben beschränkt.
+\stopitemize
+\stopbsp
+\startbsp für das Verhalten von Folgen
+\startbuffer[folg2]
+1	-1.5
+2	0.75
+3	-0.5
+4	0.375
+5	-0.3
+6	0.25
+7	-0.214285714285714
+8	0.1875
+9	-0.166666666666667
+10	0.15
+\stopbuffer
+\savebuffer[folg2][data/folg2.d]
+\startbuffer[folg3]
+0	0
+1	0.3
+2	0.6
+3	0.9
+4	1.2
+5	1.5
+6	1.8
+7	2.1
+8	2.4
+9	2.7
+10	3
+\stopbuffer
+\savebuffer[folg3][data/folg3.d]
+\startbuffer[folg4]
+1	-1.5
+2	1.125
+3	-1
+4	0.9375
+5	-0.9
+6	0.875
+7	-0.857142857142857
+8	0.84375
+9	-0.833333333333333
+10	0.825
+\stopbuffer
+\savebuffer[folg4][data/folg4.d]
+\placefigure[here][fig:bsp-folg]{Beispiele für Folgen}{
+\startcombination[2*2]
+{\starttikzpicture[x=.5cm,only marks]
+	\draw plot[mark=*] file {data/folg1.d};
+	\draw[->] (0,0) -- coordinate (x axis mid) (11,0);
+	\draw[->] (0,0) -- coordinate (y axis mid)(0,3.4);
+	\foreach \x/\xtext in {0/0,0.5/1,1/2,1.5/3,2/4,2.5/5,3/6,3.5/7,4/8,4.5/9,5/10}
+	        \draw (\x cm,1pt) -- (\x cm,-3pt) node[anchor=north] {$\xtext$};
+	\foreach \y/\ytext in {0/0,0.75/0.25,1.5/0.5,2.25/0.75,3/1}
+		\draw (1pt,\y cm) -- (-3pt,\y cm) node[anchor=east] {$\ytext$};
+	\node[below=1cm] at (x axis mid) {$\N$};
+	\node[left=1cm,rotate=90] at (y axis mid) {$\R$};
+\stoptikzpicture
+} {$a_{n}=\frac{1}{n}$} 
+{\starttikzpicture[x=.5cm,only marks]
+	\draw plot[mark=*] file {data/folg2.d};
+	\draw[->] (0,0) -- coordinate (x axis mid) (11,0);
+	\draw[->] (0,-1.7) -- coordinate (y axis mid)(0,1.7);
+	\foreach \x/\xtext in {0/0,0.5/1,1/2,1.5/3,2/4,2.5/5,3/6,3.5/7,4/8,4.5/9,5/10}
+	        \draw (\x cm,1pt) -- (\x cm,-3pt) node[anchor=north] {$\xtext$};
+	\foreach \y/\ytext in {-1.5/-1,-0.75/-0.5,0/0,0.75/0.5,1.5/1}
+		\draw (1pt,\y cm) -- (-3pt,\y cm) node[anchor=east] {$\ytext$};
+	\node[below=2cm] at (x axis mid) {$\N$};
+	\node[left=1cm,rotate=90] at (y axis mid) {$\R$};
+\stoptikzpicture
+} {$b_{n}=(-1)^{n}\cdot\frac{1}{n}$}
+{\starttikzpicture[x=.5cm,only marks]
+	\draw plot[mark=*] file {data/folg3.d};
+	\draw[->] (0,0) -- coordinate (x axis mid) (11,0);
+	\draw[->] (0,0) -- coordinate (y axis mid)(0,3.4);
+	\foreach \x/\xtext in {0/0,0.5/1,1/2,1.5/3,2/4,2.5/5,3/6,3.5/7,4/8,4.5/9,5/10}
+	        \draw (\x cm,1pt) -- (\x cm,-3pt) node[anchor=north] {$\xtext$};
+	\foreach \y/\ytext in {0/0,0.75/5,1.5/10,2.25/15,3/20}
+		\draw (1pt,\y cm) -- (-3pt,\y cm) node[anchor=east] {$\ytext$};
+	\node[below=1cm] at (x axis mid) {$\N$};
+	\node[left=1cm,rotate=90] at (y axis mid) {$\R$};
+\stoptikzpicture
+} {$c_{n}=2\cdot n$} 
+{\starttikzpicture[x=.5cm,only marks]
+	\draw plot[mark=*] file {data/folg4.d};
+	\draw[->] (0,0) -- coordinate (x axis mid) (11,0);
+	\draw[->] (0,-1.7) -- coordinate (y axis mid)(0,1.7);
+	\foreach \x/\xtext in {0/0,0.5/1,1/2,1.5/3,2/4,2.5/5,3/6,3.5/7,4/8,4.5/9,5/10}
+	        \draw (\x cm,1pt) -- (\x cm,-3pt) node[anchor=north] {$\xtext$};
+	\foreach \y/\ytext in {-1.5/-2,-0.75/-1,0/0,0.75/1,1.5/2}
+		\draw (1pt,\y cm) -- (-3pt,\y cm) node[anchor=east] {$\ytext$};
+	\node[below=2cm] at (x axis mid) {$\N$};
+	\node[left=1cm,rotate=90] at (y axis mid) {$\R$};
+\stoptikzpicture
+} {$d_{n}=(-1)^{n}\cdot\left(1+\frac{1}{n}\right)$}
+\stopcombination
+}
+Wir werden in Kürze davon sprechen, das die Folgen $(a_{n})$ und $(b_{n})$ konvergent und $(c_{n})$ und $(d_{n})$ divergent sind. "Konvergenz" wird in diesem zusammenhang bedeuten, daß der Abstand zum Wert "0" beliebig klein wird, wenn nur $n$ genügend groß ist. Als Beobachtung können wir festhalten, daß
+\startitemize[m]
+\item der Abstand der Folgeglieder $a_{n}$ zum Wert "$0$" beliebig klein wird, wenn n genügend groß ist,
+\item das selbe für die Folge $(b_{n})$ gilt,
+\item die Folge $(c_{n})$ unbeschränkt ist und
+\item die Folge $(d_{n})$ beschränkt ist und die Beträge $\abs{d_{n}}$ monoton fallend sind, dennoch wird sich die Folge als nicht konvergent erweisen.
+\stopitemize
+\stopbsp
+\subsection[ssec:limits-folg]{Grenzwerte von Folgen}
+Sei $(a_{n})$ eine Folge mit $a\in\R$
+\startdefn
+$(a_{n})$ konvergiert gegen $a$, falls zu jedem $\varepsilon>0$ ein Index $N\in\N$ existiert mit $\abs{a_{n}-a}<\varepsilon\,\forall n\geq N$, das heißt $\forall \varepsilon>0\,\exists N\in\N\,\forall n\geq N:\,\abs{a_{n}-a}<\varepsilon$.\\
+In Zeichen schreibt man $a_{n}\xrightarrow{n\to\infty}{}a$.\\
+$(a_{n})$ heißt konvergent, falls ein $a\in\R$ existiert mit $a_{n}\to a$, ansonsten heißt sie divergent.\\
+Dieses läßt sich sehr gut in \in{Figure}[fig:bsp-folg] verdeutlichen.
+\placefigure[here][fig:bsp-folg]{Veranschaulichung Konvergenz}{
+\startbuffer[folg5]
+1	0.10000000000000
+2	4.00000000000000
+3	0.66666666666667
+4	3.00000000000000
+5	1.20000000000000
+6	2.66666666666667
+7	1.42857142857143
+8	2.40000000000000
+9	1.60000000000000
+10	2.30000000000000
+11	1.80000000000000
+\stopbuffer
+\savebuffer[folg5][data/folg5.d]
+\starttikzpicture
+	\draw[->] (0,0) --coordinate (x axis mid) (11.4,0);
+	\draw[->] (0,0) --coordinate (y axis mid) (0,4.1);
+	\foreach \x/\xtext in {4/N,8/N'}
+	        \draw (\x cm,1pt) -- (\x cm,-3pt) node[anchor=north] {$\xtext$};
+	\foreach \y/\ytext in {1/a-\varepsilon,1.5/a-\varepsilon',2/a,2.5/a+\varepsilon',3/a+\varepsilon}
+		\draw (1pt,\y cm) -- (-3pt,\y cm) node[anchor=east] {$\ytext$};
+	\fill[red!20!white] (4,1) rectangle (11.4,3);
+	\fill[green!20!white] (8,1.5) rectangle (11.4,2.5);
+	\draw[dashed] (0,1) -- (11.4,1);
+	\draw[dashed] (0,1.5) -- (11.4,1.5);
+	\draw[dashed] (0,2.5) -- (11.4,2.5);
+	\draw[dashed] (0,3) -- (11.4,3);
+	\draw[dashed] (4,0) -- (4,4);
+	\draw[dashed] (8,0) -- (8,4);
+	\draw[only marks] plot[mark=*] file {data/folg5.d};
+	\draw[red] (0,2) -- (11.4,2);
+	\draw[->] (8.1,5) node[fill=green!20!white, draw=white!20!black, right,text width=6.3cm] {Komplette Folge muß hier verlaufen, dies muss für jedes noch so kleine $\varepsilon$ gelten.} -- (9.5,2.3) node {};
+\stoptikzpicture
+}
+$a_{n}\to a\quad\Leftrightarrow\quad$Für jedes $\varepsilon>0$ liegen fast alle Folgenglieder in der $\varepsilon$-Umgebung von $a$, dabei meint "fast alle" das gleiche wie "alle bis auf endlich viele". Für die $\varepsilon$-Umgebung von $a$ schreiben wir $U_{\varepsilon}(a):=(a-\varepsilon,a+\varepsilon)$.
+\stopdefn
+\startbsp
+\startitemize[m]
+\item $\frac{1}{n}\to 0$
+\startproof
+Sei $\varepsilon>0$ gegeben, dann existiert nach (A3) ein $N\in\N$ mit
+\placeformula[eq:eps1]
+\startformula
+N>\frac{1}{\varepsilon}
+\stopformula
+Dann gilt für $n\geq N$
+\startformula
+\abs{\frac{1}{n}-0}=\frac{1}{n}\leq\frac{1}{N}\stackrelo{<}{\text{(\in[eq:eps1])}}\varepsilon
+\stopformula
+\stopproof
+\item $\underbrace{\left(\left(-1)\right)^{n}\right)_{n\in\N}}_{a_{n}}$ ist divergent.
+\startproof
+Annahme: $\exists a\in\R:\,a_{n}\to a$\\
+Dann gilt für $\varepsilon=\frac{1}{2}$, das fast alle Folgenglieder in $U_{\frac{1}{2}}(a)$ liegen, aber aus $1\in U_{\frac{1}{2}}(a)\Rightarrow -1\not\in U_{\frac{1}{2}}(a)$ \lightning{} damit ist die Annahme falsch und es folgt die Behauptung.
+\stopproof
+\item Spezialfälle:\\
+$(a_{n})$ heißt Nullfolge, falls $a_{n}\to 0$ gilt, das heißt $\forall \varepsilon >0\, \exists N\in\N\, \forall n\geq N:\, \abs{a_{n}}<\varepsilon$.
+\stopitemize
+\stopbsp
+\startbem
+Wenn $a_{n}\to a$ konvergiert, dann ist $(a_{n}-a)$ eine Nullfolge.
+\stopbem
+\underbar{\bf Behauptung} gilt
+\startformula
+\startmathmatrix[left={\left.\,},right={\,\right\}},n=1]
+\NC a_{n}\to a\NR
+\NC a_{n}\to b
+\stopmathmatrix\Rightarrow a=b
+\stopformula
+Man nennt $a$ in diesem Fall den Grenzwert der Folge $(a_{n})$ und schreibt
+\startformula
+a=\lim\limits_{n\to\infty}a_{n}
+\stopformula
+\startproof der Behauptung:\\
+Annahme: $a\neq b$, dann sei $\varepsilon:=\frac{\abs{a-b}}{2}>0$, dann liegen aber fast alle Folgenglieder in $U_{\varepsilon}(a):=(a-\varepsilon,a+\varepsilon)$ und in $U_{\varepsilon}(b):=(b-\varepsilon,b+\varepsilon)$, aber $U_{\varepsilon}(a)\cap U_{\varepsilon}(b)=\emptyset$ \lightning{}, also war unsere Annahme falsch und somit gilt unsere Behauptung $a=b$.
+\stopproof
+\startproof Alternative Version zu obiger Behauptung:\\
+zu $\varepsilon:=\frac{\abs{a-b}}{2}\,\exists N\in\N:\, \forall n\geq N:\abs{a_{n}-a}<\varepsilon$ und $\exists N'\in\N\, \forall n\geq N':\abs{a_{n}-b}<\varepsilon$, aber: $2\varepsilon=\abs{a-b}=\abs{(a-a_{n})+(a_{n}-b)}\leq\abs{a_{n}-a}+\abs{a_{n}-b}<\varepsilon+\varepsilon=2\varepsilon$ \lightning{} $\Rightarrow$ Behauptung
+\stopproof
+\warning{} Beachten Sie bitte die folgenden exemplarischen Beispiele:
+\startitemize[m]
+\item Die Folge $\left(1,\frac{1}{2},1\frac{1}{3},1\frac{1}{4},1,\frac{1}{5},\ldots\right)$ konvergiert nicht gegen 0, obwohl die Folgenglieder beliebig nahe an 0 herankommen, jedoch konvergiert eine Teilfolge gegen 0.
+\item Ist $(a_{n}-a)$ monoton fallend, so muß nicht $a_{n}\to a$ gelten.
+\startbsp
+Sei $a_{n}=2+\frac{1}{n}$, $a=1$ so ist $a_{n}-a=1+\frac{1}{n}$.
+\stopbsp
+\stopitemize
+\startlemma\index{Bernoulli Ungleichung}\index{Ungleichung+Bernoulli}Bernoulli Ungleichung\\
+Für $x\geq -1$ und $n\in\N$ gilt
+\startformula
+(1+x)^{n}\geq 1+nx
+\stopformula
+\stoplemma
+\startproof mittels Induktion nach n\\
+\startdescr{IA} $n=1$ gilt
+\stopdescr
+\startdescr{IV} Die Aussage gelte bereits für beliebiges $n$.
+\stopdescr
+\startdescr{IS} Aus $n$ folgt $n+1$:
+\startformula
+\startalign
+(1+x)^{n+1}=&\underbrace{(1+x)^{n}}_{\stackrelo{\geq}{IV}1+nx}\cdot\underbrace{(1+x)}_{\geq 0}\cr
+\geq&(1+nx)(1+x)\cr
+=&1+(n+1)x+\underbrace{nx^{2}}_{\geq0}\cr
+\geq&1+(n+1)x
+\stopalign
+\stopformula
+\stopdescr
+\stopproof
+Behauptung: Für $q\in\R$ gilt
+\startitemize[r]
+\item $\abs{q}<1\quad\Rightarrow\quad\lim\limits_{n\to\infty}q^{n}=0$
+\item $\abs{q}\geq 1\quad\Rightarrow\quad (q^{n})_{n\in\N}$ ist divergent.
+\stopitemize
+\startproof
+\startitemize[r]
+\item $q=0$ ist klar, für $q\neq 0$ und $\abs{q}<1$ gilt $\frac{1}{\abs{q}}>1$\\
+$\Rightarrow\exists x>0:\frac{1}{\abs{q}}=1+x$. Sei nun ein $\varepsilon>0$ gegeben, so ist\\
+\startformula
+\abs{q^{n}-0}=\abs{q^{n}}=\abs{q}^{n}=\frac{1}{(1+x)^{n}}\leq\frac{1}{1+nx}\leq\frac{1}{nx}
+\stopformula
+Man wählt nun $N\in\N$ mit $N>\frac{1}{\varepsilon x}$, dann ist für $n\geq N$
+\startformula
+\frac{1}{nx}\leq\frac{1}{Nx}\leq\varepsilon
+\stopformula
+also ist $\abs{q^{n}-0}<\varepsilon$.
+\item Analog zu vorherigem Teil
+\stopitemize
+\stopproof
+\subsection[ssec:calculus-conv-folg]{Rechnen mit konvergenten Folgen}
+Seien $(a_{n})$ und $(b_{n})$ Folgen.
+\startsatz
+Falls $(a_{n})$ und $(b_{n})$ konvergent sind, dann sind auch $(a_{n}+b_{n})$ und $(a_{n}-b_{n})$ konvergent und es gilt
+\startformula
+\startalign
+\lim\limits_{n\to\infty}a_{n}+b_{n}&=\lim\limits_{n\to\infty}a_{n}+\lim\limits_{n\to\infty}b_{n}\cr
+\lim\limits_{n\to\infty}a_{n}-b_{n}&=\lim\limits_{n\to\infty}a_{n}-\lim\limits_{n\to\infty}b_{n}
+\stopalign
+\stopformula
+\stopsatz
+\startproof
+Sei $\varepsilon>0$ gegeben und $a:=\lim\limits_{n\to\infty}a_{n}$ sowie $b:=\lim\limits_{n\to\infty}b_{n}$.
+\startitemize[r]
+\item $\exists N_{1}\in\N\,\forall n\geq N_{1}:\,\abs{a_{n}-a}<\frac{\varepsilon}{2}$\\
+$\exists N_{2}\in\N\,\forall n\geq N_{2}:\,\abs{b_{n}-b}<\frac{\varepsilon}{2}$\\
+Man wählt nun $N:=\max\{N_{1},N_{2}\}$, dann gilt für $n\geq N$
+\startformula
+\abs{(a_{n}+b_{n})-(a+b)}\leq\abs{a_{n}-a}+\abs{b_{n}-b}<\frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon
+\stopformula
+\item Es gilt
+\placeformula[eq:proof:calc:folgen:1]
+\startformula
+\abs{a_{n}b_{n}-ab}=\abs{a_{n}(b_{n}-b)+b(a_{n}-a)}\leq\abs{a_{n}}\cdot\abs{b_{n}-b}+\abs{b}\cdot\abs{a_{n}-a}
+\stopformula
+$\exists N_{1}\in\N\,\forall n\geq N_{1}: \abs{a_{n}-a}<\frac{\varepsilon}{2\abs{b}}$ und $\abs{a_{n}-a}<1$\\
+$\exists N_{2}\in\N\,\forall n\geq N_{2}: \abs{b_{n}-b}<\frac{\varepsilon}{2(1+\abs{a})}$\\
+Dann wählt man erneut $N:=\max\{N_{1},N_{2}\}$ und es gilt für $n\geq N$
+\startformula
+\abs{a_{n}}=\abs{a-a_{n}-a}\leq\abs{a-a_{n}}+\abs{a}\leq 1+\abs{a}
+\stopformula
+Nach Gleichung (\in[eq:proof:calc:folgen:1]) folgt dann:
+\startformula
+\abs{a_{n}b_{n}-ab}<(1+\abs{a_{n}})\frac{\varepsilon}{2(1+\abs{a_{n}})}+\abs{b}\cdot\frac{\varepsilon}{2\abs{b}}\leq\frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon
+\stopformula
+\stopitemize
+\stopproof
+\warning{} Es kann vereinzelt vorkommen, daß $(a_{n}+b_{n})$ und $(a_{n}-b_{n})$ konvergent sind, obwohl $(a_{n})$ und/oder $(b_{n})$ nicht konvergent sind.
+\startbsp
+$0=\lim(0)=(-1)^{n}+(-1)^{n+1}$, definiert man nun: $a_{n}=(-1)^{n}$ und $b_{n}=(-1)^{n+1}$ so konvergieren $(a_{n})$ und $(b_{n})$ nicht. Weiterhin gilt $a_{n}-b_{n}=-1$, damit konvergiert sie gegen $-1$ obwohl die $(a_{n})$ und $(b_{n})$ nicht konvergieren.
+\stopbsp
+Die Folge $\left(\frac{1}{a_{n}}\right)_{n\in\N}$ ist konvergent, wenn gilt:
+\startformula
+\lim\limits_{n\to\infty}\frac{1}{a_{n}}=\frac{1}{\lim\limits_{n\to\infty}a_{n}}
+\stopformula
+\startproof
+Sei $a:=\lim\limits_{n\to\infty}a_{n}$, so $\exists N\in\N\, \forall n\geq N:\abs{a_{n}-a}<\frac{\abs{a}}{2}$, dann ist für $n\geq N\,\abs{a_{n}}>\frac{\abs{a}}{2}>0$. Sei $\varepsilon >0$ so gilt:
+\placeformula
+\startformula
+\startalign
+\NC\abs{\frac{1}{a_{n}}-\frac{1}{a}}=\NC\abs{\frac{a-a_{n}}{a_{n}a}}=\frac{1}{\abs{a_{n}}\cdot\abs{a}}\cdot\abs{a_{n}-a}\NR
+\NC\stackrelo{\geq}{\forall n\geq N}\NC\frac{2}{\abs{a}^{2}}\cdot\abs{a_{n}-a}\NR[eq:calc:folgen:2]
+\stopalign
+\stopformula
+Dann $\exists N'\in\N\,\forall n\geq N':\abs{a_{n}-a}<\varepsilon\frac{\abs{a}^{2}}{2}$. damit sit für $n\geq N'$ Gleichung (\in[eq:calc:folgen:2])$<\varepsilon$ und damit auch $\abs{\frac{1}{a_{n}}-\frac{1}{a}}<\varepsilon$ für $n\geq\max\{N,N'\}$.
+\stopproof
+\startbsp
+Sei $a_{n}:=\frac{2n^{2}+n}{n^{2}-1}=\frac{\not{n^{2}}\left(2+\frac{1}{n}\right)}{\not{n^{2}}\left(1-\frac{1}{n^{2}}\right)}$, gesucht wird der $\lim\limits_{n\to\infty}a_{n}$ falls existent. Als Lösung ergibt sich
+\startformula
+\lim\limits_{n\to\infty}a_{n}=\frac{\lim\limits_{n\to\infty}2+\frac{1}{n}}{\lim\limits_{n\to\infty}1-\frac{1}{n^{2}}}\to\frac{2}{1}
+\stopformula
+also ist $\lim\limits_{n\to\infty}a_{n}=2$.
+\stopbsp
+\startsatz
+Seien $(a_{n})$ und $(b_{n})$ konvergent und $a_{n}\leq b_{n}\,\forall n\in\N$, dann gilt
+\startformula
+\lim\limits_{n\to\infty}a_{n}\leq\lim\limits_{n\to\infty}b_{n}
+\stopformula
+\stopsatz
+\startproof
+Sei $a:=\lim\limits_{n\to\infty}a_{n}$ und $b:=\lim\limits_{n\to\infty}b_{n}$. Annahme: $a>b$, das heißt $\varepsilon:=\frac{a-b}{2}>0$, dann existiert ein $N_{1}\in\N$ so daß für alle $n\geq N_{1}$ gilt $\abs{a_{n}-a}<\varepsilon$ und es existiert ein $N_{2}\in\N$ so daß für alle $n\geq N_{2}$ gilt $\abs{b_{n}-b}<\varepsilon$. Für $n\geq\max\{N_{1},N_{2}\}$ gilt dann
+\startformula
+\startmathmatrix[n=1,left={\left.\,},right={\,\right\}}]
+\NC a_{n}>a-\varepsilon=(2\varepsilon+b)-\varepsilon=b+\varepsilon\NR
+\NC b_{n}<b+\varepsilon
+\stopmathmatrix \Rightarrow\, a_{n}>b_{n}
+\stopformula
+Dies ist aber ein Widerspruch und unsere Annahme ist falsch, damit folgt dann die Behauptung.
+\stopproof
+\warning{} Aus $a_{n}<b_{n}\,\forall n\in\N$ folgt im Allgemeinen nicht $\lim\limits_{n\to\infty}a_{n}<\lim\limits_{n\to\infty}b_{n}$ Als Gegenbeispiel sei hier 0\leftarrow-\frac{1}{n}<\frac{1}{n}\rightarrow0$, aber \lim\left(-\frac{1}{n}\right)=\lim\left(\frac{1}{n}\right)$.
+\subsection[ssec:inf-sup:folg]{Infimum und Supremum von Folgen}
+\startsatz
+Sei $(a_{n})$ eine monoton steigende und nach oben beschränkte Folge, dann ist $(a_{n})$ konvergent und $\lim\limits_{n\to\infty}(a_{n})=\sup\{a_{n}\mid\, n\in\N\}$.
+\stopsatz
+\startproof
+Sei $M:=\{a_{n}\mid\,n\in\N\}$. Aus $M$ nach oben beschränkt folgt nach (V) das $s:=\sup(M)$ existiert. Sei $\varepsilon>0$, dann existiert ein $N\in\N:s-\varepsilon<a_{n}$. Aus $a_{N}\leq a_{n}\leq s$ folgt daher für $n\geq N$ die Monotonie: $\abs{a_{n}-s}=s-a_{n}\leq s-a_{N}<\varepsilon$.
+\stopproof
+Analog wird definiert:
+\startsatz
+Sei $a_{n}$ eine monoton fallende und nach unten beschränkte Folge, dann ist $(a_{n})$ konvergent und $\lim\limits_{n\to\infty}(a_{n})=\inf\{a_{n}\mid\,n\in\N\}$.
+\stopsatz
+\startbem
+Dies folgt direkt zum Beispiel mit folgenden Betrachtungen:
+\startitemize[m]
+\item $(a_{n})$ monoton fallend $\Leftrightarrow\,(-a_{n})$ monoton steigend.
+\item $(a_{n})$ nach unten beschränkt $\Leftrightarrow\,(-a_{n})$ nach oben beschränkt
+\item $t:=\inf\{a_{n}\mid\,n\in\N\}\,\Leftrightarrow\, -t=\sup\{-a_{n}\mid\,n\in\N\}$.
+\stopitemize
+\stopbem
+\subsection[ssec:haeufung:werte:folg]{Häufungswerte von Folgen}
+Sei $(a_{n})$ eine Folge
+\startdefn
+$h\in\R$ heißt Häufungspunkt von $(a_{n})$, falls in jeder $\varepsilon$-Umgebung $U_{\varepsilon}(h)$ $\infty$-viele Folgenglieder liegen, das heißt falls $a_{n}\in U_{\varepsilon}(h)$ für $\infty$-viele $n\in\N$ gilt.\\
+Es darf auch passieren, daß endliche viele außerhalb liegen.\inmargin{\startcolor[bordeauxred]$\infty$-viele?\stopcolor}
+\stopdefn
+\startbsp
+\startitemize[m]
+\item $((-1)^{n})$ hat die Häufungspunkte $1$ und $-1$.
+\item $a_{n}=\startcases \NC 1 \NC, if n even\NR
+\NC \frac{1}{n}\NC, if n odd\stopcases$, hat die Häufungspunkte $0$ und $1$.
+\item $(a_{n})$ konvergent $\Rightarrow\,\lim\limits_{n\to\infty}a_{n}$ ist der einzige Häufungspunkt.
+\stopitemize
+\stopbsp
+\startsatz
+$h$ ist Häufungspunkt von $(a_{n})_{n\in\N}\,\Leftrightarrow\,(a_{n})_{n\in\N}$ eine Teilfolge $(a_{k_{n}})_{n\in\N}$ besitzt, die gegen $h$ konvergiert.
+\stopsatz
+\startproof
+\startitemize
+\sym {$\Leftarrow$} Sei $\varepsilon>0$, dann liegen in $U_{\varepsilon}(h)$ fast alle Glieder von $(a_{k_{n}})$ nach Definition der Konvergenz, danach folgt das in $U_{\varepsilon}(h)\, \infty$-viele Glieder von $(a_{n})$ liegen.
+\sym {$\Rightarrow$} $\exists k_{1}\in\N:\, a_{k_{1}}\in U_{1}(h)$\\
+$\exists k_{2}>k_{1}:\, a_{k_{2}}\in U_{\frac{1}{2}}(h)$\\
+$\exists k_{3}>k_{2}:\, a_{k_{3}}\in U_{\frac{1}{3}}(h)$\\
+$\vdots$\\
+$\exists k_{n}>k_{n-1}:\, a_{k_{n}}\in U_{\frac{1}{n}}(h)$\\
+damit existiert eine Teilfolge $(a_{k_{n}})$ mit $a_{k_{n}}\xrightarrow{n\to\infty}{} h$.
+\stopitemize
+\stopproof
+\subsection[ssec:satz:balzano-weierstrass]{Der Satz von Bolzano-Weierstraß}
+\startsatz
+Jede nach oben und unten beschränkte Folge in $\R$ hat einen Häufungspunkt in $\R$ oder besitzt eine konvergente Teilfolge, egal wie häßlich diese auch sein mag.
+\stopsatz
+\startproof
+\startitemize[m]
+\item Sei $(a_{n})$ beschränkt, das heißt $-s\leq a_{n}\leq s\,\forall n$. Für $n\in\N$ betrachtet man $s_{n}:=\sup\{a_{i}\mid\,i\geq n\}$. Das Supremum existiert nach (V). Es gilt: $s_{n}\geq s_{n+1}\,\forall n$ und $s_{n}\geq -s$, das heißt $(s_{n})$ monoton fallend und nach unten beschränkt, damit folgt daß $s_{n}\xrightarrow{n\to\infty}{}\inf\{s_{n}\mid\,n\in\N\}=:a$.
+\placefigure[here][fig:sup-folg]{Folge der Suprema \\ Startwerte werden immer neu gewählt}{
+\startbuffer[folg6]
+1	0.1
+1.1	3.2
+1.2	2.5
+1.3	3.9
+1.4	0.4
+1.5	0.8
+1.6	1.7
+1.7	3.4
+1.8	0.3
+1.9	2.8
+2	3.9
+2.1	0.1
+2.2	0.6
+2.3	1.7
+2.4	0.9
+2.5	0.4
+2.6	1.5
+2.7	1.9
+2.8	0.6
+2.9	2.1
+3	0.5
+5	0.4
+7	0.3
+\stopbuffer
+\savebuffer[folg6][data/folg6.d]
+\starttikzpicture
+	\draw[->] (0,0) --coordinate (x axis mid) (10.4,0);
+	\draw[->] (0,0) --coordinate (y axis mid) (0,4.1);
+	\foreach \x/\xtext in {3/n,5/n+1,7/n+2}
+	        \draw (\x cm,1pt) -- (\x cm,-3pt) node[anchor=north] {$\xtext$};
+	\draw[only marks] plot[mark=*] file {data/folg6.d};
+	\draw[->] (8.1,5) -- (3.1,4);
+	\draw[->] (8.1,5) -- (5.1,4);
+	\draw (3,0) -- (3,4.1);
+	\draw (5,0) -- (5,4.1);
+	\draw (7,0) -- (7,4.1);
+	\draw[->] (8.1,5) node[fill=white, draw=white!20!black, right,text width=6.3cm] {Komplette Folge muß hier verlaufen, dies muss für jedes noch so kleine $\varepsilon$ gelten.} -- (7.1,4) node {};
+\stoptikzpicture
+}
+\item Behauptung $a$ ist Häufungswert von $(a_{n})$. Sei $\varepsilon>0$ und $N\in\N$ gegeben, so zeigt man $\exists n\geq N:\, \abs{a_{n}-a}<\varepsilon\,a_{n}\in U_{\varepsilon}(a)$, das heißt das in $U_{\varepsilon}(a)$ unendlich viele Folgeglieder liegen.\\
+$\exists m\in\N:\, \abs{a-s_{m}}<\frac{\varepsilon}{2}$, denn $a\stackrelo{=}{1}\lim\limits_{n\to\infty}s_{n}$. Man kann nun $m\geq\N$ so wählen, daß $\exists n\geq m:\, \abs{s_{m}-a_{n}}<\frac{\varepsilon}{2}$, denn $s_{m}=\sup\{a_{i}\mid\, i\geq m\}$, daher gilt
+\startformula
+\abs{a-a_{n}}=\abs{a-s_{m}+s_{m}-a_{n}}\leq\abs{a-s_{m}}+\abs{s_{m}-a_{n}}<\frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon.
+\stopformula
+\stopitemize
+\stopproof
+Weiterhin können wir sagen das $a:=\lim\limits_{n\to\infty}\underbrace{\left(\sup\{a_{i}\mid\, i\geq n\}\right)}_{:=s_{n}}$ der größte Häufungswert von $(a_{n})$ ist.
+\startproof
+Annahme: $a'$ ist Häufungspunkt von $(a_{n})$ und $a<a'$. Man wählt nun $\delta>0$ mit $a<a'-\delta$. Für unendlich viele Folgeglieder $a_{n}$ gilt $a_{n}\in U_{\varepsilon}(a')$, also $a'-\delta\leq a_{n}$ für diese $n$. Damit ist $\sup\{a_{i}\mid\, i\geq n\}\geq a'-\delta$ und weiterhin $a\geq a'-\delta$ \lightning{} Damit ist unsere Annahme falsch gewesen und es folgt die Behauptung.
+\stopproof
+\startdefn
+Für eine beschränkte Folge $(a_{n})$ heißt
+\startformula
+\limsup\limits_{n\to\infty}a_{n}:=\lim\limits_{n\to\infty}\left(\sup\{a_{i}\mid\,i\geq n\}\right)=\text{größter Häufungspunkt von }(a_{n})
+\stopformula
+der Limers Superior von $(a_{n})$.
+\stopdefn
+\startbsp
+$\limsup\limits_{n\to\infty}(-1)^{n}=1$ der größte Häufungspunkt.
+\stopbsp
+\startdefn
+Für eine beschränkte Folge $(a_{n})$ heißt
+\startformula
+\liminf\limits_{n\to\infty}a_{n}:=\lim\limits_{n\to\infty}\left(\inf\{a_{i}\mid\,i\geq n\}\right)=\text{kleinste Häufungswert von }(a_{n})
+\stopformula
+Limes Inferior von $(a_{n})$.
+\stopdefn
+\startbsp
+$\liminf\limits_{n\to\infty}(-1)^{n}=-1$
+\stopbsp
+\subsection[ssec:calc:sqrt]{Berechnung von Quadratwurzeln}
+Im folgenden ist $b\in\R^{+}$ gegeben.
+\startfrage
+Wie berechnet man gute Näherungswerte für $\sqrt{b}$?
+\stopfrage
+Man definiert rekursiv eine Folge $(a_{n})_{n\in\N_{0}}$ durch\\
+\placeformula
+\startformula
+\startalign
+\NC a_{0}\in\R^{+}\text{ beliebig,}\NR
+\NC a_{n+1}:=\frac{1}{2}\left(a_{n}+\frac{b}{a_{n}}\right)\NR[eq:babyl:folg]
+\stopalign
+\stopformula
+Diese Rekursive Definition wird auch die Babylonische Folge genannt.
+\startbsp
+Sei $b=2$ und $a_{0}=1$, dann ist:
+\startformula
+\startalign
+\NC a_{1}=\NC \frac{1}{2}\left(1+\frac{2}{1}\right)=\frac{3}{2}=1.5\NR
+\NC a_{2}=\NC \frac{1}{2}\left(\frac{3}{2}+\frac{2}{\frac{3}{2}}\right)=\frac{17}{12}=1.416\ldots\NR
+\NC a_{3}=\NC \frac{1}{2}\left(\frac{17}{12}+\frac{2}{\frac{17}{12}}\right)=\frac{577}{408}=1.41425\ldots\NR
+\NC \vdots\NC \NR
+\stopalign
+\stopformula
+\stopbsp
+\startsatz
+Für jeden Startwert $a_{0}$ konvergiert die durch \in{Gleichung (}{)}[eq:babyl:folg] definierte Folge $(a_{n})$ gegen $\sqrt{b}$.
+\stopsatz
+\startproof
+\startitemize[r]
+\item Es gilt $a_{n}>0\,\forall n\in\N$ Induktion nach $n$
+\item Es gilt $a_{n}\geq\sqrt{b}\,\forall n\geq 1$, denn
+\startformula
+\startalign
+\NC a_{n}^{2}-b\stackrelo{=}{\text{\in{(}{)}[eq:babyl:folg]}}\NC\frac{1}{4}\left(a_{n-1}+\frac{b}{a_{n-1}}\right)^{2}-b\NR
+\NC =\NC\frac{1}{4}\left(a_{n-1}^{2}+2b+\frac{b^{2}}{a_{n-1}^{2}}\right)-b\NR
+\NC =\NC\frac{1}{4}\left(a_{n-1}-\frac{b}{a_{n-1}}\right)^{2}\geq0\NR
+\stopalign
+\stopformula
+also $a_{n}^{2}\geq b$ und damit $\underbrace{a_{n}}_{>0}\geq\sqrt{b}$.
+\item $a_{n+1}\leq a_{n}\,\forall n\geq 1$, denn:
+\startformula
+\startalign
+\NC a_{n}-a_{n+1}\stackrelo{=}{\text{\in{(}{)}[eq:babyl:folg]}}\NC a_{n}-\frac{1}{2}\left(a_{n}+\frac{b}{a_{n}}\right)\NR
+\NC =\NC \frac{1}{2\underbrace{a_{n}}_{>0\text{ n. i}}}\underbrace{\left(a_{n}^{2}-b\right)}_{\geq 0\text{ n. ii}}\NR
+\NC \geq\NC 0\NR
+\stopalign
+\stopformula
+\item Nach ii und iii ist $(a_{n})_{n\in\N}$ eine monoton fallende und nach unten beschränkte Folge, und damit folgt $(a_{n})$ konvergiert und $\lim\limits_{n\to\infty}a_{n}\geq\sqrt{b}>0$.
+\item Bestimmung von $\lim\limits_{n\to\infty}a_{n}$:
+\startformula
+\startalign
+\NC a:=\NC \lim\limits_{n\to\infty}a_{n}\NR
+\NC =\NC \lim\limits_{n\to\infty}\frac{1}{2}\left(a_{n-1}+\frac{b}{a_{n-1}}\right)\NR
+\NC \stackrelo{=}{\text{Regeln}}\NC \frac{1}{2}\underbrace{\left(\underbrace{\lim\limits_{n\to\infty}a_{n-1}}_{\text{existiert}}+\underbrace{\frac{b}{\lim\limits_{n\to\infty}a_{n+1}}}_{\text{existiert}}\right)}_{\text{existiert da }(a_{n})\text{ konvergent}}\NR
+\NC =\NC \frac{1}{2}\left(a+\frac{b}{a}\right)\NR
+\NC\Rightarrow a=\NC \frac{1}{2}\left(a+\frac{b}{a}\right)\NR
+\NC\Rightarrow a^{2}=\NC b
+\stopalign
+\stopformula
+das heißt $a=\sqrt{b}$. In dem mit Regeln überschriebenen Gleichheitsschritt erlaubt die Konvergenz diesen.
+\stopitemize
+\stopproof
+\subsection[ssec:cauchy:folg]{Cauchy Folgen}
+\startdefn
+Eine Folge $(a_{n})_{n\in\N}$ heißt Cauchy-Folge, falls zu jedem $\varepsilon>0$ ein Index $N\in\N$ existiert mit
+\startformula
+\abs{a_{n}-a_{m}}<\varepsilon\, \forall n,m\geq N
+\stopformula
+Mit anderen Worten:
+\startformula
+\underbrace{\text{Hinreichend späte}}_{\exists N\in\N}\text{ Folgenglieder haben }\underbrace{\text{beliebig }}_{\forall\varepsilon>0:}\underbrace{\text{kleinen Abstand}}_{\abs{a_{n}-a_{m}}<0\,\forall n,m\geq N}
+\stopformula
+\stopdefn
+\startfrage
+Was hat diese Bedingung mit Konvergenz zu tun?
+\stopfrage
+Beobachtungen:
+\startitemize[m]
+\item $(a_{n})$ konvergent $\Rightarrow\, (a_{n})$ ist Cauchy-Folge
+\startproof
+Sei $a:=\lim\limits_{n\to\infty}a_{n}$ und $\varepsilon>0$\\
+Es gilt:
+\placeformula
+\startformula
+\startalign
+\NC \abs{a_{n}-a_{m}}=\NC \abs{(a_{n}-a)+(a-a_{m})}\NR
+\NC \leq\NC \abs{a_{n}-a}+\abs{a-a_{m}}\NR[eq:cauchy:1]
+\stopalign
+\stopformula
+Da $(a_{n})$ konvergent ist gilt:
+\startformula
+\exists N\in\N\,\forall\, n\geq N:\, \abs{a_{n}-a}<\frac{\varepsilon}{2}
+\stopformula
+dann gilt für $n,m\geq N$ in Verbindung mit \in{Gleichung (}{)}[eq:cauchy:1]$\lneq\frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon$.
+\stopproof
+\item $(a_{n})$ Cauchy-Folge $\Rightarrow\, (a_{n})$ ist beschränkt
+\startproof
+Sei $(a_{n})$ Cauchy-Folge, dann existiert zu $\varepsilon:=1$ ein $N\in\N$ mit
+\startformula
+\abs{a_{n}-a_{m}}<1\, \forall n,m\geq N
+\stopformula
+Dann gilt für $n\geq N$
+\startformula
+\startalign
+\NC \abs{a_{n}}=\NC \abs{(a_{n}-a_{N})+a_{N}}\NR
+\NC \leq\NC \abs{a_{n}-a_{N}}+\abs{a_{N}}\NR
+\NC <\NC 1+\abs{a_{N}}\NR
+\stopalign
+\stopformula
+Also gilt für $n\geq 1$:
+\startformula
+\abs{a_{n}}\leq\max\{\abs{a_{1}},\ldots,\abs{a_{N-1}},1+\abs{a_{N}}\}
+\stopformula
+\stopproof
+\stopitemize
+\subsection[ssec:cauchy:crit]{Das Cauchy-Kriterium}
+
+\startSAGE
+n,z = var('n','z');
+p = 0.02;
+(1+p/2)**(2)
+(1+p/3)**(3)
+(1+p/12)**(12)
+a(n) = (1+p/n)**(n)
+b(n) = (1+z/n)**(n)
+limit(a(n),n=infinity)
+limit(b(n),n=infinity)
+for n in range(1,20,1):
+    (1+p/n)**(n)
+
+\stopSAGE
+
+\stoptext
+
+\stopcomponent
