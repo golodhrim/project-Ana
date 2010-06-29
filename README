@@ -1,1 +1,13 @@
 Source-Files in ConTeXt for Analysis I and II script
+
+The actual version needs the new vim module from Aditya that can be found in the git repo at
+
+	http://github.com/adityam/filter
+
+then replace the links
+
+* t-filter.tex
+* t-vim.tex
+* tests
+
+with the appropriate files/folders from the above git.
