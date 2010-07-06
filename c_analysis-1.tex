@@ -631,6 +631,128 @@ Also gilt für $n\geq 1$:
 \stopproof
 \stopitemize
 \subsection[ssec:cauchy:crit]{Das Cauchy-Kriterium}
+\startsatz
+Jede Cauchy-Folge ist konvergent.
+\stopsatz
+\startproof
+	Sei $(a_{n})$ eine Cauchy-Folge nach (2) folgt dann, das $(a_{n})$ beschränkt ist und mit Bolzano-Weierstraß gilt $(a_{n})$ hat dann einen Häufungswert $h$.\\
+	Man zeigt nun: $a_{n}\xrightarrow{n\to\infty}{}h$.\\
+	Sei $\varepsilon>0$ so $\exists N\in\N\, \forall n,m\geq N:\abs{a_{n}-a_{m}}<\frac{\varepsilon}{2}$ und $\exists m\geq N:\,\abs{a_{m}-h}<\frac{\varepsilon}{2}$.\\
+	Dann gilt auch für $n,m\geq N$
+	\startformula
+		\startalign
+			\NC\abs{a_{n}-h}=\NC\abs{(a_{n}-a_{m})+(a_{m}-h)}\NR
+			\NC\leq\NC\abs{a_{n}-a_{m}}+\abs{a_{m}-h}\NR
+			\NC <\NC \frac{\varepsilon}{2}+\frac{\varepsilon}{2}\NR
+			\NC =\NC \varepsilon\NR
+		\stopalign
+	\stopformula
+\stopproof
+\subsubsection[sssec:ausblick:cauchy]{Ausblick}
+Man hat das Cauchy-Kriterium letztlich aus dem Supremumsprinzip (V) abgeleitet.
+\startformula
+	\startmathmatrix[n=7]
+		\NC (V)\NC\Rightarrow\NC\text{Satz über monotone \&}\NC\Rightarrow\NC \text{Bolzano-Weierstraß}\NC\Rightarrow\NC\text{Cauchy-Kriterium}\NR
+		\NC    \NC           \NC\text{beschränkte Folgen}   \NC           \NC                          \NC           \NC                       
+	\stopmathmatrix
+\stopformula
+Aber es gilt sogar
+\startformula
+	\startmathmatrix[n=5]
+		\NC\text{Intervallschachtelungsprinzip}\NC\Leftrightarrow\NC (V)\NC\Leftrightarrow\NC\text{Cauchy-Kriterium}
+	\stopmathmatrix
+\stopformula
+Diese drei Aussagen sind äquivalent und man könnte die Vollständigkeit von $\R$ anstelle von (V) durch das Cauchy-Kriterium oder durch das Intervallschachtelungsprinzip ausdrücken.
+\subsection[ssec:best.divergenz]{Bestimmte Divergenz}
+\startbsp
+	$a_{n}=n^{2}+1$\\
+	$b_{n}=(-1)^{n}$\\
+	$c_{n}=(-1)^{n}\cdot(n^{2}+1)$\\
+	alle drei Folgen sind divergent, das heißt nicht konvergent, aber bei $(a_{n})$ liegt eine bestimmte Divergenz vor, denn sie wächst über alle Schranken.
+\stopbsp
+\startdefn
+	Eine Folge $(a_{n})$ heißt bestimmt divergent gegen $\infty$, falls zu jedem ${\cal G}\in\R$ ein $N\in\N$ existiert mit
+	\startformula
+		a_{n}\geq{\cal G}\quad\forall n\geq N
+	\stopformula
+	\placefigure[here][fig:best-div]{Bestimmte Divergenz}{
+		\starttikzpicture
+			\draw[->] (-2,0) --coordinate (x axis mid) (5,0);
+			\draw[->] (0,-0.2) --coordinate (y axis mid) (0,4.1);
+			\foreach \x/\xtext in {2/N}
+	    	    \draw (\x cm,1pt) -- (\x cm,-3pt) node[anchor=north] {$\xtext$};
+			\foreach \y/\ytext in {1.5/{\cal G}}
+				\draw (1pt,\y cm) -- (-3pt,\y cm) node[anchor=east] {$\ytext$};
+			\fill[green!20!white] (2,1.5) rectangle (5,4.1);
+			\draw[dashed] (0,1.5) -- (5,1.5);
+			\draw (2,0) -- (2,4.1);
+		\stoptikzpicture
+	}
+\stopdefn
+
+\startsatz
+Sei $(a_{n})$ eine Folge mit $a_{n}\to\infty$, dann gilt mit $a_{n}\neq 0$ für fast alle $n\in\N$
+\startformula
+\frac{1}{a_{n}}\xrightarrow{n\to\infty}{}0
+\stopformula
+\stopsatz
+\startproof
+	Zu ${\cal G}=1$ existiert ein $N\in\N$ mit $a_{n}\geq 1\,\forall n\geq N$.\\
+	Sei $\varepsilon>0$ gegeben, dann gilt: $\abs{\frac{1}{a_{n}}-0}=\frac{1}{a_{n}}$ für $n\geq N$.\\
+	Zu ${\cal G}=\frac{2}{\varepsilon}$ existiert nun ein $N'\in\N$ mit $a_{n}\geq\frac{2}{\varepsilon}\,\forall n\geq N'$, damit gilt dann für $n\geq N$ und $n\geq N'$
+	\startformula
+		\frac{1}{a_{n}}\leq\frac{\varepsilon}{2}<\varepsilon
+	\stopformula
+	Dies ist möglich, da alle Teile Positiv sind.
+\stopproof
+\startsatz
+Sei $(a_{n})$ eien Folge mit
+\startitemize
+\sym{} $a_{n}>0\,\forall n$ und
+\sym{} $a_{n}\to 0$,
+\stopitemize
+dann gilt
+\startformula
+\frac{1}{a_{n}}\to\infty
+\stopformula
+\stopsatz
+\startproof
+Sei ${\cal G}\in\R$ gegeben, \OE{} dürfen wir annehmen das ${\cal G}>0$ ist, dann gilt nach Vorraussetzung $a_{n}\to 0$, also existiert zu $\varepsilon:=\frac{1}{{\cal G}}$ ein $N\in\N$ mit
+\startformula
+a_{n}\xequal{}{a_{n}>0}\abs{a_{n}-0}<\varepsilon\,\text{für}\,n\geq N
+\stopformula
+Damit gilt dann für $n\geq N$
+\startformula
+\frac{1}{a_{n}}>\frac{1}{\varepsilon}={\cal G}
+\stopformula
+\stopproof
+Analog können Definitionen und Sätze für $a_{n}\to-\infty$ formuliert werden. Dies bleibt zur Übung offen.
+\section[sec:infty-rows]{Unendliche Reihen}
+\startfrage
+\startitemize[m]
+\item Wie kann man "unendliche Summen"
+	\startformula
+		a_{1}+a_{2}+a_{3}+a_{4}+\ldots
+	\stopformula
+	auffassen?
+	\startbsp
+		$1+\frac{1}{2}+\frac{1}{4}+\frac{1}{8}+\frac{1}{16}+\frac{1}{32}+\ldots$\\
+		$1+\frac{1}{2}+\frac{1}{3}+\frac{1}{4}+\frac{1}{4}+\frac{1}{5}+\ldots$
+	\stopbsp
+\item Kann man mit diesen "unendlichen Summen" rechnen?
+	\startbsp
+		\startformula
+			\startalign
+				\NC 0\xequal{}{?}\NC (1-1)+(1-1)+(1-1)+\ldots\NR
+				\NC\xequal{}{\text{Assoziativ}}\NC 1-(1-1)-(1-1)-(1-1)-\ldots\NR
+				\NC\xequal{}{?}\NC1-0-0-0-0-\ldots\NR
+				\NC\xequal{}{?}\NC 1\NR
+			\stopalign
+		\stopformula
+		Diese Behauptung beruht auf Guido Grandis und ist als die Schöpfung der Welt aus dem Nichts bekannt.
+	\stopbsp
+\stopitemize
+\stopfrage
 
 \startSAGE
 n,z = var('n','z');

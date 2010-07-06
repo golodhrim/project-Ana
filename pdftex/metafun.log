@@ -1,4 +1,4 @@
-This is MetaPost, version 1.211 (kpathsea version 6.0.0dev) (INIMP)  29 JUN 2010 23:20
+This is MetaPost, version 1.211 (kpathsea version 6.0.0dev) (INIMP)  6 JUL 2010 10:09
 **metafun
 (/opt/context-minimals/tex/texmf-context/metapost/context/base/metafun.mp (/opt/context-minimals/tex/texmf-context/metapost/context/base/mp-base.mp
 Preloading the plain mem file, version 0.63) (/opt/context-minimals/tex/texmf-context/metapost/context/base/mp-tool.mp) (/opt/context-minimals/tex/texmf-context/metapost/context/base/mp-spec.mp)
@@ -9,7 +9,7 @@ Preloading the plain mem file, version 0.63) (/opt/context-minimals/tex/texmf-co
 (/opt/context-minimals/tex/texmf-context/metapost/context/base/mp-form.mp (/opt/context-minimals/tex/texmf/metapost/base/string.mp) (/opt/context-minimals/tex/texmf/metapost/base/marith.mp (/opt/context-minimals/tex/texmf/metapost/base/string.mp))))
 (/opt/context-minimals/tex/texmf-context/metapost/context/base/mp-func.mp) )
 Beginning to dump on file metafun.mem
- (mem=metafun 2010.06.29)
-at most 2217 strings of total length 18109
+ (mem=metafun 2010.07.06)
+at most 2218 strings of total length 18110
 49974 memory locations dumped; current usage is 12883&36952
 1816 symbolic tokens

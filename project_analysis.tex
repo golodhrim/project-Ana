@@ -36,37 +36,6 @@
 This Document is set with \ConTeXt{}, using the MKIV branch\\
 Many thanks to Hans Hagen for developing so hard on \ConTeXt{} and \LuaTeX{} to providing such a great Document preparation system.
 \stopalignment
-\startitemize
-\item VCRevision = \VCRevision\ current (maximum) working copy revision number
-\item VCRevisionMod = \VCRevisionMod\ as VCRevision = \VCRevision, but with an additional note if the working copy contains modified files
-\item VCAuthor = \VCAuthor\ author of the last check-in operation
-\item VCDateRaw = \VCDateRAW\ date of last check-in in native format of the VCS software
-\item VCDateISO = \VCDateISO\ date of last check-in in ISO format YYYY-MM-DD
-\item VCDateTEX = \VCDateTEX\ date of last check-in in TeX format YYYY/MM/DD
-\item VCTime = \VCTime\ time of last check-in
-\item VCModifiedText = \VCModifiedText\ contains the note shown in macro VCRevisionMod = \VCRevisionMod\ if there were modified files.
-This macro can be redefined by the user.
-\item VCModified = \VCModified\ 0 if there are no modified files in the working copy directory; 1 or 2 if there are modified files.
-In general you don't need this macro.
-\stopitemize
-
-These macros can be called wherever appropriate. 
-
-Revision: \VCRevision ; Author: \VCAuthor ; Date: \VCDateISO
-
-\startitemize
-\item GITHash = \GITHash\ 40-hexdigit SHA1 commit hash
-\item GITAbrHash = \GITAbrHash\ abbreviated commit hash  
-\item GITParentHashes = \GITParentHashes\ parent hashes
-\item GITAbrParentHashes = \GITAbrParentHashes\ abbreviated parent hashes
-\item GITAuthorName = \GITAuthorName\ author name
-\item GITAuthorEmail = \GITAuthorEmail\ author email
-\item GITAuthorDate = \GITAuthorDate\ author date
-\item GITCommitterName = \GITCommitterName\ committer name
-\item GITCommitterEmail = \GITCommitterEmail\ committer e-mail
-\item GITCommitterDate = \GITCommitterDate\ committer date
-\stopitemize
-
 \stoptext
 \setupbackgrounds[page][background=]
 

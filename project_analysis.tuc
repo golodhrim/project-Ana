@@ -1,7 +1,7 @@
 -- version: 1.10
 -- file: project_analysis
 -- format: cont-en
--- stamp: 2010.06.23 12:45
+-- stamp: 2010.05.24 13:05
 -- escape: [===[ ... ]===]
 
 jobvariables = jobvariables or { }
@@ -25,10 +25,9 @@ jobpasses.collected={
   ["3"]=32,
   ["4"]=33,
   ["5"]=39,
+  ["6"]=44,
  },
  itemgroup={
-  { 9, "" },
-  { 10, "" },
   { 3, "0" },
   { 2, "0" },
   { 4, "0" },
@@ -69,6 +68,8 @@ jobpasses.collected={
   { 2, "0" },
   { 2, "0" },
   { 5, "0" },
+  { 2, "0" },
+  { 2, "0" },
   { 2, "0" },
  },
  paragraph={
@@ -2772,14 +2773,232 @@ structure.lists.collected={
   },
  },
  {
-  metadata=9,
+  metadata=47,
+  numberdata=136,
+  prefixdata=19,
+  references={
+   block="bodypart",
+   internal=207,
+   order=16,
+   realpage=43,
+   section=32,
+  },
+  titledata={
+   label="\\bf Satz ",
+  },
+ },
+ {
+  metadata=48,
+  prefixdata=19,
+  references={
+   block="bodypart",
+   internal=208,
+   order=44,
+   realpage=43,
+   section=32,
+  },
+  titledata={
+   label="\\bs Beweis ",
+  },
+ },
+ {
+  metadata=24,
   numberdata=141,
   references={
-   block="appendix",
-   internal=207,
-   realpage=45,
-   reference="index",
+   block="bodypart",
+   internal=209,
+   realpage=43,
+   reference="sssec:ausblick:cauchy",
    section=33,
+  },
+  titledata={
+   label="subsubsection",
+   title="Ausblick",
+  },
+ },
+ {
+  metadata=18,
+  numberdata=143,
+  references={
+   block="bodypart",
+   internal=210,
+   realpage=44,
+   reference="ssec:best.divergenz",
+   section=34,
+  },
+  titledata={
+   label="subsection",
+   title="Bestimmte Divergenz",
+  },
+ },
+ {
+  metadata=20,
+  prefixdata=19,
+  references={
+   block="bodypart",
+   internal=211,
+   order=27,
+   realpage=44,
+   section=34,
+  },
+  titledata={
+   label="Beispiel ",
+  },
+ },
+ {
+  metadata=73,
+  numberdata=145,
+  prefixdata=19,
+  references={
+   block="bodypart",
+   internal=212,
+   order=17,
+   realpage=44,
+   section=34,
+  },
+  titledata={
+   label="Definition ",
+  },
+ },
+ {
+  metadata=104,
+  numberdata=77,
+  prefixdata=28,
+  references={
+   block="bodypart",
+   internal=213,
+   realpage=44,
+   reference="fig:best-div",
+   section=34,
+  },
+  titledata={
+   title="Bestimmte Divergenz",
+  },
+ },
+ {
+  metadata=47,
+  numberdata=145,
+  prefixdata=19,
+  references={
+   block="bodypart",
+   internal=214,
+   order=17,
+   realpage=44,
+   section=34,
+  },
+  titledata={
+   label="\\bf Satz ",
+  },
+ },
+ {
+  metadata=48,
+  prefixdata=19,
+  references={
+   block="bodypart",
+   internal=215,
+   order=45,
+   realpage=44,
+   section=34,
+  },
+  titledata={
+   label="\\bs Beweis ",
+  },
+ },
+ {
+  metadata=47,
+  numberdata=147,
+  prefixdata=19,
+  references={
+   block="bodypart",
+   internal=216,
+   order=18,
+   realpage=44,
+   section=34,
+  },
+  titledata={
+   label="\\bf Satz ",
+  },
+ },
+ {
+  metadata=48,
+  prefixdata=19,
+  references={
+   block="bodypart",
+   internal=217,
+   order=46,
+   realpage=45,
+   section=34,
+  },
+  titledata={
+   label="\\bs Beweis ",
+  },
+ },
+ {
+  metadata=15,
+  numberdata=149,
+  references={
+   block="bodypart",
+   internal=218,
+   realpage=45,
+   reference="sec:infty-rows",
+   section=35,
+  },
+  titledata={
+   label="section",
+   title="Unendliche Reihen",
+  },
+ },
+ {
+  metadata=150,
+  prefixdata=19,
+  references={
+   block="bodypart",
+   internal=219,
+   order=3,
+   realpage=45,
+   section=35,
+  },
+  titledata={
+   label="\\underbar {Frage:} ",
+  },
+ },
+ {
+  metadata=40,
+  prefixdata=19,
+  references={
+   block="bodypart",
+   internal=220,
+   order=28,
+   realpage=45,
+   section=35,
+  },
+  titledata={
+   label="Beispiel ",
+  },
+ },
+ {
+  metadata=40,
+  prefixdata=19,
+  references={
+   block="bodypart",
+   internal=221,
+   order=29,
+   realpage=45,
+   section=35,
+  },
+  titledata={
+   label="Beispiel ",
+  },
+ },
+ {
+  metadata=9,
+  numberdata=152,
+  references={
+   block="appendix",
+   internal=222,
+   realpage=47,
+   reference="index",
+   section=36,
   },
   titledata={
    bookmark="index",
@@ -2789,13 +3008,13 @@ structure.lists.collected={
  },
  {
   metadata=9,
-  numberdata=143,
+  numberdata=154,
   references={
    block="appendix",
-   internal=208,
-   realpage=47,
+   internal=223,
+   realpage=49,
    reference="pubs",
-   section=34,
+   section=37,
   },
   titledata={
    bookmark="pubs",
@@ -2821,7 +3040,7 @@ structure.counters.collected={
   { 0, 0, 0, 0 },
  },
  defn={
-  { 0, 0, 0, 16 },
+  { 0, 0, 0, 17 },
  },
  eig={
   { 0, 0, 0, 0 },
@@ -2830,7 +3049,7 @@ structure.counters.collected={
   { 0, 0, 0, 0, 0 },
  },
  figure={
-  { 0, 0, 0, 0, 0, 1, 0, 4, 0, 0, 0, 0 },
+  { 0, 0, 0, 0, 0, 1, 0, 5, 0, 0, 0, 0 },
  },
  folg={
   { 0, 0, 0, 0 },
@@ -2851,8 +3070,8 @@ structure.counters.collected={
   { 0, 0, 0, 0, 0, 0, 0 },
  },
  ["itemgroup:itemize"]={
-  { 0, 0, 9, 10, 0, 0, 3, 2, 4, 2, 2, 2, 2, 3, 6, 4, 3, 3, 2, 4, 2, 2, 0, 0, 3, 4, 2, 4, 3, 2, 2, 2, 2, 3, 3, 0, 2, 5, 2, 0, 0, 0, 0 },
-  { 0, 1, 0, 2, 0, 3, 0, 0, 0, 2, 0, 0, 0, 0, 3, 3, 0, 0, 0, 0, 2, 2, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+  { 0, 0, 0, 0, 3, 2, 4, 2, 2, 2, 2, 3, 6, 4, 3, 3, 2, 4, 2, 2, 0, 0, 3, 4, 2, 4, 3, 2, 2, 2, 2, 3, 3, 0, 2, 5, 2, 0, 2, 0, 0, 0, 0 },
+  { 0, 1, 0, 2, 0, 3, 0, 0, 0, 2, 0, 0, 0, 0, 3, 3, 0, 0, 0, 0, 2, 2, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
  },
  lemma={
   { 0, 0, 0, 1 },
@@ -2870,10 +3089,10 @@ structure.counters.collected={
   { 0, 0, 0, 0 },
  },
  realpage={
-  { 0, 50 },
+  { 0, 52 },
  },
  satz={
-  { 0, 0, 0, 15 },
+  { 0, 0, 0, 18 },
  },
  subpage={
   { 0, 1 },
@@ -2885,7 +3104,7 @@ structure.counters.collected={
   { 0, 0, 0, 0 },
  },
  userpage={
-  { 0, 3, 3, 44 },
+  { 0, 3, 3, 46 },
  },
  vignette={
   { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
@@ -2897,254 +3116,264 @@ jobpages.collected={
  {
   block="bodypart",
   number=1,
-  prefixdata=144,
+  prefixdata=155,
  },
  {
   block="bodypart",
   number=1,
-  prefixdata=144,
+  prefixdata=155,
  },
  {
   block="frontpart",
   number=1,
-  prefixdata=144,
+  prefixdata=155,
  },
  {
   block="frontpart",
   number=2,
-  prefixdata=144,
+  prefixdata=155,
  },
  {
   block="frontpart",
   number=1,
-  numberdata=145,
-  prefixdata=144,
+  numberdata=156,
+  prefixdata=155,
  },
  {
   block="frontpart",
   number=2,
-  numberdata=145,
-  prefixdata=144,
+  numberdata=156,
+  prefixdata=155,
  },
  {
   block="bodypart",
   number=1,
-  prefixdata=144,
+  prefixdata=155,
  },
  {
   block="bodypart",
   number=2,
-  prefixdata=144,
+  prefixdata=155,
  },
  {
   block="bodypart",
   number=3,
-  prefixdata=144,
+  prefixdata=155,
  },
  {
   block="bodypart",
   number=4,
-  prefixdata=144,
+  prefixdata=155,
  },
  {
   block="bodypart",
   number=5,
-  prefixdata=144,
+  prefixdata=155,
  },
  {
   block="bodypart",
   number=6,
-  prefixdata=144,
+  prefixdata=155,
  },
  {
   block="bodypart",
   number=7,
-  prefixdata=144,
+  prefixdata=155,
  },
  {
   block="bodypart",
   number=8,
-  prefixdata=144,
+  prefixdata=155,
  },
  {
   block="bodypart",
   number=9,
-  prefixdata=144,
+  prefixdata=155,
  },
  {
   block="bodypart",
   number=10,
-  prefixdata=144,
+  prefixdata=155,
  },
  {
   block="bodypart",
   number=11,
-  prefixdata=144,
+  prefixdata=155,
  },
  {
   block="bodypart",
   number=12,
-  prefixdata=144,
+  prefixdata=155,
  },
  {
   block="bodypart",
   number=13,
-  prefixdata=144,
+  prefixdata=155,
  },
  {
   block="bodypart",
   number=14,
-  prefixdata=144,
+  prefixdata=155,
  },
  {
   block="bodypart",
   number=15,
-  prefixdata=144,
+  prefixdata=155,
  },
  {
   block="bodypart",
   number=16,
-  prefixdata=144,
+  prefixdata=155,
  },
  {
   block="bodypart",
   number=17,
-  prefixdata=144,
+  prefixdata=155,
  },
  {
   block="bodypart",
   number=18,
-  prefixdata=144,
+  prefixdata=155,
  },
  {
   block="bodypart",
   number=19,
-  prefixdata=144,
+  prefixdata=155,
  },
  {
   block="bodypart",
   number=20,
-  prefixdata=144,
+  prefixdata=155,
  },
  {
   block="bodypart",
   number=21,
-  prefixdata=144,
+  prefixdata=155,
  },
  {
   block="bodypart",
   number=22,
-  prefixdata=144,
+  prefixdata=155,
  },
  {
   block="bodypart",
   number=23,
-  prefixdata=144,
+  prefixdata=155,
  },
  {
   block="bodypart",
   number=24,
-  prefixdata=144,
+  prefixdata=155,
  },
  {
   block="bodypart",
   number=25,
-  prefixdata=144,
+  prefixdata=155,
  },
  {
   block="bodypart",
   number=26,
-  prefixdata=144,
+  prefixdata=155,
  },
  {
   block="bodypart",
   number=27,
-  prefixdata=144,
+  prefixdata=155,
  },
  {
   block="bodypart",
   number=28,
-  prefixdata=144,
+  prefixdata=155,
  },
  {
   block="bodypart",
   number=29,
-  prefixdata=144,
+  prefixdata=155,
  },
  {
   block="bodypart",
   number=30,
-  prefixdata=144,
+  prefixdata=155,
  },
  {
   block="bodypart",
   number=31,
-  prefixdata=144,
+  prefixdata=155,
  },
  {
   block="bodypart",
   number=32,
-  prefixdata=144,
+  prefixdata=155,
  },
  {
   block="bodypart",
   number=33,
-  prefixdata=144,
+  prefixdata=155,
  },
  {
   block="bodypart",
   number=34,
-  prefixdata=144,
+  prefixdata=155,
  },
  {
   block="bodypart",
   number=35,
-  prefixdata=144,
+  prefixdata=155,
  },
  {
   block="bodypart",
   number=36,
-  prefixdata=144,
+  prefixdata=155,
  },
  {
   block="bodypart",
   number=37,
-  prefixdata=144,
+  prefixdata=155,
  },
  {
   block="bodypart",
   number=38,
-  prefixdata=144,
+  prefixdata=155,
  },
  {
-  block="appendix",
+  block="bodypart",
   number=39,
-  prefixdata=144,
+  prefixdata=155,
  },
  {
-  block="appendix",
+  block="bodypart",
   number=40,
-  prefixdata=144,
+  prefixdata=155,
  },
  {
   block="appendix",
   number=41,
-  prefixdata=144,
+  prefixdata=155,
  },
  {
   block="appendix",
   number=42,
-  prefixdata=144,
+  prefixdata=155,
  },
  {
   block="appendix",
   number=43,
-  prefixdata=144,
+  prefixdata=155,
  },
  {
   block="appendix",
   number=44,
-  prefixdata=144,
+  prefixdata=155,
+ },
+ {
+  block="appendix",
+  number=45,
+  prefixdata=155,
+ },
+ {
+  block="appendix",
+  number=46,
+  prefixdata=155,
  },
 }
 jobreferences = jobreferences or { }
@@ -3155,16 +3384,16 @@ jobreferences.collected={
    entries={
     text=1,
    },
-   metadata=151,
+   metadata=162,
    references={
     block="appendix",
-    realpage=47,
-    section=34,
+    realpage=49,
+    section=37,
    },
   },
   ["bsp:1"]={
-   metadata=147,
-   numberdata=148,
+   metadata=158,
+   numberdata=159,
    prefixdata=19,
    references={
     internal=98,
@@ -3173,8 +3402,8 @@ jobreferences.collected={
    },
   },
   ["bsp:2"]={
-   metadata=147,
-   numberdata=149,
+   metadata=158,
+   numberdata=160,
    prefixdata=19,
    references={
     internal=99,
@@ -3183,8 +3412,8 @@ jobreferences.collected={
    },
   },
   ["bsp:3"]={
-   metadata=147,
-   numberdata=146,
+   metadata=158,
+   numberdata=157,
    prefixdata=19,
    references={
     internal=100,
@@ -3193,8 +3422,8 @@ jobreferences.collected={
    },
   },
   ["bsp:4"]={
-   metadata=147,
-   numberdata=150,
+   metadata=158,
+   numberdata=161,
    prefixdata=19,
    references={
     internal=101,
@@ -3213,7 +3442,7 @@ jobregisters.collected={
     list={
      { "Geometrische Reihe", "" },
     },
-    metadata=152,
+    metadata=163,
     references={
      internal=39,
      label="",
@@ -3226,7 +3455,7 @@ jobregisters.collected={
      { "Reihe", "" },
      { "geometrische", "" },
     },
-    metadata=152,
+    metadata=163,
     references={
      internal=40,
      label="",
@@ -3239,7 +3468,7 @@ jobregisters.collected={
      { "Axiom", "" },
      { "Folgerungen", "" },
     },
-    metadata=153,
+    metadata=164,
     references={
      internal=63,
      label="",
@@ -3251,7 +3480,7 @@ jobregisters.collected={
     list={
      { "Betragsfunktion", "" },
     },
-    metadata=152,
+    metadata=163,
     references={
      internal=83,
      label="",
@@ -3263,7 +3492,7 @@ jobregisters.collected={
     list={
      { "absolut Betrag", "" },
     },
-    metadata=152,
+    metadata=163,
     references={
      internal=84,
      label="",
@@ -3275,7 +3504,7 @@ jobregisters.collected={
     list={
      { "Supremum", "" },
     },
-    metadata=152,
+    metadata=163,
     references={
      internal=89,
      label="",
@@ -3287,7 +3516,7 @@ jobregisters.collected={
     list={
      { "Infimum", "" },
     },
-    metadata=152,
+    metadata=163,
     references={
      internal=90,
      label="",
@@ -3299,7 +3528,7 @@ jobregisters.collected={
     list={
      { "$\\sup $", "Sup" },
     },
-    metadata=152,
+    metadata=163,
     references={
      internal=91,
      label="",
@@ -3311,7 +3540,7 @@ jobregisters.collected={
     list={
      { "$\\inf $", "Inf" },
     },
-    metadata=152,
+    metadata=163,
     references={
      internal=92,
      label="",
@@ -3324,7 +3553,7 @@ jobregisters.collected={
      { "Funktionen", "Funktionen Sup" },
      { "$\\sup $", "" },
     },
-    metadata=152,
+    metadata=163,
     references={
      internal=93,
      label="",
@@ -3337,7 +3566,7 @@ jobregisters.collected={
      { "Funktionen", "Funktionen Inf" },
      { "$\\inf $", "" },
     },
-    metadata=152,
+    metadata=163,
     references={
      internal=94,
      label="",
@@ -3349,7 +3578,7 @@ jobregisters.collected={
     list={
      { "Bernoulli Ungleichung", "" },
     },
-    metadata=152,
+    metadata=163,
     references={
      internal=158,
      label="",
@@ -3362,7 +3591,7 @@ jobregisters.collected={
      { "Ungleichung", "" },
      { "Bernoulli", "" },
     },
-    metadata=152,
+    metadata=163,
     references={
      internal=159,
      label="",
@@ -3371,7 +3600,7 @@ jobregisters.collected={
     },
    },
   },
-  metadata=154,
+  metadata=165,
  },
 }
 jobpositions = jobpositions or { }
@@ -3394,7 +3623,7 @@ joblists.collected={
      tag="Meter",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3403,7 +3632,7 @@ joblists.collected={
      tag="pMeter",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3412,7 +3641,7 @@ joblists.collected={
      tag="nMeter",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3421,7 +3650,7 @@ joblists.collected={
      tag="uMeter",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3430,7 +3659,7 @@ joblists.collected={
      tag="mMeter",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3439,7 +3668,7 @@ joblists.collected={
      tag="cMeter",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3448,7 +3677,7 @@ joblists.collected={
      tag="dMeter",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3457,7 +3686,7 @@ joblists.collected={
      tag="hMeter",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3466,7 +3695,7 @@ joblists.collected={
      tag="kMeter",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3475,7 +3704,7 @@ joblists.collected={
      tag="Liter",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3484,7 +3713,7 @@ joblists.collected={
      tag="mLiter",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3493,7 +3722,7 @@ joblists.collected={
      tag="cLiter",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3502,7 +3731,7 @@ joblists.collected={
      tag="dLiter",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3511,7 +3740,7 @@ joblists.collected={
      tag="Sec",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3520,7 +3749,7 @@ joblists.collected={
      tag="fSec",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3529,7 +3758,7 @@ joblists.collected={
      tag="pSec",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3538,7 +3767,7 @@ joblists.collected={
      tag="nSec",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3547,7 +3776,7 @@ joblists.collected={
      tag="uSec",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3556,7 +3785,7 @@ joblists.collected={
      tag="mSec",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3565,7 +3794,7 @@ joblists.collected={
      tag="Year",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3574,7 +3803,7 @@ joblists.collected={
      tag="Month",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3583,7 +3812,7 @@ joblists.collected={
      tag="Week",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3592,7 +3821,7 @@ joblists.collected={
      tag="Day",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3601,7 +3830,7 @@ joblists.collected={
      tag="Hour",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3610,7 +3839,7 @@ joblists.collected={
      tag="Min",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3619,7 +3848,7 @@ joblists.collected={
      tag="Rad",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3628,7 +3857,7 @@ joblists.collected={
      tag="Deg",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3637,7 +3866,7 @@ joblists.collected={
      tag="Hertz",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3646,7 +3875,7 @@ joblists.collected={
      tag="kHertz",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3655,7 +3884,7 @@ joblists.collected={
      tag="MHertz",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3664,7 +3893,7 @@ joblists.collected={
      tag="GHertz",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3673,7 +3902,7 @@ joblists.collected={
      tag="THertz",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3682,7 +3911,7 @@ joblists.collected={
      tag="mHertz",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3691,7 +3920,7 @@ joblists.collected={
      tag="RevPerSec",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3700,7 +3929,7 @@ joblists.collected={
      tag="RevPerMin",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3709,7 +3938,7 @@ joblists.collected={
      tag="Gram",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3718,7 +3947,7 @@ joblists.collected={
      tag="uGram",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3727,7 +3956,7 @@ joblists.collected={
      tag="mGram",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3736,7 +3965,7 @@ joblists.collected={
      tag="kGram",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3745,7 +3974,7 @@ joblists.collected={
      tag="Atom",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3754,7 +3983,7 @@ joblists.collected={
      tag="Newton",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3763,7 +3992,7 @@ joblists.collected={
      tag="kNewton",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3772,7 +4001,7 @@ joblists.collected={
      tag="Pascal",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3781,7 +4010,7 @@ joblists.collected={
      tag="mPascal",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3790,7 +4019,7 @@ joblists.collected={
      tag="kPascal",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3799,7 +4028,7 @@ joblists.collected={
      tag="Joule",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3808,7 +4037,7 @@ joblists.collected={
      tag="mJoule",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3817,7 +4046,7 @@ joblists.collected={
      tag="kJoule",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3826,7 +4055,7 @@ joblists.collected={
      tag="MJoule",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3835,7 +4064,7 @@ joblists.collected={
      tag="GJoule",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3844,7 +4073,7 @@ joblists.collected={
      tag="Watt",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3853,7 +4082,7 @@ joblists.collected={
      tag="mWatt",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3862,7 +4091,7 @@ joblists.collected={
      tag="kWatt",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3871,7 +4100,7 @@ joblists.collected={
      tag="MWatt",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3880,7 +4109,7 @@ joblists.collected={
      tag="GWatt",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3889,7 +4118,7 @@ joblists.collected={
      tag="TWatt",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3898,7 +4127,7 @@ joblists.collected={
      tag="Celsius",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3907,7 +4136,7 @@ joblists.collected={
      tag="Kelvin",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3916,7 +4145,7 @@ joblists.collected={
      tag="Fahrenheit",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3925,7 +4154,7 @@ joblists.collected={
      tag="Mol",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3934,7 +4163,7 @@ joblists.collected={
      tag="mMol",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3943,7 +4172,7 @@ joblists.collected={
      tag="kMol",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3952,7 +4181,7 @@ joblists.collected={
      tag="Molair",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3961,7 +4190,7 @@ joblists.collected={
      tag="Equivalent",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3970,7 +4199,7 @@ joblists.collected={
      tag="mEquivalent",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3979,7 +4208,7 @@ joblists.collected={
      tag="Farad",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3988,7 +4217,7 @@ joblists.collected={
      tag="pFarad",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -3997,7 +4226,7 @@ joblists.collected={
      tag="nFarad",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -4006,7 +4235,7 @@ joblists.collected={
      tag="uFarad",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -4015,7 +4244,7 @@ joblists.collected={
      tag="mFarad",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -4024,7 +4253,7 @@ joblists.collected={
      tag="Ohm",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -4033,7 +4262,7 @@ joblists.collected={
      tag="kOhm",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -4042,7 +4271,7 @@ joblists.collected={
      tag="Siemens",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -4051,7 +4280,7 @@ joblists.collected={
      tag="Ampere",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -4060,7 +4289,7 @@ joblists.collected={
      tag="mAmpere",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -4069,7 +4298,7 @@ joblists.collected={
      tag="Coulomb",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -4078,7 +4307,7 @@ joblists.collected={
      tag="Volt",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -4087,7 +4316,7 @@ joblists.collected={
      tag="mVolt",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -4096,7 +4325,7 @@ joblists.collected={
      tag="kVolt",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -4105,7 +4334,7 @@ joblists.collected={
      tag="eVolt",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -4114,7 +4343,7 @@ joblists.collected={
      tag="keVolt",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -4123,7 +4352,7 @@ joblists.collected={
      tag="MeVolt",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -4132,7 +4361,7 @@ joblists.collected={
      tag="Tesla",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -4141,7 +4370,7 @@ joblists.collected={
      tag="VoltAC",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -4150,7 +4379,7 @@ joblists.collected={
      tag="VoltDC",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -4159,7 +4388,7 @@ joblists.collected={
      tag="Baud",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -4168,7 +4397,7 @@ joblists.collected={
      tag="Bit",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -4177,7 +4406,7 @@ joblists.collected={
      tag="Byte",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -4186,7 +4415,7 @@ joblists.collected={
      tag="kByte",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -4195,7 +4424,7 @@ joblists.collected={
      tag="MByte",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -4204,7 +4433,7 @@ joblists.collected={
      tag="GByte",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -4213,7 +4442,7 @@ joblists.collected={
      tag="TByte",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -4222,7 +4451,7 @@ joblists.collected={
      tag="Bequerel",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -4231,7 +4460,7 @@ joblists.collected={
      tag="MBequerel",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -4240,7 +4469,7 @@ joblists.collected={
      tag="Sievert",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -4249,7 +4478,7 @@ joblists.collected={
      tag="mSievert",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -4258,7 +4487,7 @@ joblists.collected={
      tag="Candela",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -4267,7 +4496,7 @@ joblists.collected={
      tag="Bell",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -4276,7 +4505,7 @@ joblists.collected={
      tag="dBell",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -4285,7 +4514,7 @@ joblists.collected={
      tag="At",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -4294,7 +4523,7 @@ joblists.collected={
      tag="Atm",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -4303,7 +4532,7 @@ joblists.collected={
      tag="Bar",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -4312,7 +4541,7 @@ joblists.collected={
      tag="EVolt",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -4321,7 +4550,7 @@ joblists.collected={
      tag="Foot",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -4330,7 +4559,7 @@ joblists.collected={
      tag="Inch",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -4339,7 +4568,7 @@ joblists.collected={
      tag="Cal",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -4348,7 +4577,7 @@ joblists.collected={
      tag="Force",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -4357,7 +4586,7 @@ joblists.collected={
      tag="kCal",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -4366,7 +4595,7 @@ joblists.collected={
      tag="Lux",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -4375,7 +4604,7 @@ joblists.collected={
      tag="Percent",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -4384,7 +4613,7 @@ joblists.collected={
      tag="Permille",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -4393,7 +4622,7 @@ joblists.collected={
      tag="Promille",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -4402,7 +4631,7 @@ joblists.collected={
      tag="Gray",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -4411,7 +4640,7 @@ joblists.collected={
      tag="Weber",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -4420,7 +4649,7 @@ joblists.collected={
      tag="Henry",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -4429,7 +4658,7 @@ joblists.collected={
      tag="Sterant",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -4438,7 +4667,7 @@ joblists.collected={
      tag="Angstrom",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
    {
     definition={
@@ -4447,10 +4676,10 @@ joblists.collected={
      tag="Gauss",
      used=false,
     },
-    metadata=155,
+    metadata=166,
    },
   },
-  metadata=156,
+  metadata=167,
  },
 }
 structure = structure or { }
@@ -4967,16 +5196,48 @@ job.packer={
    numbers=138,
    set="all",
   },
+  { 1, 2, 1, 9, 1 },
+  {
+   block="bodypart",
+   numbers=140,
+   set="all",
+  },
+  { 1, 2, 1, 10 },
+  {
+   block="bodypart",
+   numbers=142,
+   set="all",
+  },
+  { 17 },
+  {
+   numbers=144,
+  },
+  { 18 },
+  {
+   numbers=146,
+  },
+  { 1, 2, 2 },
+  {
+   block="bodypart",
+   numbers=148,
+   set="all",
+  },
+  {
+   catcodes=9,
+   kind="description",
+   level=3,
+   name="frage",
+  },
   { 0, 1 },
   {
    block="appendix",
-   numbers=140,
+   numbers=151,
    set="all",
   },
   { 0, 2 },
   {
    block="appendix",
-   numbers=142,
+   numbers=153,
    set="all",
   },
   {
