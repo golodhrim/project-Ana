@@ -753,8 +753,272 @@ Analog können Definitionen und Sätze für $a_{n}\to-\infty$ formuliert werden.
 	\stopbsp
 \stopitemize
 \stopfrage
+\subsection[ssec:meaning-row]{Der Begriff der "Reihe"}
+Sei $(a_{n})_{n\in\N}$ eine Folge, dann heißt
+\startformula
+s_{n}:=\sum\limits_{i=0}^{n}a_{i}
+\stopformula
+die n-te Partialsumme von $(a_{n})$.\\
+Die Folge $(s_{n})_{n\in\N}$ der Partialsummen heißt unendliche Reihe mit den Gliedern $a_{n}$.\\
+	Man schreibt auch:
+	\startformula
+	\sum\limits_{n=0}^{\infty}a_{n}=\sum\limits_{n\geq0}=\sum a_{n}:=(s_{n})_{n\in\N_{0}}
+	\stopformula
+	\startbsp
+		$a_{n}:=\frac{1}{n}$, $n\geq 1$.
+		\startformula
+			\startalign
+				\NC s_{n}=\NC 1+\frac{1}{2}+\frac{1}{3}+\ldots+\frac{1}{n}\NR
+				\NC\sum\limits_{n=1}^{\infty}=\NC\sum\frac{1}{n}=(s_{n})
+			\stopalign
+		\stopformula
+	\stopbsp
+	\startdefn
+		Die Reihe $\sum a_{n}$ heißt konvergent gegen $s$, beziehungsweise divergent, falls $(s_{n})$ konvergent gegen $s$ beziehungsweise divergent ist.
+	\stopdefn
+	\warning{} Das Symbol $\sum\limits_{n=0}^{\infty}a_{n}$ hat zwei Bedeutungen:
+	\startitemize[m]
+		\item die Folge $(s_{n})$ und
+		\item ihrem Grenzwert, falls dieser als Wert der Reihe existiert.
+	\stopitemize
+\subsection[ssec:geom-row]{Die geometrische Reihe}
+	Sei $q\in\R$, so betrachtet man die Reihe $\sum\limits_{n=0}^{\infty}q^{n}$. Diese Reihe heißt die geometrische Reihe.\\
+	Die Partialsummen sind dann:
+	\startformula
+	\startalign
+		\NC s_{n}=\NC 1+q^{1}+q^{2}+q^{3}+\ldots+q^{n}\NR
+		\NC =\NC \frac{1-q^{n+1}}{1-q}
+	\stopalign
+	\stopformula
+	Es gilt daher:
+	\startitemize[a]
+	\item[lst:row:konv:1] $\abs{q}<1\,\xRightarrow\,\sum q^{n}$ ist konvergiert gegen $\frac{1}{1-q}$,
+	\item[lst:row:konv:2] $\abs{q}>1\,\xRightarrow\,\sum q^{n}$ ist divergent,
+	\stopitemize
+	\startproof
+	\startitemize[a]
+	\item ist klar.
+	\item siehe zum Beweis das Nachfolgerkriterium.
+	\stopitemize
+	\stopproof
+	\startbsp
+	\startitemize[m]
+	\item $\sum\limits_{n=0}^{\infty}\underbrace{\left(\frac{1}{2}\right)}_{q}^{n}=\frac{1}{1-\frac{1}{2}}=2$
+	\item $\sum\limits_{n=0}^{\infty}\underbrace{\left(\frac{9}{8}\right)}_{q}^{n}$ ist divergent.
+	\stopitemize
+	\stopbsp
+	\startbem
+	\in[lst:row:konv:2] besagt also: Die Folge der Partialsaummen $\left(\sum\limits_{n=0}^{N}\left(\frac{9}{8}\right)^{n}\right)_{N\in\N_{0}}$ ist divergent.\\
+	Weiterhin besagt \in[lst:row:konv:1] das $\left(\sum\limits_{n=0}^{N}\left(\frac{1}{2}\right)^{n}\right)_{N\in\N_{0}}$ konvergent ist und der Grenzwert sich als 2 errechnet.
+	\stopbem
+\subsection[ssec:teleskoprow]{Teleskopreihen}
+	\startbsp
+	$\sum\limits_{i=1}^{\infty}\frac{1}{n(n+1)}$, ist dies Reihe konvergent oder divergent?\\
+	Es gilt: $\frac{1}{n(n+1)}=\frac{1}{n}-\frac{1}{n+1}$ und daher folgt
+	\startformula
+	\startalign
+		\NC s_{n}:=\NC \sum\limits_{k=1}^{n}\frac{1}{k(k+1)}\NR
+		\NC=\NC\sum\limits_{k=1}^{n}\left(\frac{1}{k}-\frac{1}{k+1}\right)\NR
+		\NC=\NC\left(\frac{1}{1}-\frac{1}{2}\right)+\left(\frac{1}{2}-\frac{1}{3}\right)+\ldots+\left(\frac{1}{n}-\frac{1}{n+1}\right)\NR
+		\NC=\NC 1-\frac{1}{n+1}\xrightarrow{n\to\infty}1
+	\stopalign
+	\stopformula
+	Die Reihe ist also konvergent und hat den (Reihen-)Wert 1. $\sum\limits_{k=1}^{\infty}\frac{1}{k(k+1)}$ ist konvergent und damit auch $(s_{n})$. Weiterhin $\sum\limits_{n=1}^{\infty}\frac{1}{n(n+1)}=1$ und dann auch $\lim\limits_{n\to\infty}s_{n}=1$.
+	$\sum\limits_{n=1}^{\infty}\frac{1}{n(n+1)}$ ist konvergent, das heißt $(s_{n})$ ist konvergent und mit $\sum\limits_{n=1}^{\infty}\frac{1}{n(n+1)}=1$ gilt dann auch $\lim\limits_{n\to\infty}s_{n}=1$.
+	\stopbsp
+\subsection[ssec:beob-row]{Beobachtungen zu Reihen}
+	Sei $\sum a_{n}$ eine Reihe und $s_{n}=\sum\limits_{i=1}^{n}a_{i}$
+	\startitemize[m]
+	\item[krit:cauchy] \index{Cauchy-Kriterium}\index{Kriterium+Cauchy-}Cauchy-Kriterium
+		\startformula
+			\startalign
+				\NC\sum a_{n}\,\text{konvergent}\xLeftrightarrow{}{\text{Def.}}\NC (s_{n})\,\text{konvergent}\NR
+				\NC\xLeftrightarrow{\text{Kriterium}}{\text{Cauchy}}\NC\forall\varepsilon>0\,\exists N\in\N:\forall m,n\geq N:\, \abs{s_{n}-s_{m}}<\varepsilon\NR
+				\NC\xLeftrightarrow{}{}\NC\forall\varepsilon>0\,\exists N\in\N:\, \forall n>m\geq N: \underbrace{\abs{\sum\limits_{i=m+1}^{n}a_{i}}}_{=\abs{s_{n}-s_{m}}}<\varepsilon
+			\stopalign
+		\stopformula
+	\item[krit:nst] \index{Nullfolgen-Kriterium}\index{Kriterium+Nullfolgen-}Nullfolgen-Kriterium
+		\startformula
+			\sum a_{n}\,\text{konvergent}\xRightarrow a_{n}\to 0
+		\stopformula
+		\startproof
+			Sei $\varepsilon>0$\\
+			$\xRightarrow{Kriterium}{Cauchy}\,\exists N\in\N\, \forall n\geq N:\,\abs{a_{n}}=\abs{\sum\limits_{i=n}^{n}a_{i}}<\varepsilon$.
+		\stopproof
+	\item[krit:besch] \index{Beschränktheits-Kriterium}\index{Kriterium+Beschränktheits-}Beschränktheits-Kriterium
+		Es sei $a_{n}\geq 0\,\forall n\in\N$, dann gilt
+		\startformula
+			\sum a_{n}\,\text{konvergent}\xLeftrightarrow (s_{n})\,\text{nach oben  beschränkt}.
+		\stopformula
+		\startproof
+			\startitemize
+				\sym{$\Rightarrow$} Aus konvergent folgt beschränkt, und damit is diese Richtung klar.
+				\sym{$\Leftarrow$} $a_{n}>0\,\forall n\in\N\,\xRightarrow{}{}\,(s_{n})$ monoton steigend, da $s_{n+1}=s_{n}+\underbrace{a_{n+1}}_{\geq 0}$ und nach oben beschränkt.
+			\stopitemize
+		\stopproof
+	\stopitemize
+\subsection[ssec:harm-row]{Die harmonische Reihe}
+	\warning{}Die harmonische Reihe $\sum\limits_{n=1}^{\infty}\frac{1}{n}$ ist divergent, obwohl $\frac{1}{n}$ eine Nullfolge ist!
+	\startproof
+		Sei $s_{n}=\sum\limits_{i=1}^{n}\frac{1}{i}$ und wir betrachten die Teilfolge: $\left(s_{2^{k}}\right)_{k\geq 1}$ von $(s_{n})$. Es ist dann
+		\startformula
+			\startalign
+				\NC s_{2^{k}}=\NC\sum\limits_{i=1}^{2^{k}}\frac{1}{i}\NR
+				\NC =\NC 1\NR
+				\NC +\NC \left(\frac{1}{2}\right)\NR
+				\NC +\NC \left(\frac{1}{3}+\frac{1}{4}\right)\NR
+				\NC +\NC \left(\frac{1}{5}+\frac{1}{6}+\frac{1}{7}+\frac{1}{8}\right)\NR
+				\NC \vdots\NC\NR
+				\NC +\NC \underbrace{\left(\frac{1}{2^{k-1}+1}+\ldots+\frac{1}{2^{k}}\right)}_{\geq 2^{k-1}\cdot\frac{1}{2^{k}}=\frac{1}{2}}\NR
+				\NC \geq\NC k\cdot\frac{1}{2}
+			\stopalign
+		\stopformula
+		Also ist $\left(s_{2^{k}}\right)$ nicht nach oben beschränkt und somit folgt für diese Teilfolge die Divergenz, aber damit ist auch $(s_{n})$ divergent.
+	\stopproof
+	Betrachte nummerische Werte für die harmonische Reihe:
+	\placetable[here][tab:num-harm-row]{Nummerische Werte der harmonischen Reihe}{
+		\bTABLE
+			\setupTABLE[c][1][align=right]
+			\setupTABLE[c][2][alignmentcharacter={.},aligncharacter=yes,align=middle]
+			\setupTABLE[r][each][frame=off]
+			\setupTABLE[r][first][bottomframe=on]
+			\setupTABLE[r][last][bottomframe=on]
+			\bTR \bTH $n$ \eTH \bTH $\sum\limits_{k=1}^{n}\frac{1}{k}=s_{n}$\eTH \eTR
+			\bTR \bTD $100$ \eTD \bTD 5.18737\ldots \eTD \eTR
+			\bTR \bTD $200$ \eTD \bTD 5.87803\ldots \eTD \eTR
+			\bTR \bTD $1000$ \eTD \bTD 7.48547\ldots \eTD \eTR
+			\bTR \bTD $10000$ \eTD \bTD 9.7876\ldots \eTD \eTR
+			\bTR \bTD $10^{8}$ \eTD \bTD 18.59785\ldots \eTD \eTR
+			\bTR \bTD $10^{12}$ \eTD \bTD 28.2082\ldots \eTD \eTR
+		\eTABLE
+	}
+\subsection[ssec:leibnitz]{Das Leibnitz-Kriterium}
+	\startsatz
+		Sei $(a_{n})$ monoton fallende Nullfolge, zum Beispiel $\frac{1}{n}$, dann ist die alternierende Reihe $\sum\limits_{n\geq 0}(-1)^{n}a_{n}$ konvergent.
+	\stopsatz
+	\startproof
+		Betrachte als Beispiel: $\sum\limits_{n\geq 1}(-1)^{n}\frac{1}{n}$ ist konvergent.\\
+		Als Idee kommt hier das Cauchy-Kriterium, sei also $\varepsilon>0$, so gilt:
+		\startformula
+			\exists N\in\N\,\forall n\geq N:\,a_{n}=\underbrace{\abs{a_{n}}}_{\geq0}<\varepsilon\,\text{ist Nullfolge}
+		\stopformula
+		also ist für $n\geq m\geq N$:
+		\startformula
+			\startalign
+				\NC \abs{\sum\limits_{i=m}^{n}(-1)^{i}a_{i}}=\NC \abs{a_{m}-a_{m+1}+a_{m+2}-\ldots+(-1)^{n-m}a_{n}}\NR
+				\NC\stackrelo{\leq}{a_{m}\,\text{mon. fallend}}\NC\abs{a_{m}}\NR
+				\NC <\NC\varepsilon
+			\stopalign
+		\stopformula
+	\stopproof
+\subsection[ssec:abs-conv]{Absolute Konvergenz}
+	\startdefn
+		$\sum a_{n}$ heißt absolut konvergent, falls $\sum\abs{a_{n}}$ konvergent ist.
+	\stopdefn
+	\startbem
+		Aus $\sum a_{n}$ absolut konvergent folgt das $\sum a_{n}$ konvergent ist.
+	\stopbem
+	\startproof
+		Sei $\sum a_{n}$ absolut konvergent, das heißt $\sum\abs{a_{n}}$ ist konvergent, dann gilt für $n\geq m$:
+		\startformula
+			\abs{\sum\limits_{k=m}^{n}a_{k}}\leq\sum\limits_{k=m}^{n}\abs{a_{k}}
+		\stopformula
+		nach der Dreiecks-Ungleichung. Wendet man nun das Cauchy-Kriterium an, so folgt die Behauptung.
+	\stopproof
+	\warning{}$\sum a_{n}$ konvergent $\not\xRightarrow{}{\text{i.A.}}\,\sum a_{n}$ absolut konvergent. Als Beispiel sei hier die Reihe $\sum (-1)^{n}\frac{1}{n}$ genannt.
+	\startbem
+		Ist $\sum a_{n}$ absolut konvergent, so gilt
+		\startformula
+			\abs{\sum\limits_{k=1}^{\infty}a_{k}}\leq\sum\limits_{k=1}^{\infty}\abs{a_{k}}
+		\stopformula
+	\stopbem
+	\startproof
+		durch die "verallgemeinerte Dreiecks-Ungleichung"\\
+		Es gilt für $N\in\N$
+		\startformula
+			\abs{\sum\limits_{n=1}^{N}a_{n}}\leq\sum\limits_{n=1}^{N}\abs{a_{n}}
+		\stopformula
+		durch die Dreiecksungleichung und Induktion nach $N$ folgt:
+		\startformula
+			\lim\limits_{N\to\infty}\abs{\sum\limits_{n=1}^{N}a_{n}}\leq\lim\limits_{N\to\infty}\sum\limits_{n=1}^{N}\abs{a_{n}}
+		\stopformula
+		und dies liefert die Behauptung.
+	\stopproof
+\subsection[ssec:majoranten-krit]{Majoranten Kriterium}
+	Das Majoranten-Kriterium wird auch als das Vergleichskriterium bezeichnet, man sieht in kürze auch warum.\\
+	Seien nun $\sum a_{n}$ und $\sum b_{n}$ zwei Reihen
+	\startsatz
+		Aus
+		\startformula
+			\startmathmatrix[n=1,left={\left.\,},right={\,\right\}}]
+				\NC \sum b_{n}\,\text{absolut konvergent}\NR
+				\NC \abs{a_{n}}\leq\abs{b_{n}}\,\forall n
+			\stopmathmatrix\,\Rightarrow\sum a_{n}\,\text{absolut konvergent}
+		\stopformula
+		Man nennt $\sum b_{n}$ in diesem Fall eine konvergente Majorante von $\sum a_{n}$.
+	\stopsatz
+	\startproof
+		\startformula
+			\startalign
+				\NC\sum b_{n}\,\text{absolut konvergent}\xLeftrightarrow{}{\text{Def.}}\NC\sum\abs{b_{n}}\,\text{konvergent}\NR
+				\NC\xLeftrightarrow{}{\text{\in[krit:besch]}}\NC (s_{n}):=\left(\sum\limits_{k=0}^{n}\abs{b_{k}}\right)\,\text{beschränkt}\NR
+				\NC\xLeftrightarrow{}{\text{Vor.}}\NC (t_{n}):=\left(\sum\limits_{k=0}^{n}\abs{a_{k}}\right)\,\text{beschränkt}\NR
+				\NC\xLeftrightarrow{}{\text{\in[krit:besch]}}\NC (t_{n})\,\text{konvergent}\NR
+				\NC\xLeftrightarrow{}{\text{Def.}}\NC\sum a_{k}\,\text{absolut konvergent}
+			\stopalign
+		\stopformula
+	\stopproof
+	\startbsp
+		$\sum\limits_{n=1}^{\infty}\frac{1}{n^{2}}$\\
+		Problem: Wir haben keine explizite Formel für die Partialsummen, aber
+		\startformula
+			\startmathmatrix[n=1,left={\left.\,},right={\,\right\}}]
+				\NC \frac{1}{n^{2}}\leq\frac{2}{n(n+1)}\NR
+				\NC \sum\frac{2}{n(n+1)}\,\text{absolut konvergent}
+			\stopmathmatrix\xRightarrow{}{\text{Majoranten-Kriterium}}\sum\frac{1}{n^{2}}\,\text{absolut konvergent.}
+		\stopformula
+		Allgemeiner läßt sich sagen:\\
+		$\sum\limits_{n=1}^{\infty}\frac{1}{n^{k}}$ ist konvergent für alle $k\geq 2$, denn $\frac{1}{n^{k}}\leq\frac{1}{n^{2}}$ für $k\geq 2$ und $n\in\N$. Die allgemeine Behauptung folgt dann mit dem Majoranten-Kriterium
+	\stopbsp
+\subsection[ssec:quot-krit]{Das Quotienten-Kriterium}
+	\startsatz
+		Falls ein $q$ mit $0\leq q<1$ existiert und
+		\startformula
+			\abs{\frac{a_{n+1}}{a_{n}}}\leq q\quad\forall n\in\N
+		\stopformula
+		gilt, dann ist $\sum a_{n}$ absolut konvergent.
+	\stopsatz
+	\startproof
+		\startformula
+			\startmathmatrix[n=2,left={\left.\,},right={\,\right\}}]
+				\NC\abs{a_{n}}\leq\NC q\cdot\abs{a_{n-1}}\NR
+				\NC\abs{a_{n-1}}\leq\NC q\cdot\abs{a_{n-2}}\NR
+				\NC\vdots\NC\NR
+				\NC\abs{a_{2}}\leq\NC q\cdot\abs{a_{1}}\NR
+				\NC\abs{a_{1}}\leq\NC q\cdot\abs{a_{0}}
+			\stopmathmatrix\Rightarrow\abs{a_{n}}\leq q^{n}\underbrace{\abs{a_{0}}}_{=\text{const.}}
+		\stopformula
+		also ist $\sum q^{n}\abs{a_{0}}$ konvergente Majorante von $\sum a_{n}$ und somit folgt mit dem Majoranten-Kriterium die absolute Konvergenz für $\sum a_{n}$.
+	\stopproof
+	\startbsp
+		$\sum\limits_{n=0}^{\infty}$
+		\startformula
+			\startalign
+				\NC \abs{\frac{a_{n+1}}{a_{n}}}=\NC\frac{(n+1)^{2}}{2^{n+1}}\cdot\frac{2^{n}}{n^{2}}\NR
+				\NC =\NC\frac{1}{2}\cdot\frac{n^{2}+2n+1}{n^{2}}\NR
+				\NC =\NC\frac{1}{2}\cdot(1+\frac{1}{n})^{2}\NR
+				\NC \stackrelo{\leq}{n\geq 3}\NC \frac{1}{2}(1+\frac{1}{3})^{2}\NR
+				\NC =\NC \frac{8}{9}=:1<1
+			\stopalign
+		\stopformula
+		Nach dem Quotienten-Kriterium ist damit $\sum\limits_{n=3}^{\infty}\frac{n^{2}}{2^{n}}$ konvergent und damit auch $\sum\limits_{n=0}^{\infty}\frac{n^{2}}{2^{n}}$.
+	\stopbsp
+	\warning{} Für die harmonische Reihe $\sum\frac{1}{n}$ gilt:\\
+		$\abs{\frac{a_{n+1}}{a_{n}}}=\frac{n}{n+1}<1\,\forall n\in\N$\\
+		demnach ist die divergent, da kein q gefunden werden kann!
+\subsection[ssec:root-krit]{Das Wurzel-Kriterium}
 
-\startSAGE
+		\startSAGE
 n,z = var('n','z');
 p = 0.02;
 (1+p/2)**(2)
