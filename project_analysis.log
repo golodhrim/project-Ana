@@ -78,7 +78,9 @@ symbols         : loading symbolset was
 system          : module vim loaded
 (t-vim.tex
 system          : module filter loaded
-(t-filter.tex))
+(t-filter.tex)
+color           : system hex is loaded
+(/opt/context-minimals/tex/texmf-context/tex/context/base/colo-hex.tex (/opt/context-minimals/tex/texmf-context/tex/context/base/colo-hex.mkiv)))
 check           : missing or ungrouped '=' after 'hex' in line 18 (@@cl)
 color           : rgb color space is not supported
 interaction     : active
@@ -195,6 +197,8 @@ backends        > resolving reference attribute 50
 backends        > resolving reference attribute 51
 backends        > resolving reference attribute 52
 backends        > resolving reference attribute 53
+backends        > resolving reference attribute 54
+backends        > resolving reference attribute 55
 pages           > flushing realpage 6, userpage 2
 structure       : begin of sectionblock bodypart
 systems         : begin file prd_analysis at line 51
@@ -295,7 +299,7 @@ pages           > flushing realpage 12, userpage 6
 structure       : section @ level 3 : 1.1.2 -> Vollständige Induktion
 publications    : loading database from project_analysis.bbl
 (project_analysis.bbl)
-backends        > resolving reference attribute 54
+backends        > resolving reference attribute 56
 backends        > resolving destination attribute 21
 backends        > resolving destination attribute 22
 backends        > resolving destination attribute 23
@@ -451,9 +455,9 @@ Overfull \hbox (435.32726pt too wide) in paragraph at lines 725--727
 ..\vbox(10.42677+4.05482)x0.0, direction TLT
 ...\hbox(10.42677+4.05482)x0.0, direction TLT []
 
-backends        > resolving reference attribute 55
-backends        > resolving reference attribute 56
 backends        > resolving reference attribute 57
+backends        > resolving reference attribute 58
+backends        > resolving reference attribute 59
 backends        > resolving destination attribute 97
 backends        > resolving destination attribute 98
 backends        > resolving destination attribute 99
@@ -499,7 +503,7 @@ pages           > flushing realpage 28, userpage 22
 systems         : end file c_analysis-0 at line 8
 systems         : begin file c_analysis-1 at line 9
 (c_analysis-1.tex
-backends        > resolving reference attribute 58
+backends        > resolving reference attribute 60
 backends        > resolving destination attribute 130
 backends        > resolving destination attribute 131
 backends        > resolving destination attribute 132
@@ -551,7 +555,7 @@ Overfull \hbox (23.3379pt too wide) in paragraph at lines 214--215
 .etc.
 
 floatblocks     : 4 placed
-backends        > resolving reference attribute 59
+backends        > resolving reference attribute 61
 backends        > resolving destination attribute 146
 backends        > resolving destination attribute 147
 backends        > resolving destination attribute 148
@@ -578,7 +582,7 @@ Overfull \hbox (435.32726pt too wide) in paragraph at lines 261--263
 ..\vbox(10.42677+4.05482)x0.0, direction TLT
 ...\hbox(10.42677+4.05482)x0.0, direction TLT []
 
-backends        > resolving reference attribute 62
+backends        > resolving reference attribute 64
 backends        > resolving destination attribute 150
 backends        > resolving destination attribute 151
 backends        > resolving destination attribute 152
@@ -633,7 +637,7 @@ Overfull \hbox (435.32726pt too wide) in paragraph at lines 348--1
 ..\vbox(10.42677+4.05482)x0.0, direction TLT
 ...\hbox(10.42677+4.05482)x0.0, direction TLT []
 
-backends        > resolving reference attribute 64
+backends        > resolving reference attribute 66
 backends        > resolving destination attribute 165
 backends        > resolving destination attribute 166
 backends        > resolving destination attribute 167
@@ -661,7 +665,7 @@ Overfull \hbox (435.32726pt too wide) in paragraph at lines 390--391
 ...\hbox(10.42677+4.05482)x0.0, direction TLT []
 
 structure       : subsection @ level 4 : 1.2.1.4 -> Infimum und Supremum von Folgen
-backends        > resolving reference attribute 65
+backends        > resolving reference attribute 67
 backends        > resolving destination attribute 169
 backends        > resolving destination attribute 170
 backends        > resolving destination attribute 171
@@ -744,9 +748,9 @@ backends        > resolving destination attribute 195
 backends        > resolving destination attribute 196
 backends        > resolving destination attribute 197
 pages           > flushing realpage 40, userpage 34
-backends        > resolving reference attribute 66
-backends        > resolving reference attribute 69
-backends        > resolving reference attribute 73
+backends        > resolving reference attribute 68
+backends        > resolving reference attribute 71
+backends        > resolving reference attribute 75
 backends        > resolving destination attribute 198
 backends        > resolving destination attribute 199
 pages           > flushing realpage 41, userpage 35
@@ -776,7 +780,7 @@ Overfull \hbox (0.61403pt too wide) detected at line 658
 ...etc.
 ..\mathoff
 
-backends        > resolving reference attribute 75
+backends        > resolving reference attribute 77
 backends        > resolving destination attribute 205
 backends        > resolving destination attribute 206
 backends        > resolving destination attribute 207
@@ -831,8 +835,8 @@ backends        > resolving destination attribute 226
 pages           > flushing realpage 46, userpage 40
 structure       : subsection @ level 4 : 1.2.2.3 -> Teleskopreihen
 structure       : subsection @ level 4 : 1.2.2.4 -> Beobachtungen zu Reihen
-backends        > resolving reference attribute 76
-backends        > resolving reference attribute 77
+backends        > resolving reference attribute 78
+backends        > resolving reference attribute 79
 backends        > resolving destination attribute 227
 backends        > resolving destination attribute 228
 backends        > resolving destination attribute 229
@@ -915,8 +919,8 @@ backends        > resolving destination attribute 255
 backends        > resolving destination attribute 256
 pages           > flushing realpage 50, userpage 44
 structure       : subsection @ level 4 : 1.2.2.9 -> Das Quotienten-Kriterium
-backends        > resolving reference attribute 80
-backends        > resolving reference attribute 84
+backends        > resolving reference attribute 82
+backends        > resolving reference attribute 86
 backends        > resolving destination attribute 257
 backends        > resolving destination attribute 258
 backends        > resolving destination attribute 259
@@ -946,12 +950,25 @@ Overfull \hbox (435.32726pt too wide) in paragraph at lines 1016--1019
 ...\hbox(10.42677+4.05482)x0.0, direction TLT []
 
 structure       : subsection @ level 4 : 1.2.2.10 -> Das Wurzel-Kriterium
-(project_analysis-externalfilter-SAGE-0.vimout
+structure       : subsection @ level 4 : 1.2.2.11 -> Hinweise zur Anwendung der Kriterien
 backends        > resolving destination attribute 263
 backends        > resolving destination attribute 264
 backends        > resolving destination attribute 265
+backends        > resolving destination attribute 266
 pages           > flushing realpage 52, userpage 46
-))
+references      : unknown reference [][Gleichung]
+references      : unknown reference [][Gleichung]
+references      : unknown reference [][Gleichung]
+references      : unknown reference [][Gleichung]
+structure       : subsection @ level 4 : 1.2.2.12 -> Rechnen mit konvergenten Reihen
+backends        > resolving destination attribute 267
+backends        > resolving destination attribute 268
+backends        > resolving destination attribute 269
+backends        > resolving destination attribute 270
+backends        > resolving destination attribute 271
+backends        > resolving destination attribute 272
+pages           > flushing realpage 53, userpage 47
+(project_analysis-externalfilter-SAGE-0.vimout))
 systems         : end file c_analysis-1 at line 9
 systems         : begin file c_analysis-2 at line 10
 (c_analysis-2.tex)
@@ -971,7 +988,8 @@ systems         : end file c_analysis-6 at line 14
 )
 systems         : end file prd_analysis at line 51
 structure       : end of sectionblock bodypart
-pages           > flushing realpage 53, userpage 47
+backends        > resolving destination attribute 273
+backends        > resolving destination attribute 274
 pages           > flushing realpage 54, userpage 48
 structure       : begin of sectionblock appendix
 structure       : chapter @ level 2 : 0.1 -> \headtext {index}
@@ -979,8 +997,6 @@ todo            : erase note backup
 todo            : save note data
 columns         : balanced in 1 step(s)
 todo            : restore note data
-backends        > resolving reference attribute 86
-backends        > resolving reference attribute 87
 backends        > resolving reference attribute 88
 backends        > resolving reference attribute 89
 backends        > resolving reference attribute 90
@@ -998,13 +1014,15 @@ backends        > resolving reference attribute 101
 backends        > resolving reference attribute 102
 backends        > resolving reference attribute 103
 backends        > resolving reference attribute 104
-backends        > resolving destination attribute 266
+backends        > resolving reference attribute 105
+backends        > resolving reference attribute 106
+backends        > resolving destination attribute 275
 pages           > flushing realpage 55, userpage 49
 pages           > flushing realpage 56, userpage 50
 structure       : chapter @ level 2 : 0.2 -> \headtext {pubs}
 structure       : end of sectionblock appendix
-backends        > resolving destination attribute 267
-backends        > resolving destination attribute 268
+backends        > resolving destination attribute 276
+backends        > resolving destination attribute 277
 pages           > flushing realpage 57, userpage 51
 pages           > flushing realpage 58, userpage 52
 pages           > flushing realpage 59, userpage 53
@@ -1013,27 +1031,28 @@ systems         : end file project_analysis.tex at line 65
  )</opt/context-minimals/tex/texmf/fonts/opentype/public/lm/lmmono12-regular.otf></opt/context-minimals/tex/texmf/fonts/opentype/public/lm/lmroman9-bold.otf></opt/context-minimals/tex/texmf/fonts/opentype/public/lm/lmroman7-regular.otf>{/opt/context-minimals/tex/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/opt/context-minimals/tex/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}</opt/context-minimals/tex/texmf/fonts/opentype/public/lm/lmroman9-regular.otf></opt/context-minimals/tex/texmf/fonts/opentype/public/lm/lmromanslant10-bold.otf>{/opt/context-minimals/tex/texmf/fonts/enc/dvips/lm/lm-mathex.enc}</opt/context-minimals/tex/texmf/fonts/opentype/public/lm/lmsans10-regular.otf></opt/context-minimals/tex/texmf/fonts/opentype/public/lm/lmsans10-bold.otf></opt/context-minimals/tex/texmf/fonts/opentype/public/lm/lmromanslant12-regular.otf></opt/context-minimals/tex/texmf/fonts/opentype/public/lm/lmroman9-regular.otf></opt/context-minimals/tex/texmf/fonts/opentype/public/lm/lmroman12-regular.otf></opt/context-minimals/tex/texmf/fonts/opentype/public/lm/lmroman8-regular.otf></opt/context-minimals/tex/texmf/fonts/opentype/public/lm/lmroman12-bold.otf></opt/context-minimals/tex/texmf/fonts/opentype/public/lm/lmroman12-regular.otf></opt/context-minimals/tex/texmf/fonts/opentype/public/lm/lmsans12-regular.otf></opt/context-minimals/tex/texmf/fonts/type1/public/lm/lmex10.pfb></opt/context-minimals/tex/texmf/fonts/type1/public/lm/lmmi12.pfb></opt/context-minimals/tex/texmf/fonts/type1/public/lm/lmmi7.pfb></opt/context-minimals/tex/texmf/fonts/type1/public/lm/lmmi9.pfb></opt/context-minimals/tex/texmf/fonts/type1/public/lm/lmsy10.pfb></opt/context-minimals/tex/texmf/fonts/type1/public/lm/lmsy7.pfb></opt/context-minimals/tex/texmf/fonts/type1/public/lm/lmsy9.pfb></opt/context-minimals/tex/texmf/fonts/type1/bluesky/ams/msam10.pfb></opt/context-minimals/tex/texmf/fonts/type1/bluesky/ams/msbm10.pfb>
 mkiv lua stats : used config file          - /opt/context-minimals/tex/texmf/web2c/texmfcnf.lua
 mkiv lua stats : used cache path           - /home/golodhrim/.context-minimals/texmf-cache/luatex-cache/context/c63c0436d02b6f578869dabb6fcfef99
-mkiv lua stats : input load time           - 0.024 seconds
+mkiv lua stats : input load time           - 0.027 seconds
 mkiv lua stats : stored bytecode data      - 223 modules, 53 tables, 276 chunks
 mkiv lua stats : loaded tex modules        - 11 requested, 9 found (*-filter *-gnuplot *-grk-00 *-newmat *-obsolete *-pgfplots *-tikz *-units *-vim), 2 missing (*-amsl *-bibltx)
-mkiv lua stats : node list callback tasks  - 6 unique task lists, 7 instances (re)created, 26965 calls
+mkiv lua stats : node list callback tasks  - 6 unique task lists, 7 instances (re)created, 27295 calls
 mkiv lua stats : cleaned up reserved nodes - 63 nodes, 10 lists of 431
 mkiv lua stats : node memory usage         - 21 glue_spec
-mkiv lua stats : h-node processing time    - 0.197 seconds including kernel
-mkiv lua stats : attribute processing time - 0.256 seconds front- and backend
+mkiv lua stats : h-node processing time    - 0.230 seconds including kernel
+mkiv lua stats : attribute processing time - 0.315 seconds front- and backend
 mkiv lua stats : used backend              - pdf (backend for directly generating pdf output)
 mkiv lua stats : loaded patterns           - en:us:pat:exc:2
-mkiv lua stats : callbacks                 - direct: 37734, indirect: 68162, total: 105896
+mkiv lua stats : jobdata time              - 0.052 seconds saving, 0.023 seconds loading
+mkiv lua stats : callbacks                 - direct: 38132, indirect: 68240, total: 106372
 mkiv lua stats : lxml preparation time     - 0.000 seconds, 0 nodes, 15 lpath calls, 0 cached calls
-mkiv lua stats : interactive elements      - 85 references, 268 destinations
-mkiv lua stats : v-node processing time    - 0.207 seconds 
+mkiv lua stats : interactive elements      - 87 references, 277 destinations
+mkiv lua stats : v-node processing time    - 0.244 seconds 
 mkiv lua stats : result saved in file      - project_analysis.pdf
-mkiv lua stats : loaded fonts              - 39 files: stmary10.afm wasy10.afm lmmono12-regular.otf lmmono8-regular.otf lmmono9-regular.otf lmroman12-bold.otf lmroman12-regular.otf lmroman7-bold.otf lmroman7-regular.otf lmroman8-regular.otf lmroman9-bold.otf lmroman9-regular.otf lmromanslant10-bold.otf lmromanslant12-regular.otf lmsans10-bold.otf lmsans10-regular.otf lmsans12-regular.otf lmsans8-regular.otf lmsans9-regular.otf eufb10.tfm eufb7.tfm eufm10.tfm eufm7.tfm msam10.tfm msam7.tfm msbm10.tfm msbm7.tfm lmex10.tfm lmmi12.tfm lmmi7.tfm lmmi9.tfm lmmib10.tfm lmmib7.tfm lmsy10.tfm lmsy7.tfm lmsy9.tfm rm-lmr12.tfm rm-lmr7.tfm rm-lmr9.tfm
-mkiv lua stats : fonts load time           - 0.562 seconds 
-mkiv lua stats : metapost processing time  - 0.013 seconds, loading: 0.042 seconds, execution: 0.012 seconds, n: 4
-mkiv lua stats : math processing time      - 0.207 seconds 
+mkiv lua stats : loaded fonts              - 40 files: stmary10.afm wasy10.afm lmmono10-regular.otf lmmono12-regular.otf lmmono8-regular.otf lmmono9-regular.otf lmroman12-bold.otf lmroman12-regular.otf lmroman7-bold.otf lmroman7-regular.otf lmroman8-regular.otf lmroman9-bold.otf lmroman9-regular.otf lmromanslant10-bold.otf lmromanslant12-regular.otf lmsans10-bold.otf lmsans10-regular.otf lmsans12-regular.otf lmsans8-regular.otf lmsans9-regular.otf eufb10.tfm eufb7.tfm eufm10.tfm eufm7.tfm msam10.tfm msam7.tfm msbm10.tfm msbm7.tfm lmex10.tfm lmmi12.tfm lmmi7.tfm lmmi9.tfm lmmib10.tfm lmmib7.tfm lmsy10.tfm lmsy7.tfm lmsy9.tfm rm-lmr12.tfm rm-lmr7.tfm rm-lmr9.tfm
+mkiv lua stats : fonts load time           - 0.787 seconds 
+mkiv lua stats : metapost processing time  - 0.013 seconds, loading: 0.057 seconds, execution: 0.012 seconds, n: 4
+mkiv lua stats : math processing time      - 0.264 seconds 
 mkiv lua stats : luatex banner             - this is luatex, version beta-0.60.2-2010070309
-mkiv lua stats : control sequences         - 59331 of 165536
-mkiv lua stats : current memory usage      - 61 MB (ctx: 63 MB)
-mkiv lua stats : runtime                   - 10.301 seconds, 59 processed pages, 60 shipped pages, 5.825 pages/second
+mkiv lua stats : control sequences         - 59243 of 165536
+mkiv lua stats : current memory usage      - 64 MB (ctx: 65 MB)
+mkiv lua stats : runtime                   - 13.618 seconds, 59 processed pages, 60 shipped pages, 4.406 pages/second
 

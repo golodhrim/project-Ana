@@ -1,11 +1,11 @@
-\nl{}\syn[]{n,z = var(}\syn[Normal]{'}\syn[Constant]{n}\syn[Normal]{'}\syn[]{,}\syn[Normal]{'}\syn[Constant]{z}\syn[Normal]{'}\syn[]{);}
-\nl{}\syn[]{p = 0.02;}
-\nl{}\syn[]{(1+p/2)**(2)}
-\nl{}\syn[]{(1+p/3)**(3)}
-\nl{}\syn[]{(1+p/12)**(12)}
-\nl{}\syn[]{a(n) = (1+p/n)**(n)}
-\nl{}\syn[]{b(n) = (1+z/n)**(n)}
-\nl{}\syn[]{limit(a(n),n=infinity)}
-\nl{}\syn[]{limit(b(n),n=infinity)}
-\nl{}\syn[Statement]{for}\syn[]{ n }\syn[Statement]{in}\syn[]{ range(1,20,1):}
-\nl{}\syn[]{    (1+p/n)**(n)}
+\NL{}\SYN[]{n,z = var(}\SYN[Normal]{'}\SYN[Constant]{n}\SYN[Normal]{'}\SYN[]{,}\SYN[Normal]{'}\SYN[Constant]{z}\SYN[Normal]{'}\SYN[]{);}
+\NL{}\SYN[]{p = 0.02;}
+\NL{}\SYN[]{(1+p/2)**(2)}
+\NL{}\SYN[]{(1+p/3)**(3)}
+\NL{}\SYN[]{(1+p/12)**(12)}
+\NL{}\SYN[]{a(n) = (1+p/n)**(n)}
+\NL{}\SYN[]{b(n) = (1+z/n)**(n)}
+\NL{}\SYN[]{limit(a(n),n=infinity)}
+\NL{}\SYN[]{limit(b(n),n=infinity)}
+\NL{}\SYN[Statement]{for}\SYN[]{ n }\SYN[Statement]{in}\SYN[]{ range(1,20,1):}
+\NL{}\SYN[]{    (1+p/n)**(n)}

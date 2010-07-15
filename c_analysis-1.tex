@@ -1017,6 +1017,62 @@ Die Folge $(s_{n})_{n\in\N}$ der Partialsummen heißt unendliche Reihe mit den G
 		$\abs{\frac{a_{n+1}}{a_{n}}}=\frac{n}{n+1}<1\,\forall n\in\N$\\
 		demnach ist die divergent, da kein q gefunden werden kann!
 \subsection[ssec:root-krit]{Das Wurzel-Kriterium}
+	\startsatz
+		Falls ein $q$ mit $0\leq q<1$ existiert mit
+		\startformula
+			\sqrt[n]{\abs{a_{n}}}\leq q
+		\stopformula
+		dann ist $\sum a_{n}$ absolut konvergent.
+	\stopsatz
+	\startproof
+		$\sqrt[n]{\abs{a_{n}}}\leq q\,\Rightarrow\,\abs{a_{n}}\leq q^{n}$. Die Behauptung folgt dann mit dem Majoranten-Kriterium.
+	\stopproof
+\subsection[ssec:usage-notes]{Hinweise zur Anwendung der Kriterien}
+	Es gilt offenbar für jedes $n_{0}\in\N$:
+	\startformula
+		\sum\limits_{n\geq0}a_{n}\,\text{konvergent}\,\Leftrightarrow\sum\limits_{n\geq n_{0}}a_{n}\,\text{konvergent}
+	\stopformula
+	Es genügt daher die Bedingungen
+	\startitemize
+		\sym{} $\abs{a_{n}}\leq\abs{b_{n}}$ (Majoranten-Kriterium)
+		\sym{} $\abs{\frac{a_{n+1}}{a_{n}}}\leq q$ (Quotienten-Kriterium)
+		\sym{} $\sqrt[n]{\abs{a_{n}}}\leq q$ (Wurzel-Kriterium
+	\stopitemize
+	für $n\geq n_{0}$ zu zeigen.
+	\startbsp
+		\startitemize[m]
+			\item Für $\abs{x}<1$ ist $\sum\limits_{n\geq1}\frac{x^{n}}{n}$ absolut konvergent
+				\startproof
+					Sei $a_{n}:=\frac{x^{n}}{n}$, für $n\geq 1$ ist
+					\startformula
+						\abs{\frac{a_{n+1}}{a_{n}}}=\abs{\frac{x^{n+1}}{(n+1)}\cdot\frac{n}{x^{n}}}=\frac{\abs{x}\cdot n}{n+1}=\frac{n}{n+1}\cdot\abs{x}<\abs{x}
+					\stopformula
+					mit $q:=\abs{x}$ ist das Quotienten-Kriterium also andwendbar. Wichtig ist nur das $q$ unabhängig vom Folgenindex ist.
+				\stopproof
+			\item Für alle $x\in\R$ ist $\sum\limits_{n\geq 0}\frac{x^{n}}{n!}$ absolut konvergent.
+				\startproof
+					Sei $a_{n}:=\frac{x^{n}}{n!}$, für $n\geq 0$ ist
+					\placeformula[eq:quot-krit-001]
+					\startformula
+						\abs{\frac{a_{n+1}}{a_{n}}}=\abs{\frac{x^{n+1}n!}{(n+1)!x^{n}}}=\frac{\abs{x}}{n+1}=\frac{1}{n+1}\cdot\abs{x}
+					\stopformula
+					$\exists N\in\N:\frac{\abs{x}}{N+1}<1$ nach dem Archimedischem Axiom und für $n\geq N$ gilt dann
+					\startformula
+						\text{\in[Gleichung]{eq:quot-krit-001}}\leq\frac{\abs{x}}{N+1}=:q<1
+					\stopformula
+					Mit $q:=\frac{\abs{x}}{N+1}$ ist das Quotienten-Kriterium anwendbar auf die Reihe $\sum\limits_{n\geq N}\frac{x^{n}}{n!}$.
+				\stopproof
+		\stopitemize
+	\stopbsp
+\subsection[ssec:calc-conv-row]{Rechnen mit konvergenten Reihen}
+	\startsatz
+		\startitemize[a]
+			\item \startformula
+				qqq
+			\stopformula
+		\stopitemize
+	\stopsatz
+
 
 		\startSAGE
 n,z = var('n','z');
